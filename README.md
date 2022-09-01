@@ -1,2 +1,2 @@
 # myCV
-Hoang Phan Business Analyst CV
+I am Hoang Phan - a Senior Product Owner/ Product Manager from Vietnam
