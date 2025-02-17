@@ -1,2 +1,3 @@
 # myCV
-I am a Senior Product Owner / Product Manager from Vietnam
+I am a Product Owner / Product Manager from Vietnam
+https://cv.hoangphan.blog/
