@@ -1,0 +1,4136 @@
+[
+  {
+    "ID": "TC001",
+    "Category": "Access and Navigation",
+    "Sub_Category": "Access to Revoke Feature",
+    "Checklist": "Người dùng có thể truy cập tính năng Revoke từ menu Sei Tools",
+    "Title": "Access Revoke feature from Sei Tools menu",
+    "Description": "Verify that users can access the Revoke feature from the Sei Tools dropdown menu",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Seitrace platform homepage",
+        "Expected_result": "Seitrace homepage is loaded successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Click on the 'Sei Tools' button in the top navigation menu",
+        "Expected_result": "Sei Tools dropdown menu appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Look for and click on the 'Revoke' option in the dropdown menu",
+        "Expected_result": "User is redirected to the Revoke feature page",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC002",
+    "Category": "Access and Navigation",
+    "Sub_Category": "Initial State Display",
+    "Checklist": "Đối với người dùng chưa kết nối, thông báo \"Connect wallet to check your approvals\" được hiển thị chính xác",
+    "Title": "Verify initial state message for non-connected users",
+    "Description": "Confirm that the correct message is displayed for users who haven't connected their wallet",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page without connecting a wallet",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Check the message displayed in the main content area",
+        "Expected_result": "The message \"Connect wallet to check your approvals\" is displayed correctly",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Verify the wallet icon is displayed alongside the message",
+        "Expected_result": "A wallet icon is visible alongside the connect message",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC003",
+    "Category": "Access and Navigation",
+    "Sub_Category": "Initial State Display",
+    "Checklist": "Nút \"Connect wallet\" hiển thị đúng cho người dùng chưa kết nối",
+    "Title": "Verify Connect wallet button for non-connected users",
+    "Description": "Ensure that the Connect wallet button is properly displayed for users who haven't connected their wallet",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page without connecting a wallet",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Look for the \"Connect wallet\" button in the main content area",
+        "Expected_result": "The \"Connect wallet\" button is visible and properly styled",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Hover over the \"Connect wallet\" button",
+        "Expected_result": "The button shows a hover effect indicating it's clickable",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC004",
+    "Category": "Access and Navigation",
+    "Sub_Category": "Initial State Display",
+    "Checklist": "Hiển thị đáp ứng trên các kích thước màn hình khác nhau",
+    "Title": "Verify responsive display across different screen sizes",
+    "Description": "Ensure the Revoke feature page displays correctly on various screen sizes",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Open the Revoke feature page on a desktop browser",
+        "Expected_result": "Page displays correctly with all elements visible and properly formatted",
+        "Test_data": "Desktop browser, screen width >1024px"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Resize the browser window to tablet dimensions or open on a tablet device",
+        "Expected_result": "Page layout adjusts properly for tablet view with all elements visible and usable",
+        "Test_data": "Screen width 768px-1023px"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Resize the browser window to mobile dimensions or open on a mobile device",
+        "Expected_result": "Page layout adjusts for mobile view with all elements accessible and functional",
+        "Test_data": "Screen width <767px"
+      }
+    ]
+  },
+  {
+    "ID": "TC005",
+    "Category": "Access and Navigation",
+    "Sub_Category": "Initial State Display",
+    "Checklist": "Văn bản thông tin về phê duyệt token hiển thị rõ ràng",
+    "Title": "Verify token approval information text display",
+    "Description": "Ensure the explanatory text about token approvals is clearly visible",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Check for the explanatory text about token approvals",
+        "Expected_result": "Text explaining token approvals is visible and readable",
+        "Test_data": "Expected text: \"When using dapps like DragonSwap or Pallet you have to grant them permission to spend your tokens and NFTs. This is called a token approval. If you don't revoke these approvals, the dapp can spend your tokens forever. Take back control by revoking your approvals.\""
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Verify text is displayed properly on different screen sizes",
+        "Expected_result": "Text remains readable and properly formatted across different device sizes",
+        "Test_data": "Various screen sizes (desktop, tablet, mobile)"
+      }
+    ]
+  },
+  {
+    "ID": "TC006",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Connection Methods",
+    "Checklist": "Người dùng có thể kết nối qua ví Metamask",
+    "Title": "Verify Metamask wallet connection",
+    "Description": "Ensure users can connect their Metamask wallet to the Revoke feature",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads with 'Connect wallet' button visible",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Click on the 'Connect wallet' button",
+        "Expected_result": "Wallet connection modal appears with Metamask as an option",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Select Metamask option",
+        "Expected_result": "Metamask extension popup appears requesting connection",
+        "Test_data": "User must have Metamask extension installed"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Approve the connection in Metamask",
+        "Expected_result": "Connection is successful and the page updates to show the connected wallet's approvals",
+        "Test_data": "Valid Metamask wallet with 0x... address"
+      }
+    ]
+  },
+  {
+    "ID": "TC007",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Connection Methods",
+    "Checklist": "Người dùng có thể kết nối qua ví Compass",
+    "Title": "Verify Compass wallet connection",
+    "Description": "Ensure users can connect their Compass wallet to the Revoke feature",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads with 'Connect wallet' button visible",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Click on the 'Connect wallet' button",
+        "Expected_result": "Wallet connection modal appears with Compass as an option",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Select Compass wallet option",
+        "Expected_result": "Compass wallet extension popup appears requesting connection",
+        "Test_data": "User must have Compass wallet extension installed"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Approve the connection in Compass wallet",
+        "Expected_result": "Connection is successful and the page updates to show the connected wallet's approvals",
+        "Test_data": "Valid Compass wallet with 0x... address"
+      }
+    ]
+  },
+  {
+    "ID": "TC008",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Connection Methods",
+    "Checklist": "Chỉ hỗ trợ ví EVM (0x...), không hỗ trợ địa chỉ sei...",
+    "Title": "Verify only EVM wallets are supported",
+    "Description": "Ensure that only EVM wallets (0x...) are supported and not sei... addresses",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Attempt to connect a wallet with an EVM address (0x...)",
+        "Expected_result": "Connection is successful and approvals are displayed",
+        "Test_data": "Valid EVM wallet address (0x...)"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Disconnect the wallet, then attempt to connect a wallet with a sei... address",
+        "Expected_result": "Connection fails or appropriate message shown indicating only EVM addresses are supported for this feature",
+        "Test_data": "Wallet with sei... address"
+      }
+    ]
+  },
+  {
+    "ID": "TC009",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Connection Methods",
+    "Checklist": "Chỉ báo đang tải hiển thị trong quá trình kết nối",
+    "Title": "Verify loading indicator during wallet connection",
+    "Description": "Ensure that a loading indicator is displayed while connecting a wallet",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Click on the 'Connect wallet' button",
+        "Expected_result": "Wallet connection modal appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Select a wallet provider to connect",
+        "Expected_result": "A loading indicator appears while the connection is being established",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Complete the wallet connection",
+        "Expected_result": "Loading indicator disappears after connection is established",
+        "Test_data": "Valid EVM wallet"
+      }
+    ]
+  },
+  {
+    "ID": "TC010",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Wallet Display",
+    "Checklist": "Địa chỉ ví EVM đã kết nối được hiển thị chính xác trong phần \"Your EVM wallet\"",
+    "Title": "Verify connected EVM wallet address display",
+    "Description": "Ensure that the connected EVM wallet address is correctly displayed in the \"Your EVM wallet\" section",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect an EVM wallet",
+        "Expected_result": "Wallet connects successfully",
+        "Test_data": "Valid EVM wallet address (0x...)"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the \"Your EVM wallet\" section",
+        "Expected_result": "The connected wallet address is displayed correctly in the \"Your EVM wallet\" section",
+        "Test_data": "Connected wallet address should match the address in the wallet"
+      }
+    ]
+  },
+  {
+    "ID": "TC011",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Wallet Display",
+    "Checklist": "Hiển thị địa chỉ được cắt ngắn/định dạng phù hợp",
+    "Title": "Verify wallet address truncation and formatting",
+    "Description": "Ensure that wallet addresses are properly truncated and formatted for display",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect an EVM wallet",
+        "Expected_result": "Wallet connects successfully",
+        "Test_data": "EVM wallet address: 0xd4e1078e...199d3d641"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the displayed wallet address format",
+        "Expected_result": "Address is truncated and displayed in a readable format (e.g., first few characters + ... + last few characters)",
+        "Test_data": "Expected format similar to: 0xd4e1078e...199d3d641"
+      }
+    ]
+  },
+  {
+    "ID": "TC012",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Wallet Display",
+    "Checklist": "Nút sao chép địa chỉ hoạt động đúng",
+    "Title": "Verify copy address button functionality",
+    "Description": "Ensure that the copy button next to the wallet address works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet",
+        "Expected_result": "Wallet connects and address is displayed",
+        "Test_data": "Valid EVM wallet"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Locate and click the copy button next to the wallet address",
+        "Expected_result": "Visual feedback indicates the address has been copied (e.g., a tooltip or color change)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Paste the copied content into a text field",
+        "Expected_result": "The pasted content matches the full wallet address exactly",
+        "Test_data": "Complete wallet address should be copied, not just the truncated display version"
+      }
+    ]
+  },
+  {
+    "ID": "TC013",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Wallet Display",
+    "Checklist": "Chỉ báo ví đã kết nối hiển thị trong UI",
+    "Title": "Verify connected wallet indicator in UI",
+    "Description": "Ensure that there is a clear visual indicator that a wallet is connected in the UI",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page without connecting a wallet",
+        "Expected_result": "UI shows no indication of a connected wallet",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect an EVM wallet",
+        "Expected_result": "Wallet connects successfully",
+        "Test_data": "Valid EVM wallet"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check for visual indicators that a wallet is connected",
+        "Expected_result": "UI clearly indicates a connected wallet (e.g., wallet icon changes state, connected address visible in header/navigation area)",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC014",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Global Wallet Integration",
+    "Checklist": "Trạng thái kết nối ví toàn cục được đồng bộ hóa với trạng thái kết nối tính năng Revoke",
+    "Title": "Verify global wallet synchronization with Revoke feature",
+    "Description": "Ensure that the global wallet connection state is synchronized with the Revoke feature connection state",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Seitrace platform without connecting any wallet",
+        "Expected_result": "Neither global wallet nor Revoke feature shows a connected wallet",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet via the global wallet connection option",
+        "Expected_result": "Global wallet shows connected status",
+        "Test_data": "Valid EVM wallet (0x...)"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Navigate to the Revoke feature",
+        "Expected_result": "Revoke feature automatically recognizes the connected wallet without requiring reconnection",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC015",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Global Wallet Integration",
+    "Checklist": "Khi kết nối qua tính năng Revoke, trạng thái ví toàn cục cập nhật chính xác",
+    "Title": "Verify global wallet updates when connecting via Revoke",
+    "Description": "Ensure that when connecting a wallet via the Revoke feature, the global wallet status updates correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Seitrace platform without connecting any wallet",
+        "Expected_result": "Neither global wallet nor Revoke feature shows a connected wallet",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Navigate to the Revoke feature",
+        "Expected_result": "Revoke feature page loads with no connected wallet",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Connect a wallet via the Revoke feature",
+        "Expected_result": "Wallet connects successfully to the Revoke feature",
+        "Test_data": "Valid EVM wallet (0x...)"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the global wallet connection status in the platform header/navigation",
+        "Expected_result": "Global wallet status shows the same connected wallet",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC016",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Global Wallet Integration",
+    "Checklist": "Khi kết nối qua ví toàn cục (với địa chỉ 0x...), tính năng Revoke hiển thị trạng thái đã kết nối",
+    "Title": "Verify Revoke recognizes global wallet connection with 0x... address",
+    "Description": "Ensure that when connecting via global wallet with an 0x... address, the Revoke feature shows the connected state",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Seitrace platform without connecting any wallet",
+        "Expected_result": "Platform loads with no wallet connected",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with 0x... address via the global wallet option",
+        "Expected_result": "Global wallet shows connected status with the 0x... address",
+        "Test_data": "EVM wallet with 0x... address"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Navigate to the Revoke feature",
+        "Expected_result": "Revoke feature page loads and automatically shows the connected wallet status without requiring reconnection",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the wallet address displayed in the Revoke feature",
+        "Expected_result": "The wallet address matches the one connected via global wallet",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC017",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Global Wallet Integration",
+    "Checklist": "Địa chỉ sei... được kết nối với ví toàn cục không ảnh hưởng đến trạng thái kết nối Revoke",
+    "Title": "Verify sei... addresses in global wallet don't affect Revoke connection",
+    "Description": "Ensure that sei... addresses connected to the global wallet do not affect the Revoke feature connection state",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Seitrace platform",
+        "Expected_result": "Platform loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with sei... address via the global wallet option",
+        "Expected_result": "Global wallet shows connected status with sei... address",
+        "Test_data": "Wallet with sei... address"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Navigate to the Revoke feature",
+        "Expected_result": "Revoke feature still shows as not connected and displays the 'Connect wallet' prompt",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Try to use the Revoke feature without connecting an EVM wallet",
+        "Expected_result": "Feature remains in unconnected state, requiring an EVM wallet connection",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC018",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Global Wallet Integration",
+    "Checklist": "Ngắt kết nối từ ví 0x toàn cục sẽ ngắt kết nối đúng từ tính năng Revoke",
+    "Title": "Verify disconnecting 0x global wallet disconnects from Revoke",
+    "Description": "Ensure that disconnecting a 0x... wallet from the global wallet also disconnects from the Revoke feature",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Connect an EVM wallet (0x...) via the global wallet option",
+        "Expected_result": "Global wallet shows connected status",
+        "Test_data": "EVM wallet with 0x... address"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Navigate to the Revoke feature",
+        "Expected_result": "Revoke feature shows the connected wallet and loads approvals",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Disconnect the wallet from the global wallet option in the header/navigation",
+        "Expected_result": "Global wallet shows disconnected status",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the connection status in the Revoke feature",
+        "Expected_result": "Revoke feature also shows disconnected status and prompts to connect a wallet",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC019",
+    "Category": "Wallet Connection",
+    "Sub_Category": "Global Wallet Integration",
+    "Checklist": "Kết nối từ các trang khác (ví dụ: Contract details) với địa chỉ 0x... được nhận diện trong tính năng Revoke",
+    "Title": "Verify wallet connection from other pages is recognized in Revoke",
+    "Description": "Ensure that connecting a 0x... wallet from other pages (e.g., Contract details) is recognized in the Revoke feature",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to another feature in Seitrace (e.g., Contract details page)",
+        "Expected_result": "Contract details page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect an EVM wallet with 0x... address on that page",
+        "Expected_result": "Wallet connects successfully on the Contract details page",
+        "Test_data": "EVM wallet with 0x... address"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Navigate to the Revoke feature",
+        "Expected_result": "Revoke feature recognizes the connected wallet without requiring reconnection",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check that the wallet address in Revoke matches the one connected on the other page",
+        "Expected_result": "The same wallet address is displayed in the Revoke feature",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC020",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approvals List",
+    "Checklist": "Tất cả các phê duyệt token tải và hiển thị chính xác sau khi kết nối ví",
+    "Title": "Verify correct loading and display of all token approvals",
+    "Description": "Ensure that all token approvals load and display correctly after connecting a wallet",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect an EVM wallet that has existing token approvals",
+        "Expected_result": "Wallet connects successfully",
+        "Test_data": "EVM wallet with existing token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the approvals list",
+        "Expected_result": "All token approvals for the connected wallet are listed correctly",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify that different types of tokens (ERC-20, ERC-721, ERC-1155) are displayed appropriately",
+        "Expected_result": "Each token type is displayed with its appropriate information and formatting",
+        "Test_data": "Wallet with various token types approved"
+      }
+    ]
+  },
+  {
+    "ID": "TC021",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approvals List",
+    "Checklist": "Số lượng tổng phê duyệt được hiển thị chính xác",
+    "Title": "Verify correct display of total approvals count",
+    "Description": "Ensure that the total count of approvals is displayed correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect an EVM wallet with a known number of token approvals",
+        "Expected_result": "Wallet connects successfully and approvals load",
+        "Test_data": "EVM wallet with multiple token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Count the number of approval entries displayed in the list",
+        "Expected_result": "The number of displayed approval entries matches the total approvals count shown",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Revoke one approval and check if the count updates",
+        "Expected_result": "Total approvals count decreases by one after successful revocation",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC022",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approvals List",
+    "Checklist": "Mỗi hàng phê duyệt có: Asset, Type, Approved amount, Value at Risk, Approved spender, Last updated, Action",
+    "Title": "Verify approval row contains all required information",
+    "Description": "Ensure each approval row displays all required information: Asset, Type, Approved amount, Value at Risk, Approved spender, Last updated, and Action",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet with approvals",
+        "Expected_result": "Approvals list loads successfully",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Examine each approval entry in the list",
+        "Expected_result": "Each row contains Asset information (name and icon)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check for Type column",
+        "Expected_result": "Each row shows the token type (ERC-20, ERC-721, etc.)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check for Approved amount column",
+        "Expected_result": "Each row shows the approved amount (either a specific number or 'Unlimited')",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check for Value at Risk column",
+        "Expected_result": "Each row shows the calculated value at risk",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Check for Approved spender column",
+        "Expected_result": "Each row shows the approved spender (contract name and address)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 7,
+        "Test_steps": "Check for Last updated column",
+        "Expected_result": "Each row shows the timestamp of the last update",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 8,
+        "Test_steps": "Check for Action column",
+        "Expected_result": "Each row has a Revoke button or other appropriate action buttons",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC023",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approvals List",
+    "Checklist": "Trạng thái đang tải được hiển thị trong khi truy xuất phê duyệt",
+    "Title": "Verify loading state when retrieving approvals",
+    "Description": "Ensure that a loading state is displayed while retrieving approvals data",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with multiple approvals",
+        "Expected_result": "Connection process begins",
+        "Test_data": "EVM wallet with multiple approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Observe the UI immediately after wallet connection is established",
+        "Expected_result": "A loading indicator or skeleton UI is displayed while approvals data is being retrieved",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Wait for the approvals to fully load",
+        "Expected_result": "Loading indicator disappears and is replaced with the actual approvals data",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC024",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approvals List",
+    "Checklist": "Trạng thái trống được hiển thị chính xác khi không có phê duyệt",
+    "Title": "Verify empty state when no approvals exist",
+    "Description": "Ensure that an appropriate empty state is displayed when the connected wallet has no approvals",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet that has no token approvals",
+        "Expected_result": "Wallet connects successfully",
+        "Test_data": "EVM wallet with no token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Observe the approvals display area",
+        "Expected_result": "An appropriate empty state message is displayed indicating no approvals exist",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify that the total approvals count shows 0",
+        "Expected_result": "Total approvals counter shows 0",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC025",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approvals List",
+    "Checklist": "Trạng thái lỗi được xử lý êm thấm nếu không thể truy xuất phê duyệt",
+    "Title": "Verify error handling when approvals can't be retrieved",
+    "Description": "Ensure that errors are handled gracefully if approvals cannot be retrieved",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Create a scenario where approvals retrieval will fail (e.g., network issue, API error)",
+        "Expected_result": "Test environment is set up for error scenario",
+        "Test_data": "Network disruption or simulated API error"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Connect a wallet while the error condition is active",
+        "Expected_result": "Wallet connects but approvals retrieval fails",
+        "Test_data": "Valid EVM wallet"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Observe how the UI handles the error",
+        "Expected_result": "An appropriate error message is displayed without crashing the application",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Verify if a retry option is available",
+        "Expected_result": "UI provides a way to retry loading approvals",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC026",
+    "Category": "Approvals Display",
+    "Sub_Category": "Asset Information Display",
+    "Checklist": "Logo/biểu tượng tài sản hiển thị chính xác",
+    "Title": "Verify correct display of asset logos/icons",
+    "Description": "Ensure that asset logos and icons are displayed correctly for each approval",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with various token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for different tokens"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check each approval entry for the asset logo/icon",
+        "Expected_result": "Each approval shows the correct logo/icon for the associated token",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify tokens with known logos (e.g., SMASH)",
+        "Expected_result": "Well-known tokens display their official logos",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check how the system handles tokens without logos",
+        "Expected_result": "Tokens without logos show an appropriate placeholder icon",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC027",
+    "Category": "Approvals Display",
+    "Sub_Category": "Asset Information Display",
+    "Checklist": "Tên tài sản hiển thị chính xác",
+    "Title": "Verify correct display of asset names",
+    "Description": "Ensure that asset names are displayed correctly for each approval",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with various token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for different tokens"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check each approval entry for the asset name",
+        "Expected_result": "Each approval shows the correct name for the associated token",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify tokens with long names",
+        "Expected_result": "Long token names are either fully displayed or appropriately truncated with ellipsis",
+        "Test_data": "Tokens with long names"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check how tokens with special characters in names are displayed",
+        "Expected_result": "Special characters in token names are displayed correctly",
+        "Test_data": "Tokens with special characters in names"
+      }
+    ]
+  },
+  {
+    "ID": "TC028",
+    "Category": "Approvals Display",
+    "Sub_Category": "Asset Information Display",
+    "Checklist": "Số lượng token xuất hiện dưới tên tài sản cho token ERC-20",
+    "Title": "Verify token quantities appear under ERC-20 asset names",
+    "Description": "Ensure that token quantities are displayed under asset names for ERC-20 tokens",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with ERC-20 token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-20 token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check each ERC-20 token approval",
+        "Expected_result": "The quantity of tokens appears under the asset name (e.g., '100 SMASH')",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify tokens with zero balance",
+        "Expected_result": "Tokens with zero balance show '0 [TOKEN_SYMBOL]'",
+        "Test_data": "Tokens with zero balance"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Verify tokens with large quantities",
+        "Expected_result": "Large quantities are displayed with appropriate formatting (e.g., thousands separators)",
+        "Test_data": "Tokens with large quantities"
+      }
+    ]
+  },
+  {
+    "ID": "TC029",
+    "Category": "Approvals Display",
+    "Sub_Category": "Asset Information Display",
+    "Checklist": "Không hiển thị số lượng token dưới tên tài sản cho token ERC-721 và ERC-1155",
+    "Title": "Verify no token quantities appear under ERC-721 and ERC-1155 asset names",
+    "Description": "Ensure that token quantities do not appear under asset names for ERC-721 and ERC-1155 tokens",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with ERC-721 and ERC-1155 token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-721 and ERC-1155 token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check each ERC-721 token approval",
+        "Expected_result": "No token quantity appears under the asset name for ERC-721 tokens",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check each ERC-1155 token approval",
+        "Expected_result": "No token quantity appears under the asset name for ERC-1155 tokens",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Compare with ERC-20 tokens to confirm the difference",
+        "Expected_result": "ERC-20 tokens show quantities while ERC-721 and ERC-1155 do not",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC030",
+    "Category": "Approvals Display",
+    "Sub_Category": "Asset Information Display",
+    "Checklist": "Loại tài sản được hiển thị chính xác (ERC-20, ERC-721, ERC-1155)",
+    "Title": "Verify correct display of asset types",
+    "Description": "Ensure that asset types (ERC-20, ERC-721, ERC-1155) are displayed correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with various token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for ERC-20, ERC-721, and ERC-1155 tokens"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Type column for ERC-20 token approvals",
+        "Expected_result": "ERC-20 is displayed in the Type column for ERC-20 tokens",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the Type column for ERC-721 token approvals",
+        "Expected_result": "ERC-721 is displayed in the Type column for ERC-721 tokens",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the Type column for ERC-1155 token approvals",
+        "Expected_result": "ERC-1155 is displayed in the Type column for ERC-1155 tokens",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC031",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approval Details",
+    "Checklist": "\"Unlimited\" được hiển thị chính xác cho phê duyệt không giới hạn",
+    "Title": "Verify \"Unlimited\" display for unlimited approvals",
+    "Description": "Ensure that \"Unlimited\" is correctly displayed for unlimited approval amounts",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with unlimited token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with unlimited token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Approved amount column for unlimited approvals",
+        "Expected_result": "\"Unlimited\" is displayed for approvals with no spending limit",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify unlimited approvals for different token types (ERC-20, ERC-721)",
+        "Expected_result": "\"Unlimited\" is displayed correctly for unlimited approvals of all token types",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC032",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approval Details",
+    "Checklist": "Số lượng cụ thể được hiển thị chính xác cho phê duyệt có giới hạn",
+    "Title": "Verify specific amount display for limited approvals",
+    "Description": "Ensure that specific amounts are correctly displayed for limited approval amounts",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with limited token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with limited token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Approved amount column for limited approvals",
+        "Expected_result": "Specific numeric values are displayed for approvals with spending limits",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify different limited approval amounts",
+        "Expected_result": "Different amounts (e.g., 1, 100) are displayed correctly",
+        "Test_data": "Approvals with different limited amounts"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check approvals with large numbers",
+        "Expected_result": "Large approval amounts are formatted correctly (e.g., with thousands separators)",
+        "Test_data": "Approvals with large amounts"
+      }
+    ]
+  },
+  {
+    "ID": "TC033",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approval Details",
+    "Checklist": "Token ID được hiển thị cho phê duyệt token đơn ERC-721",
+    "Title": "Verify token ID display for single ERC-721 token approvals",
+    "Description": "Ensure that token IDs are displayed for single token ERC-721 approvals",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with single token ERC-721 approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with single token ERC-721 approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Approved amount column for single token ERC-721 approvals",
+        "Expected_result": "The token ID is displayed instead of a quantity",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify that the token ID format is correct",
+        "Expected_result": "Token IDs are displayed in the correct format (e.g., numeric or hexadecimal as appropriate)",
+        "Test_data": "ERC-721 tokens with different ID formats"
+      }
+    ]
+  },
+  {
+    "ID": "TC034",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approval Details",
+    "Checklist": "Phê duyệt \"all\" của ERC-721 hiển thị chính xác là \"Unlimited\"",
+    "Title": "Verify ERC-721 \"all\" approvals display as \"Unlimited\"",
+    "Description": "Ensure that \"all\" approvals for ERC-721 tokens correctly display as \"Unlimited\"",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with ERC-721 \"all\" approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-721 \"all\" approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Approved amount column for ERC-721 \"all\" approvals",
+        "Expected_result": "\"Unlimited\" is displayed for ERC-721 tokens with \"all\" approvals",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Compare with ERC-721 single token approvals",
+        "Expected_result": "Single token approvals show token IDs while \"all\" approvals show \"Unlimited\"",
+        "Test_data": "Wallet with both types of ERC-721 approvals"
+      }
+    ]
+  },
+  {
+    "ID": "TC035",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approval Details",
+    "Checklist": "Phê duyệt ERC-1155 hiển thị chính xác với chỉ hỗ trợ \"all\"",
+    "Title": "Verify ERC-1155 approvals display with only \"all\" support",
+    "Description": "Ensure that ERC-1155 approvals are correctly displayed with only \"all\" support",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with ERC-1155 approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-1155 approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Approved amount column for ERC-1155 approvals",
+        "Expected_result": "All ERC-1155 approvals show as \"Unlimited\" since only \"all\" is supported",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify that individual token approvals for ERC-1155 are not supported",
+        "Expected_result": "There are no options or interfaces to approve individual ERC-1155 tokens",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC036",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approval Details",
+    "Checklist": "Khi người dùng thực hiện lệnh trên platform của Approved spender làm thay đổi approved amount, giá trị hiển thị được cập nhật chính xác sau khi tải lại",
+    "Title": "Verify approved amount update after external platform changes",
+    "Description": "Ensure that when a user performs an action on the Approved spender's platform that changes the approved amount, the displayed value updates correctly after reload",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Note the current approved amount for a specific token (e.g., SMASH approved to DragonSwap)",
+        "Expected_result": "Current approved amount is observed and recorded",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Navigate to the Approved spender's platform (e.g., DragonSwap) and perform an action that changes the approval amount",
+        "Expected_result": "Action is completed on the external platform",
+        "Test_data": "Actions that change approval: partial spending of approval, increasing approval, etc."
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Return to the Revoke feature page and refresh/reload the page",
+        "Expected_result": "Page reloads and approvals are fetched again",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the approved amount for the same token",
+        "Expected_result": "The displayed approved amount has updated to reflect the changes made on the external platform",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC037",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approval Details",
+    "Checklist": "Khi approved amount thay đổi, last updated và value at risk cũng được cập nhật tương ứng",
+    "Title": "Verify last updated and value at risk update when approved amount changes",
+    "Description": "Ensure that when approved amount changes, last updated timestamp and value at risk also update accordingly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Note the current approved amount, last updated timestamp, and value at risk for a specific token",
+        "Expected_result": "Current values are observed and recorded",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Change the approved amount (either via edit functionality or external platform)",
+        "Expected_result": "Approved amount changes",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Reload the Revoke feature page",
+        "Expected_result": "Page reloads and approvals are fetched again",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the last updated timestamp for the modified approval",
+        "Expected_result": "Last updated timestamp has changed to reflect the recent modification",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Check the value at risk for the modified approval",
+        "Expected_result": "Value at risk has been recalculated based on the new approved amount",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC038",
+    "Category": "Approvals Display",
+    "Sub_Category": "Value at Risk",
+    "Checklist": "Tính toán tổng giá trị rủi ro chính xác và hiển thị",
+    "Title": "Verify accurate calculation and display of total value at risk",
+    "Description": "Ensure that the total value at risk is calculated correctly and displayed",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with multiple token approvals of different types and values",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with diverse token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the individual value at risk for each approval",
+        "Expected_result": "Each approval shows its calculated value at risk",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Manually calculate the total by adding up all individual values at risk",
+        "Expected_result": "Manual calculation yields a total amount",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Compare the manually calculated total with the displayed total value at risk",
+        "Expected_result": "The displayed total value at risk matches the manual calculation",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC039",
+    "Category": "Approvals Display",
+    "Sub_Category": "Value at Risk",
+    "Checklist": "Với phê duyệt không giới hạn ERC-20: giá trị = số dư * giá",
+    "Title": "Verify value at risk calculation for unlimited ERC-20 approvals",
+    "Description": "Ensure that for unlimited ERC-20 approvals, value at risk equals balance × price",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with unlimited ERC-20 token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with unlimited ERC-20 approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Note the token balance for a specific unlimited ERC-20 approval",
+        "Expected_result": "Token balance is identified",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Note the current token price",
+        "Expected_result": "Current token price is identified",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Manually calculate value at risk (balance × price)",
+        "Expected_result": "Manual calculation yields a value at risk amount",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Compare the manually calculated value with the displayed value at risk",
+        "Expected_result": "The displayed value at risk matches the manual calculation (balance × price)",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC040",
+    "Category": "Approvals Display",
+    "Sub_Category": "Value at Risk",
+    "Checklist": "Với phê duyệt có giới hạn ERC-20 khi số dư > số lượng được phê duyệt: giá trị = số lượng được phê duyệt * giá",
+    "Title": "Verify value at risk for limited ERC-20 approvals when balance > approved amount",
+    "Description": "Ensure that for limited ERC-20 approvals where balance exceeds approved amount, value at risk equals approved amount × price",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with limited ERC-20 approvals where balance > approved amount",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with limited ERC-20 approvals, balance > approved amount"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Note the approved amount for a specific limited ERC-20 approval",
+        "Expected_result": "Approved amount is identified",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Note the current token price",
+        "Expected_result": "Current token price is identified",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Manually calculate value at risk (approved amount × price)",
+        "Expected_result": "Manual calculation yields a value at risk amount",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Compare the manually calculated value with the displayed value at risk",
+        "Expected_result": "The displayed value at risk matches the manual calculation (approved amount × price)",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC041",
+    "Category": "Approvals Display",
+    "Sub_Category": "Value at Risk",
+    "Checklist": "Với phê duyệt có giới hạn ERC-20 khi số dư <= số lượng được phê duyệt: giá trị = số dư * giá",
+    "Title": "Verify value at risk for limited ERC-20 approvals when balance <= approved amount",
+    "Description": "Ensure that for limited ERC-20 approvals where balance is less than or equal to approved amount, value at risk equals balance × price",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with limited ERC-20 approvals where balance <= approved amount",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with limited ERC-20 approvals, balance <= approved amount"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Note the token balance for a specific limited ERC-20 approval",
+        "Expected_result": "Token balance is identified",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Note the current token price",
+        "Expected_result": "Current token price is identified",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Manually calculate value at risk (balance × price)",
+        "Expected_result": "Manual calculation yields a value at risk amount",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Compare the manually calculated value with the displayed value at risk",
+        "Expected_result": "The displayed value at risk matches the manual calculation (balance × price)",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC042",
+    "Category": "Approvals Display",
+    "Sub_Category": "Value at Risk",
+    "Checklist": "Với phê duyệt không giới hạn ERC-721: hiển thị \"unknown\" (hiện tại không được hỗ trợ)",
+    "Title": "Verify \"unknown\" display for unlimited ERC-721 approvals",
+    "Description": "Ensure that for unlimited ERC-721 approvals, value at risk displays as \"unknown\"",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with unlimited ERC-721 approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with unlimited ERC-721 approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Value at Risk column for unlimited ERC-721 approvals",
+        "Expected_result": "\"unknown\" is displayed in the Value at Risk column",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Confirm this behavior is consistent across different ERC-721 collections",
+        "Expected_result": "All unlimited ERC-721 approvals show \"unknown\" for value at risk",
+        "Test_data": "Multiple ERC-721 collections with unlimited approvals"
+      }
+    ]
+  },
+  {
+    "ID": "TC043",
+    "Category": "Approvals Display",
+    "Sub_Category": "Value at Risk",
+    "Checklist": "Với phê duyệt token đơn ERC-721: hiển thị giá sàn của bộ sưu tập",
+    "Title": "Verify floor price display for single token ERC-721 approvals",
+    "Description": "Ensure that for single token ERC-721 approvals, value at risk shows the floor price of the collection",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with single token ERC-721 approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with single token ERC-721 approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Value at Risk column for single token ERC-721 approvals",
+        "Expected_result": "The floor price of the collection is displayed",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify the floor price by checking a reliable NFT marketplace",
+        "Expected_result": "The displayed floor price matches the current floor price of the collection from reliable sources",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC044",
+    "Category": "Approvals Display",
+    "Sub_Category": "Value at Risk",
+    "Checklist": "Với phê duyệt không giới hạn ERC-1155: hiển thị \"unknown\" (hiện tại không được hỗ trợ)",
+    "Title": "Verify \"unknown\" display for unlimited ERC-1155 approvals",
+    "Description": "Ensure that for unlimited ERC-1155 approvals, value at risk displays as \"unknown\"",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with ERC-1155 approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-1155 approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Value at Risk column for ERC-1155 approvals",
+        "Expected_result": "\"unknown\" is displayed in the Value at Risk column",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Confirm this behavior is consistent across different ERC-1155 collections",
+        "Expected_result": "All ERC-1155 approvals show \"unknown\" for value at risk",
+        "Test_data": "Multiple ERC-1155 collections with approvals"
+      }
+    ]
+  },
+  {
+    "ID": "TC045",
+    "Category": "Approvals Display",
+    "Sub_Category": "Value at Risk",
+    "Checklist": "\"-\" được hiển thị khi token không có giá trị",
+    "Title": "Verify \"-\" display for tokens without value",
+    "Description": "Ensure that \"-\" is displayed for value at risk when tokens have no value",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with approvals for tokens that have no market value",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for tokens without market value"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Value at Risk column for these approvals",
+        "Expected_result": "\"-\" is displayed in the Value at Risk column",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify this behavior for different token types (ERC-20, ERC-721, ERC-1155) without value",
+        "Expected_result": "All token types without value display \"-\" for value at risk",
+        "Test_data": "Various token types without market value"
+      }
+    ]
+  },
+  {
+    "ID": "TC046",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approved Spender",
+    "Checklist": "Địa chỉ người dùng được phê duyệt hiển thị chính xác (ví dụ: DragonSwap 0x10ED43...5d024E)",
+    "Title": "Verify correct display of approved spender addresses",
+    "Description": "Ensure that approved spender addresses are displayed correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Approved spender column",
+        "Expected_result": "Each approval shows the correct spender name (if known) followed by the truncated address",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify the format matches the expected pattern (e.g., DragonSwap 0x10ED43...5d024E)",
+        "Expected_result": "The format is consistent with the expected pattern",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check unknown spenders without identified names",
+        "Expected_result": "Unknown spenders show only the address without a name prefix",
+        "Test_data": "Approvals to unknown/unverified contracts"
+      }
+    ]
+  },
+  {
+    "ID": "TC047",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approved Spender",
+    "Checklist": "Địa chỉ người dùng được phê duyệt được cắt ngắn phù hợp để hiển thị",
+    "Title": "Verify appropriate truncation of approved spender addresses",
+    "Description": "Ensure that approved spender addresses are properly truncated for display",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the address format in the Approved spender column",
+        "Expected_result": "Addresses are consistently truncated (e.g., first few characters + ... + last few characters)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify that the truncation shows enough characters to identify the address",
+        "Expected_result": "The truncated format shows sufficient characters from the beginning and end of the address",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check different screen sizes to ensure consistent display",
+        "Expected_result": "Address truncation remains appropriate on different screen sizes",
+        "Test_data": "Various screen sizes"
+      }
+    ]
+  },
+  {
+    "ID": "TC048",
+    "Category": "Approvals Display",
+    "Sub_Category": "Approved Spender",
+    "Checklist": "Biểu tượng/nút sao chép địa chỉ người dùng được phê duyệt hoạt động chính xác",
+    "Title": "Verify approved spender address copy functionality",
+    "Description": "Ensure that the copy icon/button for approved spender addresses works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Locate the copy icon/button next to an approved spender address",
+        "Expected_result": "Copy icon/button is visible next to the address",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the copy icon/button",
+        "Expected_result": "Visual feedback indicates the address has been copied (e.g., a tooltip or color change)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Paste the copied content into a text field",
+        "Expected_result": "The pasted content matches the full (non-truncated) address of the approved spender",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Verify functionality for multiple different approved spenders",
+        "Expected_result": "Copy functionality works correctly for all approved spender addresses",
+        "Test_data": "Multiple approved spenders"
+      }
+    ]
+  },
+  {
+    "ID": "TC049",
+    "Category": "Approvals Display",
+    "Sub_Category": "Last Updated Information",
+    "Checklist": "Dấu thời gian cập nhật lần cuối hiển thị đúng định dạng (ví dụ: Nov 21 2024 15:55:22 (+07:00 UTC))",
+    "Title": "Verify correct format of last updated timestamp",
+    "Description": "Ensure that the last updated timestamp is displayed in the correct format",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the Last updated column",
+        "Expected_result": "Timestamps are displayed in the format: MMM DD YYYY HH:MM:SS (timezone)",
+        "Test_data": "Expected format example: Nov 21 2024 15:55:22 (+07:00 UTC)"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify that the format is consistent across all approval entries",
+        "Expected_result": "All timestamps follow the same format",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check that the timezone information is correctly displayed",
+        "Expected_result": "Timezone information is included and accurate",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC050",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Asset Type Filtering",
+    "Checklist": "Nút lọc ERC-20 hoạt động chính xác",
+    "Title": "Verify ERC-20 filter button functionality",
+    "Description": "Ensure that the ERC-20 filter button works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with various token approvals (including ERC-20 and other types)",
+        "Expected_result": "Wallet connects and approvals of different types load",
+        "Test_data": "EVM wallet with mixed token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the ERC-20 filter button",
+        "Expected_result": "ERC-20 filter is activated (button appears selected)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the filtered approvals list",
+        "Expected_result": "Only ERC-20 token approvals are displayed, other token types are hidden",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Click on the ERC-20 filter button again",
+        "Expected_result": "ERC-20 filter is deactivated (button appears unselected) and all approvals are shown again",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC051",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Asset Type Filtering",
+    "Checklist": "Nút lọc ERC-721 hoạt động chính xác",
+    "Title": "Verify ERC-721 filter button functionality",
+    "Description": "Ensure that the ERC-721 filter button works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with various token approvals (including ERC-721 and other types)",
+        "Expected_result": "Wallet connects and approvals of different types load",
+        "Test_data": "EVM wallet with mixed token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the ERC-721 filter button",
+        "Expected_result": "ERC-721 filter is activated (button appears selected)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the filtered approvals list",
+        "Expected_result": "Only ERC-721 token approvals are displayed, other token types are hidden",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Click on the ERC-721 filter button again",
+        "Expected_result": "ERC-721 filter is deactivated (button appears unselected) and all approvals are shown again",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC052",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Asset Type Filtering",
+    "Checklist": "Chỉ báo số lượng bộ lọc hiển thị chính xác",
+    "Title": "Verify filter count indicator display",
+    "Description": "Ensure that the filter count indicator is displayed correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with various token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with mixed token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Apply one filter (e.g., ERC-20)",
+        "Expected_result": "Filter is applied and the count indicator shows '1'",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Apply a second filter (e.g., ERC-721)",
+        "Expected_result": "Second filter is applied and the count indicator updates to '2'",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Remove one filter",
+        "Expected_result": "Filter is removed and the count indicator updates to '1'",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Remove all filters",
+        "Expected_result": "All filters are removed and the count indicator disappears",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC053",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Asset Type Filtering",
+    "Checklist": "Có thể áp dụng nhiều bộ lọc cùng lúc",
+    "Title": "Verify multiple filters can be applied simultaneously",
+    "Description": "Ensure that multiple filters can be applied at the same time",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with various token approvals",
+        "Expected_result": "Wallet connects and approvals of different types load",
+        "Test_data": "EVM wallet with mixed token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Apply the ERC-20 filter",
+        "Expected_result": "Only ERC-20 approvals are displayed",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "While keeping ERC-20 filter active, apply a second filter (e.g., 'Unlimited')",
+        "Expected_result": "Both filters are active and only approvals matching both criteria (ERC-20 AND Unlimited) are displayed",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Apply a third filter (e.g., 'With balance')",
+        "Expected_result": "All three filters are active and only approvals matching all criteria (ERC-20 AND Unlimited AND With balance) are displayed",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC054",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Asset Type Filtering",
+    "Checklist": "Bộ lọc duy trì khi thực hiện các hành động khác",
+    "Title": "Verify filters persist when performing other actions",
+    "Description": "Ensure that filters are maintained when performing other actions on the page",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with mixed token approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Apply filters (e.g., ERC-20 and Unlimited)",
+        "Expected_result": "Filters are applied and the list shows only matching approvals",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Perform a sort action (e.g., sort by Value at risk)",
+        "Expected_result": "Sort is applied but filters remain active",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Revoke one of the displayed approvals",
+        "Expected_result": "Approval is revoked but filters remain active, showing the updated filtered list",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Refresh the page",
+        "Expected_result": "After refresh, previously applied filters are reset (not persistent across page reloads)",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC055",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Approval Type Filtering",
+    "Checklist": "Nút lọc \"Unlimited\" hoạt động chính xác",
+    "Title": "Verify \"Unlimited\" filter button functionality",
+    "Description": "Ensure that the \"Unlimited\" filter button works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with both unlimited and limited token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with mixed approval types"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the \"Unlimited\" filter button",
+        "Expected_result": "\"Unlimited\" filter is activated (button appears selected)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the filtered approvals list",
+        "Expected_result": "Only unlimited approvals are displayed, limited approvals are hidden",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Click on the \"Unlimited\" filter button again",
+        "Expected_result": "\"Unlimited\" filter is deactivated (button appears unselected) and all approvals are shown again",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC056",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Approval Type Filtering",
+    "Checklist": "Nút lọc \"Limited\" hoạt động chính xác",
+    "Title": "Verify \"Limited\" filter button functionality",
+    "Description": "Ensure that the \"Limited\" filter button works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with both unlimited and limited token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with mixed approval types"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the \"Limited\" filter button",
+        "Expected_result": "\"Limited\" filter is activated (button appears selected)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the filtered approvals list",
+        "Expected_result": "Only limited approvals are displayed, unlimited approvals are hidden",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Click on the \"Limited\" filter button again",
+        "Expected_result": "\"Limited\" filter is deactivated (button appears unselected) and all approvals are shown again",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC057",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Approval Type Filtering",
+    "Checklist": "Nút lọc \"With balance\" hoạt động chính xác",
+    "Title": "Verify \"With balance\" filter button functionality",
+    "Description": "Ensure that the \"With balance\" filter button works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals for both tokens with and without balance",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for tokens with and without balance"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the \"With balance\" filter button",
+        "Expected_result": "\"With balance\" filter is activated (button appears selected)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the filtered approvals list",
+        "Expected_result": "Only approvals for tokens with balance > 0 are displayed",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Click on the \"With balance\" filter button again",
+        "Expected_result": "\"With balance\" filter is deactivated (button appears unselected) and all approvals are shown again",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC058",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Approval Type Filtering",
+    "Checklist": "Nút lọc \"Without balance\" hoạt động chính xác",
+    "Title": "Verify \"Without balance\" filter button functionality",
+    "Description": "Ensure that the \"Without balance\" filter button works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals for both tokens with and without balance",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for tokens with and without balance"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the \"Without balance\" filter button",
+        "Expected_result": "\"Without balance\" filter is activated (button appears selected)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the filtered approvals list",
+        "Expected_result": "Only approvals for tokens with balance = 0 are displayed",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Click on the \"Without balance\" filter button again",
+        "Expected_result": "\"Without balance\" filter is deactivated (button appears unselected) and all approvals are shown again",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC059",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Approval Type Filtering",
+    "Checklist": "Bộ lọc có thể kết hợp với bộ lọc loại tài sản",
+    "Title": "Verify filters can be combined with asset type filters",
+    "Description": "Ensure that approval type filters can be combined with asset type filters",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with various token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with diverse token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Apply an asset type filter (e.g., ERC-20)",
+        "Expected_result": "Only ERC-20 approvals are displayed",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Apply an approval type filter (e.g., Unlimited)",
+        "Expected_result": "Only approvals matching both criteria (ERC-20 AND Unlimited) are displayed",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Apply another approval type filter (e.g., With balance)",
+        "Expected_result": "Only approvals matching all criteria (ERC-20 AND Unlimited AND With balance) are displayed",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Remove the asset type filter but keep the approval type filters",
+        "Expected_result": "Approvals of all asset types that match the approval type filters (Unlimited AND With balance) are displayed",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC060",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Search Functionality",
+    "Checklist": "Tìm kiếm theo địa chỉ người dùng được phê duyệt hoạt động chính xác",
+    "Title": "Verify search by approved spender address functionality",
+    "Description": "Ensure that searching by approved spender address works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with multiple token approvals to different spenders",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals to different spenders"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Note the address of a specific approved spender",
+        "Expected_result": "Spender address is identified",
+        "Test_data": "E.g., 0x10ED43...5d024E"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Enter the full address in the search field",
+        "Expected_result": "Only approvals for that specific spender are displayed",
+        "Test_data": "Complete spender address"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Clear the search field",
+        "Expected_result": "All approvals are displayed again",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC061",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Search Functionality",
+    "Checklist": "Tìm kiếm chấp nhận các kết quả khớp một phần địa chỉ",
+    "Title": "Verify partial address matching in search",
+    "Description": "Ensure that search accepts partial address matches",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with multiple token approvals to different spenders",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals to different spenders"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Note the address of a specific approved spender",
+        "Expected_result": "Spender address is identified",
+        "Test_data": "E.g., 0x10ED43...5d024E"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Enter only the first few characters of the address in the search field",
+        "Expected_result": "Approvals for spenders whose addresses start with those characters are displayed",
+        "Test_data": "E.g., '0x10'"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Enter only the middle part of the address in the search field",
+        "Expected_result": "Approvals for spenders whose addresses contain those characters are displayed",
+        "Test_data": "E.g., 'ED43'"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Enter only the last few characters of the address in the search field",
+        "Expected_result": "Approvals for spenders whose addresses end with those characters are displayed",
+        "Test_data": "E.g., '024E'"
+      }
+    ]
+  },
+  {
+    "ID": "TC062",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Search Functionality",
+    "Checklist": "Kết quả tìm kiếm cập nhật theo thời gian thực khi người dùng nhập",
+    "Title": "Verify real-time search results update",
+    "Description": "Ensure that search results update in real-time as the user types",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with multiple token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with multiple approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the search field and start typing a character",
+        "Expected_result": "Search results update immediately after typing the first character",
+        "Test_data": "First character of a known spender address"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Continue typing additional characters one by one",
+        "Expected_result": "Search results update with each keystroke, progressively narrowing down the results",
+        "Test_data": "Additional characters of the spender address"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Delete characters one by one",
+        "Expected_result": "Search results expand with each deleted character, progressively showing more results",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC063",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Search Functionality",
+    "Checklist": "Trạng thái \"Không có kết quả\" được hiển thị phù hợp khi tìm kiếm không có kết quả khớp",
+    "Title": "Verify \"No results\" state for searches with no matches",
+    "Description": "Ensure that an appropriate \"No results\" state is displayed when search has no matches",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Enter a search term that doesn't match any approved spender addresses",
+        "Expected_result": "An appropriate \"No results\" message is displayed",
+        "Test_data": "Search term with no matches, e.g., 'xyz123'"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify that the message clearly indicates no matches were found",
+        "Expected_result": "Message is clear and user-friendly",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Clear the search field",
+        "Expected_result": "All approvals are displayed again",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC064",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Search Functionality",
+    "Checklist": "Có thể xóa tìm kiếm dễ dàng",
+    "Title": "Verify easy search clearing",
+    "Description": "Ensure that the search can be easily cleared",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Enter a search term in the search field",
+        "Expected_result": "Search results are filtered based on the term",
+        "Test_data": "Valid search term"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Look for a clear button (X) in the search field",
+        "Expected_result": "Clear button is visible when search field contains text",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Click the clear button",
+        "Expected_result": "Search field is cleared and all approvals are displayed again",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Enter another search term and press the Escape key",
+        "Expected_result": "Search field is cleared and all approvals are displayed again",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC065",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Sorting Options",
+    "Checklist": "Sắp xếp mặc định là theo giá trị rủi ro (cao đến thấp)",
+    "Title": "Verify default sorting by value at risk (highest to lowest)",
+    "Description": "Ensure that the default sorting is by value at risk from highest to lowest",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with multiple token approvals with different values at risk",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals of varying values"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Observe the initial sorting of the approvals list without applying any manual sorting",
+        "Expected_result": "Approvals are sorted by value at risk from highest to lowest by default",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify the first approval has the highest value at risk",
+        "Expected_result": "First approval in the list has the highest value at risk",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the sorting dropdown to confirm the current sort selection",
+        "Expected_result": "The sorting dropdown indicates 'Value at risk: High to Low' is selected",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC066",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Sorting Options",
+    "Checklist": "Sắp xếp \"Asset name: A to Z\" hoạt động chính xác",
+    "Title": "Verify \"Asset name: A to Z\" sorting functionality",
+    "Description": "Ensure that the \"Asset name: A to Z\" sorting option works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with multiple token approvals for different assets",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for different tokens"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the sorting dropdown",
+        "Expected_result": "Sorting options dropdown appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Select \"Asset name: A to Z\"",
+        "Expected_result": "Sorting option is applied",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the order of approvals in the list",
+        "Expected_result": "Approvals are sorted alphabetically by asset name from A to Z",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify assets with the same name are sorted by value at risk (highest first)",
+        "Expected_result": "When two assets have the same name, the one with higher value at risk appears first",
+        "Test_data": "Assets with identical names but different values at risk"
+      }
+    ]
+  },
+  {
+    "ID": "TC067",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Sorting Options",
+    "Checklist": "Sắp xếp \"Asset name: Z to A\" hoạt động chính xác",
+    "Title": "Verify \"Asset name: Z to A\" sorting functionality",
+    "Description": "Ensure that the \"Asset name: Z to A\" sorting option works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with multiple token approvals for different assets",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for different tokens"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the sorting dropdown",
+        "Expected_result": "Sorting options dropdown appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Select \"Asset name: Z to A\"",
+        "Expected_result": "Sorting option is applied",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the order of approvals in the list",
+        "Expected_result": "Approvals are sorted alphabetically by asset name from Z to A",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify assets with the same name are sorted by value at risk (highest first)",
+        "Expected_result": "When two assets have the same name, the one with higher value at risk appears first",
+        "Test_data": "Assets with identical names but different values at risk"
+      }
+    ]
+  },
+  {
+    "ID": "TC068",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Sorting Options",
+    "Checklist": "Sắp xếp \"Approved amount: Low to High\" hoạt động chính xác",
+    "Title": "Verify \"Approved amount: Low to High\" sorting functionality",
+    "Description": "Ensure that the \"Approved amount: Low to High\" sorting option works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals of different amounts",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals of varying amounts"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the sorting dropdown",
+        "Expected_result": "Sorting options dropdown appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Select \"Approved amount: Low to High\"",
+        "Expected_result": "Sorting option is applied",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the order of approvals in the list",
+        "Expected_result": "Approvals are sorted by approved amount from lowest to highest",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify how unlimited approvals are positioned",
+        "Expected_result": "Unlimited approvals are placed at the end of the list (considered highest amount)",
+        "Test_data": "Mix of limited and unlimited approvals"
+      },
+      {
+        "Step_No": 7,
+        "Test_steps": "Verify approvals with the same amount are sorted by value at risk (highest first)",
+        "Expected_result": "When two approvals have the same amount, the one with higher value at risk appears first",
+        "Test_data": "Approvals with identical amounts but different values at risk"
+      }
+    ]
+  },
+  {
+    "ID": "TC069",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Sorting Options",
+    "Checklist": "Sắp xếp \"Approved amount: High to Low\" hoạt động chính xác",
+    "Title": "Verify \"Approved amount: High to Low\" sorting functionality",
+    "Description": "Ensure that the \"Approved amount: High to Low\" sorting option works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals of different amounts",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals of varying amounts"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the sorting dropdown",
+        "Expected_result": "Sorting options dropdown appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Select \"Approved amount: High to Low\"",
+        "Expected_result": "Sorting option is applied",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the order of approvals in the list",
+        "Expected_result": "Approvals are sorted by approved amount from highest to lowest",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify how unlimited approvals are positioned",
+        "Expected_result": "Unlimited approvals are placed at the beginning of the list (considered highest amount)",
+        "Test_data": "Mix of limited and unlimited approvals"
+      },
+      {
+        "Step_No": 7,
+        "Test_steps": "Verify approvals with the same amount are sorted by value at risk (highest first)",
+        "Expected_result": "When two approvals have the same amount, the one with higher value at risk appears first",
+        "Test_data": "Approvals with identical amounts but different values at risk"
+      }
+    ]
+  },
+  {
+    "ID": "TC070",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Sorting Options",
+    "Checklist": "Sắp xếp \"Value at risk: Low to High\" hoạt động chính xác",
+    "Title": "Verify \"Value at risk: Low to High\" sorting functionality",
+    "Description": "Ensure that the \"Value at risk: Low to High\" sorting option works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals of different values at risk",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals of varying values at risk"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the sorting dropdown",
+        "Expected_result": "Sorting options dropdown appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Select \"Value at risk: Low to High\"",
+        "Expected_result": "Sorting option is applied",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the order of approvals in the list",
+        "Expected_result": "Approvals are sorted by value at risk from lowest to highest",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify how approvals with unknown value or \"-\" are positioned",
+        "Expected_result": "Approvals with \"-\" are placed first (lowest), followed by known values, with \"unknown\" values at the end",
+        "Test_data": "Mix of approvals with \"-\", numeric values, and \"unknown\" values at risk"
+      }
+    ]
+  },
+  {
+    "ID": "TC071",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Sorting Options",
+    "Checklist": "Sắp xếp \"Value at risk: High to Low\" hoạt động chính xác",
+    "Title": "Verify \"Value at risk: High to Low\" sorting functionality",
+    "Description": "Ensure that the \"Value at risk: High to Low\" sorting option works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals of different values at risk",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals of varying values at risk"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the sorting dropdown",
+        "Expected_result": "Sorting options dropdown appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Select \"Value at risk: High to Low\"",
+        "Expected_result": "Sorting option is applied",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the order of approvals in the list",
+        "Expected_result": "Approvals are sorted by value at risk from highest to lowest",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify how approvals with unknown value or \"-\" are positioned",
+        "Expected_result": "Approvals with \"unknown\" values may be placed first, followed by known numeric values, with \"-\" values at the end",
+        "Test_data": "Mix of approvals with \"-\", numeric values, and \"unknown\" values at risk"
+      }
+    ]
+  },
+  {
+    "ID": "TC072",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Sorting Options",
+    "Checklist": "Sắp xếp \"Last updated: Oldest to Newest\" hoạt động chính xác",
+    "Title": "Verify \"Last updated: Oldest to Newest\" sorting functionality",
+    "Description": "Ensure that the \"Last updated: Oldest to Newest\" sorting option works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals updated at different times",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals of varying update timestamps"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the sorting dropdown",
+        "Expected_result": "Sorting options dropdown appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Select \"Last updated: Oldest to Newest\"",
+        "Expected_result": "Sorting option is applied",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the order of approvals in the list",
+        "Expected_result": "Approvals are sorted by last updated timestamp from oldest to newest",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify approvals with the same timestamp are sorted by value at risk (highest first)",
+        "Expected_result": "When two approvals have the same timestamp, the one with higher value at risk appears first",
+        "Test_data": "Approvals with identical timestamps but different values at risk"
+      }
+    ]
+  },
+  {
+    "ID": "TC073",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Sorting Options",
+    "Checklist": "Sắp xếp \"Last updated: Newest to Oldest\" hoạt động chính xác",
+    "Title": "Verify \"Last updated: Newest to Oldest\" sorting functionality",
+    "Description": "Ensure that the \"Last updated: Newest to Oldest\" sorting option works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals updated at different times",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals of varying update timestamps"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click on the sorting dropdown",
+        "Expected_result": "Sorting options dropdown appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Select \"Last updated: Newest to Oldest\"",
+        "Expected_result": "Sorting option is applied",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the order of approvals in the list",
+        "Expected_result": "Approvals are sorted by last updated timestamp from newest to oldest",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify approvals with the same timestamp are sorted by value at risk (highest first)",
+        "Expected_result": "When two approvals have the same timestamp, the one with higher value at risk appears first",
+        "Test_data": "Approvals with identical timestamps but different values at risk"
+      }
+    ]
+  },
+  {
+    "ID": "TC074",
+    "Category": "Filtering and Sorting",
+    "Sub_Category": "Sorting Options",
+    "Checklist": "Khi các mục có cùng giá trị sắp xếp, sắp xếp thứ cấp theo giá trị rủi ro được áp dụng chính xác",
+    "Title": "Verify secondary sorting by value at risk for items with same sort value",
+    "Description": "Ensure that when items have the same sort value, they are sorted secondarily by value at risk",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals that have some identical primary sort values",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals that have identical values for primary sort criteria but different values at risk"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Apply a sort that will result in some items having the same value (e.g., sort by asset name when multiple approvals are for the same asset)",
+        "Expected_result": "Sort is applied and items with the same primary sort value are grouped together",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the order of approvals that have the same primary sort value",
+        "Expected_result": "Within each group of same primary sort value, approvals are sorted by value at risk from highest to lowest",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Verify this secondary sorting behavior across different primary sort options",
+        "Expected_result": "Secondary sorting by value at risk is consistent across all primary sort options",
+        "Test_data": "Try with asset name, approved amount, and last updated sorts"
+      }
+    ]
+  },
+  {
+    "ID": "TC075",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Revoke Functionality",
+    "Checklist": "Nút \"Revoke\" xuất hiện cho mỗi phê duyệt",
+    "Title": "Verify \"Revoke\" button appears for each approval",
+    "Description": "Ensure that a \"Revoke\" button appears for each approval in the list",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with multiple token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with multiple token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check each approval entry in the list",
+        "Expected_result": "Each approval has a \"Revoke\" button in the Action column",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Verify that the button is clearly visible and accessible",
+        "Expected_result": "Button is properly styled and accessible",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check different token types (ERC-20, ERC-721, ERC-1155)",
+        "Expected_result": "\"Revoke\" button appears for all token types",
+        "Test_data": "Approvals for different token types"
+      }
+    ]
+  },
+  {
+    "ID": "TC076",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Revoke Functionality",
+    "Checklist": "Trạng thái \"Revoking\" được hiển thị trong quá trình thu hồi",
+    "Title": "Verify \"Revoking\" state during revocation process",
+    "Description": "Ensure that a \"Revoking\" state is displayed during the revocation process",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click the \"Revoke\" button for a specific approval",
+        "Expected_result": "Confirmation dialog or wallet transaction request appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Confirm the revocation",
+        "Expected_result": "The button state changes to \"Revoking\" with a loading indicator while the transaction is being processed",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Wait for the transaction to complete",
+        "Expected_result": "Once the transaction is confirmed, the \"Revoking\" state disappears and the approval is removed from the list",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC077",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Revoke Functionality",
+    "Checklist": "Thu hồi thành công sẽ xóa phê duyệt khỏi danh sách",
+    "Title": "Verify successful revocation removes approval from list",
+    "Description": "Ensure that a successful revocation removes the approval from the list",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Note the current total number of approvals",
+        "Expected_result": "Total number of approvals is recorded",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Revoke a specific approval by clicking its \"Revoke\" button and confirming the transaction",
+        "Expected_result": "Revocation process completes successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check if the revoked approval is still in the list",
+        "Expected_result": "The revoked approval is no longer displayed in the approvals list",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify if the total approvals count has decreased",
+        "Expected_result": "Total approvals count has decreased by one",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC078",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Revoke Functionality",
+    "Checklist": "Xử lý lỗi trong quá trình thu hồi diễn ra êm thấm",
+    "Title": "Verify graceful error handling during revocation",
+    "Description": "Ensure that errors during the revocation process are handled gracefully",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click the \"Revoke\" button for a specific approval",
+        "Expected_result": "Confirmation dialog or wallet transaction request appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Cancel the transaction in the wallet",
+        "Expected_result": "System handles the cancellation gracefully, returning to the normal approval view state (not stuck in \"Revoking\" state)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Attempt a revocation with insufficient gas fees or simulate a transaction failure",
+        "Expected_result": "System displays an appropriate error message explaining the failure",
+        "Test_data": "Conditions for transaction failure"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify the UI returns to a usable state after error",
+        "Expected_result": "UI recovers from error state and allows further interactions",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC079",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Revoke Functionality",
+    "Checklist": "Luồng xác nhận giao dịch hoạt động chính xác",
+    "Title": "Verify transaction confirmation flow works correctly",
+    "Description": "Ensure that the transaction confirmation flow works correctly during revocation",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click the \"Revoke\" button for a specific approval",
+        "Expected_result": "A confirmation dialog may appear explaining the transaction",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Confirm in the app dialog if presented",
+        "Expected_result": "App sends the transaction request to the wallet",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check that the wallet shows the correct transaction details",
+        "Expected_result": "Wallet displays accurate transaction information (contract address, function, gas estimate)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Confirm the transaction in the wallet",
+        "Expected_result": "Wallet processes the transaction and the UI shows the transaction as pending or processing",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 7,
+        "Test_steps": "Wait for transaction confirmation on the blockchain",
+        "Expected_result": "System updates to show the revocation as complete",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC080",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Revoke Functionality",
+    "Checklist": "Tổng số phê duyệt giảm sau khi thu hồi thành công",
+    "Title": "Verify total approvals count decreases after successful revocation",
+    "Description": "Ensure that the total approvals count decreases after a successful revocation",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Note the current total approvals count",
+        "Expected_result": "Total approvals count is recorded",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Revoke a specific approval",
+        "Expected_result": "Revocation process completes successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the total approvals count after revocation",
+        "Expected_result": "The total approvals count has decreased by one from the previously noted value",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Revoke another approval",
+        "Expected_result": "Revocation process completes successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 7,
+        "Test_steps": "Check the total approvals count again",
+        "Expected_result": "The total approvals count has decreased by one more",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC081",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Edit Approved Amount",
+    "Checklist": "Nút chỉnh sửa (biểu tượng bút chì) hiển thị cho các phê duyệt có thể chỉnh sửa",
+    "Title": "Verify edit button appears for editable approvals",
+    "Description": "Ensure that the edit button (pencil icon) is displayed for approvals that can be edited",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with various token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with various token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check ERC-20 token approvals with specific amounts",
+        "Expected_result": "Edit button (pencil icon) is visible in the Approved amount column for these approvals",
+        "Test_data": "ERC-20 token approvals with specific amounts"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check ERC-20 token approvals with unlimited amounts",
+        "Expected_result": "Edit button (pencil icon) is visible in the Approved amount column for these approvals",
+        "Test_data": "ERC-20 token approvals with unlimited amounts"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Verify the edit button is clearly visible and distinct",
+        "Expected_result": "The edit button is properly styled and recognizable as an edit action",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC082",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Edit Approved Amount",
+    "Checklist": "Nút chỉnh sửa không khả dụng cho token ERC-721 và ERC-1155",
+    "Title": "Verify edit button is not available for ERC-721 and ERC-1155 tokens",
+    "Description": "Ensure that the edit button is not available for ERC-721 and ERC-1155 token approvals",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with ERC-721 and ERC-1155 token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-721 and ERC-1155 token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check ERC-721 token approvals",
+        "Expected_result": "No edit button (pencil icon) is visible for any ERC-721 approval",
+        "Test_data": "ERC-721 token approvals"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check ERC-721 token approvals with specific token IDs",
+        "Expected_result": "No edit button is visible for single token ERC-721 approvals",
+        "Test_data": "ERC-721 token approvals with specific token IDs"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check ERC-1155 token approvals",
+        "Expected_result": "No edit button is visible for any ERC-1155 approval",
+        "Test_data": "ERC-1155 token approvals"
+      }
+    ]
+  },
+  {
+    "ID": "TC083",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Edit Approved Amount",
+    "Checklist": "Modal chỉnh sửa mở chính xác",
+    "Title": "Verify edit modal opens correctly",
+    "Description": "Ensure that the edit modal opens correctly when clicking the edit button",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with ERC-20 token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-20 token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click the edit button (pencil icon) for a specific approval",
+        "Expected_result": "Edit modal opens, overlaying the main content",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check that the modal is properly positioned and styled",
+        "Expected_result": "Modal is centered, has appropriate sizing, and clearly displays as a modal overlay",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Verify that modal contains the expected elements",
+        "Expected_result": "Modal contains a title, input field for the approved amount, Update button, and Cancel button",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC084",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Edit Approved Amount",
+    "Checklist": "Số lượng phê duyệt hiện tại được điền sẵn trong modal chỉnh sửa",
+    "Title": "Verify current approval amount is pre-filled in edit modal",
+    "Description": "Ensure that the current approval amount is pre-filled in the edit modal",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with ERC-20 token approvals",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-20 token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Note the current approved amount for a specific token with limited approval",
+        "Expected_result": "Approved amount is noted",
+        "Test_data": "ERC-20 token with limited approval amount"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Click the edit button for this approval",
+        "Expected_result": "Edit modal opens",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the value in the input field",
+        "Expected_result": "The input field is pre-filled with the current approved amount",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Repeat the process for an unlimited approval",
+        "Expected_result": "For unlimited approvals, the input field may be pre-filled with a special value or max token amount",
+        "Test_data": "ERC-20 token with unlimited approval"
+      }
+    ]
+  },
+  {
+    "ID": "TC085",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Edit Approved Amount",
+    "Checklist": "Xác thực đầu vào hoạt động chính xác (ví dụ: \"Invalid amount\" cho \"0x1234abcd\")",
+    "Title": "Verify input validation works correctly",
+    "Description": "Ensure that input validation for the approved amount works correctly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-20 token approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Click the edit button for an ERC-20 approval",
+        "Expected_result": "Edit modal opens",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Enter a non-numeric value (e.g., \"0x1234abcd\")",
+        "Expected_result": "Input is marked as invalid with an error message (e.g., \"Invalid amount\")",
+        "Test_data": "Non-numeric input: 0x1234abcd"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Enter a negative number",
+        "Expected_result": "Input is marked as invalid with an appropriate error message",
+        "Test_data": "Negative number: -100"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Enter zero",
+        "Expected_result": "System may either accept zero (which would effectively revoke the approval) or show an error message",
+        "Test_data": "Zero: 0"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Enter a valid number",
+        "Expected_result": "Input is accepted without error messages",
+        "Test_data": "Valid number: 1000"
+      }
+    ]
+  },
+  {
+    "ID": "TC086",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Edit Approved Amount",
+    "Checklist": "Nút \"Update\" bị vô hiệu hóa đối với đầu vào không hợp lệ",
+    "Title": "Verify \"Update\" button is disabled for invalid inputs",
+    "Description": "Ensure that the \"Update\" button is disabled when the input is invalid",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-20 token approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Click the edit button for an ERC-20 approval",
+        "Expected_result": "Edit modal opens",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Enter a non-numeric value (e.g., \"0x1234abcd\")",
+        "Expected_result": "Input is marked as invalid",
+        "Test_data": "Non-numeric input: 0x1234abcd"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check the state of the \"Update\" button",
+        "Expected_result": "The \"Update\" button is disabled or grayed out",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Enter a valid number",
+        "Expected_result": "Input is accepted as valid",
+        "Test_data": "Valid number: 1000"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Check the state of the \"Update\" button again",
+        "Expected_result": "The \"Update\" button is enabled and clickable",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC087",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Edit Approved Amount",
+    "Checklist": "Nút \"Cancel\" đóng modal mà không có thay đổi",
+    "Title": "Verify \"Cancel\" button closes modal without changes",
+    "Description": "Ensure that the \"Cancel\" button closes the modal without making any changes",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-20 token approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Note the current approved amount for a specific token",
+        "Expected_result": "Current approved amount is noted",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Click the edit button for this approval",
+        "Expected_result": "Edit modal opens with the current amount pre-filled",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Change the value in the input field",
+        "Expected_result": "New value is entered in the field",
+        "Test_data": "Different approval amount"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Click the \"Cancel\" button",
+        "Expected_result": "Modal closes without submitting any transaction",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Check the approved amount in the list",
+        "Expected_result": "The approved amount remains unchanged, matching the value noted in step 2",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC088",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Edit Approved Amount",
+    "Checklist": "Cập nhật thành công phản ánh ngay lập tức trong danh sách phê duyệt",
+    "Title": "Verify successful update reflects immediately in approvals list",
+    "Description": "Ensure that a successful update of the approved amount is immediately reflected in the approvals list",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-20 token approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Click the edit button for an ERC-20 approval",
+        "Expected_result": "Edit modal opens",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Enter a new valid amount",
+        "Expected_result": "New amount is entered and valid",
+        "Test_data": "New approval amount (different from current)"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Click the \"Update\" button",
+        "Expected_result": "Wallet transaction request appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Confirm the transaction in the wallet",
+        "Expected_result": "Transaction is processed and confirmed",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Check the approvals list immediately after confirmation",
+        "Expected_result": "The approval in the list shows the updated amount without requiring a page refresh",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 7,
+        "Test_steps": "Verify that the last updated timestamp is also updated",
+        "Expected_result": "Last updated timestamp shows the current time",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC089",
+    "Category": "Actions and Operations",
+    "Sub_Category": "Edit Approved Amount",
+    "Checklist": "Xử lý lỗi trong quá trình cập nhật diễn ra êm thấm",
+    "Title": "Verify graceful error handling during update process",
+    "Description": "Ensure that errors during the update process are handled gracefully",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with ERC-20 token approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Click the edit button for an ERC-20 approval",
+        "Expected_result": "Edit modal opens",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Enter a new valid amount",
+        "Expected_result": "New amount is entered and valid",
+        "Test_data": "New approval amount"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Click the \"Update\" button",
+        "Expected_result": "Wallet transaction request appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Cancel the transaction in the wallet",
+        "Expected_result": "The system handles the cancellation gracefully, returning to the edit modal or closing it",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Repeat steps 2-4, then simulate a transaction failure",
+        "Expected_result": "The system displays an appropriate error message explaining the failure",
+        "Test_data": "Conditions for transaction failure"
+      },
+      {
+        "Step_No": 7,
+        "Test_steps": "Verify the UI returns to a usable state after error",
+        "Expected_result": "UI recovers from error state and allows further interactions",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC090",
+    "Category": "Performance and Edge Cases",
+    "Sub_Category": "Performance Testing",
+    "Checklist": "Trang tải nhanh với nhiều phê duyệt (50+)",
+    "Title": "Verify page loads quickly with many approvals",
+    "Description": "Ensure that the page loads quickly even with a large number of approvals (50+)",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Prepare a test wallet with 50+ token approvals",
+        "Expected_result": "Test wallet is ready with many approvals",
+        "Test_data": "EVM wallet with 50+ approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Page initial UI loads within acceptable time (under 3 seconds)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Connect the test wallet",
+        "Expected_result": "Wallet connection process starts",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Measure the time from wallet connection confirmation to all approvals being displayed",
+        "Expected_result": "All approvals load within acceptable time (under 5 seconds)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check if progressive loading or pagination is implemented",
+        "Expected_result": "If approvals exceed a certain number, they may be loaded progressively or paginated for better performance",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify that the UI remains responsive during and after loading",
+        "Expected_result": "UI does not freeze or become unresponsive during or after loading many approvals",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC091",
+    "Category": "Performance and Edge Cases",
+    "Sub_Category": "Performance Testing",
+    "Checklist": "Lọc và sắp xếp vẫn đáp ứng nhanh với tập dữ liệu lớn",
+    "Title": "Verify responsive filtering and sorting with large datasets",
+    "Description": "Ensure that filtering and sorting remain responsive with large datasets",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with a large number of approvals (50+)",
+        "Expected_result": "All approvals load successfully",
+        "Test_data": "EVM wallet with 50+ approvals of different types"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Apply a filter (e.g., ERC-20)",
+        "Expected_result": "Filter is applied quickly (under 1 second), and results are shown without noticeable delay",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Apply multiple filters simultaneously",
+        "Expected_result": "Multiple filters are applied quickly, and results update responsively",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Change the sorting order",
+        "Expected_result": "Sorting is applied quickly, and the list reorders without noticeable delay",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Search for a specific spender address",
+        "Expected_result": "Search results appear in real-time as typing, without noticeable lag",
+        "Test_data": "Spender address to search for"
+      }
+    ]
+  },
+  {
+    "ID": "TC092",
+    "Category": "Performance and Edge Cases",
+    "Sub_Category": "Edge Cases",
+    "Checklist": "Hệ thống xử lý đúng token có giá trị cực lớn/nhỏ",
+    "Title": "Verify system handles tokens with extremely large/small values",
+    "Description": "Ensure that the system correctly handles tokens with extremely large or small values",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with approvals for tokens that have extremely large values",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for tokens with very high value/price (e.g., $1,000,000+)"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check how the large values are displayed in the Value at Risk column",
+        "Expected_result": "Large values are displayed with appropriate formatting (e.g., abbreviations like $1.2M, or with commas)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check that the total value at risk calculation handles large values correctly",
+        "Expected_result": "Total value at risk includes large values without overflow or display issues",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Connect a wallet with approvals for tokens that have extremely small values",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for tokens with very low value/price (e.g., $0.0000001)"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Check how the small values are displayed in the Value at Risk column",
+        "Expected_result": "Small values are displayed with appropriate precision without being rounded to zero",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC093",
+    "Category": "Performance and Edge Cases",
+    "Sub_Category": "Edge Cases",
+    "Checklist": "Hệ thống xử lý đúng token có tên/ký hiệu không thông thường",
+    "Title": "Verify system handles tokens with unusual names/symbols",
+    "Description": "Ensure that the system correctly handles tokens with unusual names or symbols",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with approvals for tokens that have very long names",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for tokens with very long names"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check how long names are displayed in the Asset column",
+        "Expected_result": "Long names are displayed properly, either fully or truncated with ellipsis if necessary",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Connect a wallet with approvals for tokens that have special characters in their names/symbols",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with approvals for tokens with special characters (e.g., emojis, non-ASCII characters)"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check how names with special characters are displayed",
+        "Expected_result": "Special characters are displayed correctly without causing layout issues",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify sorting functionality with unusual token names",
+        "Expected_result": "Sorting by asset name works correctly even with unusual names",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC094",
+    "Category": "Performance and Edge Cases",
+    "Sub_Category": "Edge Cases",
+    "Checklist": "Hệ thống xử lý đúng phê duyệt từ các hợp đồng không còn hoạt động/không dùng nữa",
+    "Title": "Verify system handles approvals from defunct contracts",
+    "Description": "Ensure that the system correctly handles approvals from defunct or deprecated contracts",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet with approvals for tokens from contracts that are no longer active",
+        "Expected_result": "Wallet connects and approvals load, including those from defunct contracts",
+        "Test_data": "EVM wallet with approvals for tokens from defunct contracts"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check how approvals for defunct contracts are displayed",
+        "Expected_result": "Approvals for defunct contracts are displayed clearly, possibly with an indicator that the contract is no longer active",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Attempt to revoke an approval for a defunct contract",
+        "Expected_result": "System either allows revocation with appropriate warnings or clearly explains why revocation might not be possible/necessary",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the Value at Risk calculation for defunct tokens",
+        "Expected_result": "Value at Risk is calculated appropriately (likely showing \"-\" or zero) for tokens from defunct contracts",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC095",
+    "Category": "Performance and Edge Cases",
+    "Sub_Category": "Edge Cases",
+    "Checklist": "Kết nối lại ví sau khi ngắt kết nối hoạt động bình thường",
+    "Title": "Verify wallet reconnection after disconnection works properly",
+    "Description": "Ensure that reconnecting a wallet after disconnection works normally",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Disconnect the wallet (using the disconnect option in the UI or wallet extension)",
+        "Expected_result": "Wallet disconnects and UI returns to non-connected state",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Attempt to reconnect the same wallet",
+        "Expected_result": "Wallet reconnects successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Verify that approvals load correctly after reconnection",
+        "Expected_result": "All approvals are displayed correctly, same as before disconnection",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify that any filters or sorts applied before disconnection are reset",
+        "Expected_result": "Filters and sorts return to default settings after reconnection",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC096",
+    "Category": "Performance and Edge Cases",
+    "Sub_Category": "Edge Cases",
+    "Checklist": "Trạng thái trang được duy trì khi điều hướng đi và quay lại",
+    "Title": "Verify page state is maintained when navigating away and returning",
+    "Description": "Ensure that the page state is maintained when navigating away and returning",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Apply specific filters and sorting",
+        "Expected_result": "Filters and sorting are applied",
+        "Test_data": "Specific filters and sort options"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Navigate to another page within the same site (e.g., Home)",
+        "Expected_result": "Navigation to another page is successful",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Navigate back to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads with the wallet still connected",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Check if filters and sorting are maintained",
+        "Expected_result": "Previously applied filters and sorting may or may not be maintained (depending on design)",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 7,
+        "Test_steps": "Check if the approvals list is reloaded or cached",
+        "Expected_result": "Approvals are either quickly loaded from cache or refreshed from the blockchain",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC097",
+    "Category": "Performance and Edge Cases",
+    "Sub_Category": "Edge Cases",
+    "Checklist": "Hệ thống xử lý êm thấm việc mất kết nối mạng",
+    "Title": "Verify graceful handling of network disconnection",
+    "Description": "Ensure that the system handles network disconnection gracefully",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Simulate a network disconnection (disable internet connection)",
+        "Expected_result": "System detects the network disconnection",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Attempt to interact with the page (e.g., apply filters, sort, revoke an approval)",
+        "Expected_result": "System displays appropriate error messages about network connectivity issues",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Restore the network connection",
+        "Expected_result": "System detects the restored connection",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Check if the page automatically recovers or requires manual refresh",
+        "Expected_result": "Page either automatically recovers functionality or provides a clear way to refresh/retry operations",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 7,
+        "Test_steps": "Verify that the wallet connection is maintained or can be easily restored",
+        "Expected_result": "Wallet connection is either maintained throughout the network disruption or can be easily restored",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC098",
+    "Category": "Performance and Edge Cases",
+    "Sub_Category": "Edge Cases",
+    "Checklist": "Hệ thống xử lý êm thấm việc ngắt kết nối ví trong quá trình thực hiện các thao tác",
+    "Title": "Verify graceful handling of wallet disconnection during operations",
+    "Description": "Ensure that the system handles wallet disconnection during operations gracefully",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet",
+        "Expected_result": "Wallet connects and approvals load",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Start a revocation process by clicking the \"Revoke\" button",
+        "Expected_result": "Revocation process begins and wallet confirmation dialog appears",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Before confirming in the wallet, disconnect the wallet from the extension/app",
+        "Expected_result": "System detects the wallet disconnection",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Observe how the system handles the interrupted operation",
+        "Expected_result": "System displays appropriate error messages about wallet disconnection and provides clear recovery options",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Reconnect the wallet",
+        "Expected_result": "Wallet reconnects successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 7,
+        "Test_steps": "Verify that the UI returns to a usable state",
+        "Expected_result": "UI recovers to a usable state, allowing operations to be retried",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC099",
+    "Category": "Accessibility and Usability",
+    "Sub_Category": "Accessibility",
+    "Checklist": "Trạng thái focus hiển thị rõ ràng",
+    "Title": "Verify clear visibility of focus states",
+    "Description": "Ensure that focus states are clearly visible for interactive elements",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Use Tab key to navigate through the interactive elements on the page",
+        "Expected_result": "Focus moves through interactive elements in a logical order",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check that each focused element has a visible focus indicator",
+        "Expected_result": "Focused elements have a visible outline, highlight, or other clear visual indicator",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check focus state for buttons (Connect wallet, Revoke, filter buttons)",
+        "Expected_result": "Buttons show clear focus states that contrast with their normal states",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check focus state for the search field",
+        "Expected_result": "Search field shows a clear focus state",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Check focus state for the sort dropdown",
+        "Expected_result": "Sort dropdown shows a clear focus state",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC100",
+    "Category": "Accessibility and Usability",
+    "Sub_Category": "Accessibility",
+    "Checklist": "Thông báo lỗi mô tả rõ ràng và hữu ích",
+    "Title": "Verify error messages are descriptive and helpful",
+    "Description": "Ensure that error messages are clear, descriptive, and helpful",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Revoke feature page loads successfully",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Trigger various error conditions and observe error messages",
+        "Expected_result": "Error messages appear when errors occur",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check error message when entering invalid input in the edit amount modal",
+        "Expected_result": "Error message clearly explains why the input is invalid (e.g., \"Invalid amount: please enter a valid number\")",
+        "Test_data": "Invalid input: \"0x1234abcd\""
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Check error message when a transaction fails",
+        "Expected_result": "Error message explains why the transaction failed and suggests potential solutions",
+        "Test_data": "Failed transaction scenario"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check error message when network connection is lost",
+        "Expected_result": "Error message clearly indicates network connectivity issue and suggests checking the connection",
+        "Test_data": "Network disconnection scenario"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify that error messages are displayed prominently",
+        "Expected_result": "Error messages are easily noticeable (color, position, styling)",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC101",
+    "Category": "Accessibility and Usability",
+    "Sub_Category": "Usability",
+    "Checklist": "Trạng thái đang tải được chỉ báo rõ ràng",
+    "Title": "Verify clear indication of loading states",
+    "Description": "Ensure that loading states are clearly indicated",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page",
+        "Expected_result": "Page initial loading state is clearly indicated if applicable",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Connect a wallet",
+        "Expected_result": "Loading indicator is displayed while approvals are being retrieved",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Observe the loading indicator for the approvals list",
+        "Expected_result": "Loading indicator is visible and properly positioned",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Initiate a revocation",
+        "Expected_result": "Loading state is indicated during the revocation process",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Apply filters or change sorting",
+        "Expected_result": "Loading state is indicated if there's a delay in applying filters or sorting",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify that loading indicators are consistent across the application",
+        "Expected_result": "Loading indicators have consistent style and behavior throughout the feature",
+        "Test_data": "N/A"
+      }
+    ]
+  },
+  {
+    "ID": "TC102",
+    "Category": "Accessibility and Usability",
+    "Sub_Category": "Usability",
+    "Checklist": "Thông báo thành công/lỗi hiển thị rõ ràng",
+    "Title": "Verify clear display of success/error messages",
+    "Description": "Ensure that success and error messages are displayed clearly",
+    "Steps": [
+      {
+        "Step_No": 1,
+        "Test_steps": "Navigate to the Revoke feature page and connect a wallet",
+        "Expected_result": "Wallet connects successfully",
+        "Test_data": "EVM wallet with token approvals"
+      },
+      {
+        "Step_No": 2,
+        "Test_steps": "Successfully revoke an approval",
+        "Expected_result": "A success message is displayed indicating the approval was revoked",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 3,
+        "Test_steps": "Check the visual properties of the success message",
+        "Expected_result": "Success message is clearly visible, has appropriate coloring (typically green), and is positioned prominently",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 4,
+        "Test_steps": "Trigger an error (e.g., cancel a transaction)",
+        "Expected_result": "An error message is displayed",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 5,
+        "Test_steps": "Check the visual properties of the error message",
+        "Expected_result": "Error message is clearly visible, has appropriate coloring (typically red), and is positioned prominently",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 6,
+        "Test_steps": "Verify that messages are dismissible if appropriate",
+        "Expected_result": "Messages can be dismissed by the user when appropriate",
+        "Test_data": "N/A"
+      },
+      {
+        "Step_No": 7,
+        "Test_steps": "Verify that messages are automatically dismissed after an appropriate time if designed that way",
+        "Expected_result": "Temporary messages disappear after an appropriate duration",
+        "Test_data": "N/A"
+      }
+    ]
+  }
+]

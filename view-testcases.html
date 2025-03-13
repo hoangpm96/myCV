@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Test Cases - hoangphan.blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a6cf7;
+            --secondary-color: #f5f7fd;
+            --text-color: #333;
+            --border-color: #ddd;
+            --hover-color: #eef2ff;
+            --dark-color: #2b3a4a;
+        }
+        
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f9fafc;
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 98%;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: var(--dark-color);
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .toolbar {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            background-color: var(--secondary-color);
+            padding: 15px;
+            border-radius: 6px;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            max-width: 400px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            padding-right: 35px;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s;
+        }
+        
+        button:hover {
+            background-color: #3858e9;
+            transform: translateY(-1px);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .filter-section {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+        
+        select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: white;
+            min-width: 150px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.1);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            max-width: 100%;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        th {
+            background-color: var(--secondary-color);
+            font-weight: 600;
+            color: var(--dark-color);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            white-space: nowrap;
+        }
+        
+        td {
+            background-color: white;
+            transition: background-color 0.2s;
+        }
+        
+        tr:hover td {
+            background-color: var(--hover-color);
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .pagination-controls {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .pagination-controls button {
+            background-color: white;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            min-width: 35px;
+            height: 35px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .pagination-controls button.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .pagination-controls button:hover:not(.active) {
+            background-color: var(--secondary-color);
+        }
+        
+        .pagination-controls button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .page-info {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .page-size select {
+            min-width: 80px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 30px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .checkbox-cell {
+            width: 40px;
+            text-align: center;
+        }
+        
+        .id-cell {
+            width: 110px;
+        }
+        
+        .title-cell {
+            min-width: 200px;
+        }
+        
+        .description-cell {
+            min-width: 250px;
+        }
+        
+        .steps-cell {
+            min-width: 300px;
+        }
+        
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        
+        .export-button {
+            background-color: #28a745;
+            padding: 10px 20px;
+        }
+        
+        .export-button:hover {
+            background-color: #218838;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-box {
+                max-width: 100%;
+            }
+            
+            .filter-section {
+                flex-direction: column;
+            }
+            
+            select {
+                width: 100%;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+            
+            .pagination {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            
+            .pagination-controls {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+        
+        /* Loading animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+        
+        .empty-state img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        
+        /* Add stats section styles */
+        .stats-section {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            background-color: var(--secondary-color);
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        .stats-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .stats-label {
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .stats-value {
+            background-color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: var(--primary-color);
+            font-weight: 600;
+            min-width: 40px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 768px) {
+            .stats-section {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        .step-row {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            min-height: 40px;
+        }
+        
+        .step-row:last-child {
+            border-bottom: none;
+        }
+        
+        td {
+            vertical-align: top;
+        }
+        
+        .test-case-row {
+            border-bottom: 2px solid #ddd;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .modal-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 20px;
+            color: var(--dark-color);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #ddd;
+            text-align: right;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        #jsonInput {
+            width: 100%;
+            height: 300px;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        #jsonInput:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.1);
+        }
+
+        .error-message {
+            color: #dc3545;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #fff;
+            display: none;
+        }
+
+        .import-button {
+            background-color: #6c757d;
+        }
+
+        .import-button:hover {
+            background-color: #5a6268;
+        }
+
+        .primary-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .primary-button:hover {
+            background-color: #3858e9;
+        }
+
+        .primary-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: var(--secondary);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>View Test Cases - hoangphan.blog</h1>
+        
+        <div class="toolbar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search test cases...">
+                <span class="search-icon">🔍</span>
+            </div>
+            <div style="display: flex; gap: 12px;">
+              <button id="importJSON" class="import-button">
+                <span>Import JSON</span>
+              </button>
+              <button id="exportExcel" class="export-button">
+                <span>Export to Excel</span>
+              </button>
+              <button id="exportExcel2" class="export-button">
+                <span>Export to Excel 2</span>
+              </button>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+            </select>
+            <select id="subcategoryFilter">
+                <option value="">All Subcategories</option>
+            </select>
+        </div>
+        
+        <!-- Add stats section -->
+        <div class="stats-section">
+            <div class="stats-item">
+                <span class="stats-label">Total Test Cases:</span>
+                <span class="stats-value" id="totalTestCases">0</span>
+            </div>
+            <div class="stats-item">
+                <span class="stats-label">Filtered Test Cases:</span>
+                <span class="stats-value" id="filteredTestCases">0</span>
+            </div>
+            <div class="stats-item">
+                <span class="stats-label">Total Steps:</span>
+                <span class="stats-value" id="totalSteps">0</span>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table id="testCasesTable">
+                <thead>
+                    <tr>
+                        <th class="checkbox-cell"><input type="checkbox" id="selectAll"></th>
+                        <th class="id-cell">ID</th>
+                        <th class="title-cell">Title</th>
+                        <th>Category</th>
+                        <th>Sub-Category</th>
+                        <th class="description-cell">Description</th>
+                        <th>Step No</th>
+                        <th class="steps-cell">Test Steps</th>
+                        <th class="steps-cell">Expected Result</th>
+                        <th>Test Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="10" class="empty-state">
+                            <div style="text-align: center; padding: 40px;">
+                                <p>No test cases loaded. Please import JSON test cases to begin.</p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination">
+            <div class="page-size">
+                <select id="pageSizeSelect">
+                    <option value="10">10 per page</option>
+                    <option value="20" selected>20 per page</option>
+                    <option value="50">50 per page</option>
+                    <option value="100">100 per page</option>
+                </select>
+            </div>
+            <div class="pagination-controls" id="paginationControls">
+                <!-- Pagination buttons will be populated by JavaScript -->
+            </div>
+            <div class="page-info" id="pageInfo">
+                <!-- Page info will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script>
+        // Test case data
+        let testCasesData = [];
+        
+        // Variables for pagination and filtering
+        let currentPage = 1;
+        let pageSize = 20;
+        let filteredData = [];
+        let categories = new Set();
+        let subcategories = new Set();
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal handling
+            const modal = document.getElementById('jsonModal');
+            const importBtn = document.getElementById('importJSON');
+            const closeBtn = document.getElementsByClassName('close')[0];
+            const viewTestcasesBtn = document.getElementById('viewTestcases');
+            const jsonInput = document.getElementById('jsonInput');
+            const jsonError = document.getElementById('jsonError');
+
+            console.log('Modal elements:', { modal, importBtn, closeBtn, viewTestcasesBtn });
+
+            if (!modal || !importBtn || !closeBtn || !viewTestcasesBtn) {
+                console.error('Some modal elements were not found!');
+                return;
+            }
+
+            // Show modal
+            importBtn.onclick = function() {
+                console.log('Import button clicked');
+                modal.style.display = "block";
+            }
+
+            // Close modal
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+                jsonError.style.display = "none";
+                jsonInput.value = "";
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    jsonError.style.display = "none";
+                    jsonInput.value = "";
+                }
+            }
+
+            // Validate and process JSON input
+            viewTestcasesBtn.onclick = function() {
+                try {
+                    const jsonData = JSON.parse(jsonInput.value);
+                    
+                    // Validate JSON structure
+                    if (!Array.isArray(jsonData)) {
+                        throw new Error("Input must be an array of test cases");
+                    }
+
+                    // Validate each test case
+                    jsonData.forEach((testCase, index) => {
+                        if (!testCase.ID || !testCase.Category || !testCase.Sub_Category || 
+                            !testCase.Title || !testCase.Description || !Array.isArray(testCase.Steps)) {
+                            throw new Error(`Invalid test case structure at index ${index}`);
+                        }
+
+                        testCase.Steps.forEach((step, stepIndex) => {
+                            if (!step.Step_No || !step.Test_steps || !step.Expected_result) {
+                                throw new Error(`Invalid step structure at test case ${testCase.ID}, step ${stepIndex + 1}`);
+                            }
+                        });
+                    });
+
+                    // If validation passes, update the test cases
+                    testCasesData = jsonData;
+                    filteredData = [...testCasesData];
+                    
+                    // Reset filters and update UI
+                    document.getElementById('searchInput').value = '';
+                    document.getElementById('categoryFilter').value = '';
+                    document.getElementById('subcategoryFilter').value = '';
+                    
+                    // Update categories and subcategories
+                    categories.clear();
+                    subcategories.clear();
+                    testCasesData.forEach(item => {
+                        categories.add(item.Category);
+                        subcategories.add(item.Sub_Category);
+                    });
+
+                    // Update filter dropdowns
+                    updateFilterDropdowns();
+                    
+                    // Reset pagination
+                    currentPage = 1;
+                    
+                    // Update statistics and render table
+                    updateStatistics();
+                    renderTable();
+                    
+                    // Close modal
+                    modal.style.display = "none";
+                    jsonError.style.display = "none";
+                    jsonInput.value = "";
+                    
+                } catch (error) {
+                    jsonError.textContent = `Error: ${error.message}`;
+                    jsonError.style.display = "block";
+                }
+            }
+
+            // Update filter dropdowns
+            function updateFilterDropdowns() {
+                const categoryFilter = document.getElementById('categoryFilter');
+                const subcategoryFilter = document.getElementById('subcategoryFilter');
+                
+                // Clear existing options except the first one
+                while (categoryFilter.options.length > 1) {
+                    categoryFilter.remove(1);
+                }
+                while (subcategoryFilter.options.length > 1) {
+                    subcategoryFilter.remove(1);
+                }
+                
+                // Add new options
+                Array.from(categories).sort().forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category;
+                    option.textContent = category;
+                    categoryFilter.appendChild(option);
+                });
+                
+                Array.from(subcategories).sort().forEach(subcategory => {
+                    const option = document.createElement('option');
+                    option.value = subcategory;
+                    option.textContent = subcategory;
+                    subcategoryFilter.appendChild(option);
+                });
+            }
+            
+            // Initialize the table
+            initializeTable();
+        });
+        
+        // Initialize the table
+        function initializeTable() {
+            // Set up event listeners
+            document.getElementById('searchInput').addEventListener('input', filterTable);
+            document.getElementById('categoryFilter').addEventListener('change', filterTable);
+            document.getElementById('subcategoryFilter').addEventListener('change', filterTable);
+            document.getElementById('pageSizeSelect').addEventListener('change', function() {
+                pageSize = parseInt(this.value);
+                currentPage = 1;
+                renderTable();
+            });
+            document.getElementById('selectAll').addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            document.getElementById('exportExcel').addEventListener('click', exportToExcel);
+            document.getElementById('exportExcel2').addEventListener('click', exportToExcel2);
+            
+            // Show empty state initially
+            const tableBody = document.querySelector('#testCasesTable tbody');
+            tableBody.innerHTML = `<tr><td colspan="10" class="empty-state">
+                <div style="text-align: center; padding: 40px;">
+                    <p>No test cases loaded. Please import JSON test cases to begin.</p>
+                </div>
+            </td></tr>`;
+        }
+        
+        // Update statistics display
+        function updateStatistics() {
+            const totalTestCases = testCasesData.length;
+            const filteredTestCases = filteredData.length;
+            const totalSteps = testCasesData.reduce((acc, item) => acc + item.Steps.length, 0);
+            const filteredSteps = filteredData.reduce((acc, item) => acc + item.Steps.length, 0);
+            
+            document.getElementById('totalTestCases').textContent = totalTestCases;
+            document.getElementById('filteredTestCases').textContent = filteredTestCases;
+            document.getElementById('totalSteps').textContent = totalSteps;
+            
+            // Update the stats section visibility based on filter state
+            const statsSection = document.querySelector('.stats-section');
+            const filteredStatsItems = statsSection.querySelectorAll('.stats-item');
+            
+            // Show/hide filtered stats based on whether there's any filtering
+            const isFiltered = totalTestCases !== filteredTestCases;
+            filteredStatsItems[1].style.display = isFiltered ? 'flex' : 'none';
+        }
+        
+        // Filter the table based on search and filter values
+        function filterTable() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const subcategoryFilter = document.getElementById('subcategoryFilter').value;
+            
+            filteredData = testCasesData.filter(item => {
+                const matchesSearch = 
+                    item.ID.toLowerCase().includes(searchTerm) ||
+                    item.Title.toLowerCase().includes(searchTerm) ||
+                    item.Description.toLowerCase().includes(searchTerm) ||
+                    item.Category.toLowerCase().includes(searchTerm) ||
+                    item.Sub_Category.toLowerCase().includes(searchTerm);
+                
+                const matchesCategory = categoryFilter === '' || item.Category === categoryFilter;
+                const matchesSubcategory = subcategoryFilter === '' || item.Sub_Category === subcategoryFilter;
+                
+                return matchesSearch && matchesCategory && matchesSubcategory;
+            });
+            
+            currentPage = 1;
+            updateStatistics();
+            renderTable();
+        }
+        
+        // Render the table with current filtered data and pagination
+        function renderTable() {
+            const tableBody = document.querySelector('#testCasesTable tbody');
+            const startIndex = (currentPage - 1) * pageSize;
+            const paginatedData = filteredData.slice(startIndex, startIndex + pageSize);
+            
+            // Show empty state if no data
+            if (paginatedData.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="10" class="empty-state">
+                    <div style="text-align: center; padding: 40px;">
+                        <p>${testCasesData.length === 0 ? 'No test cases loaded. Please import JSON test cases to begin.' : 'No test cases found matching your criteria.'}</p>
+                    </div>
+                </td></tr>`;
+                return;
+            }
+
+            tableBody.innerHTML = '';
+            
+            paginatedData.forEach(item => {
+                // Create main row with test case info
+                const mainRow = document.createElement('tr');
+                mainRow.className = 'test-case-row';
+                
+                // Add checkbox and test case info cells
+                const checkboxCell = document.createElement('td');
+                checkboxCell.className = 'checkbox-cell';
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.dataset.id = item.ID;
+                checkboxCell.appendChild(checkbox);
+                mainRow.appendChild(checkboxCell);
+                
+                mainRow.appendChild(createCell(item.ID, 'id-cell'));
+                mainRow.appendChild(createCell(item.Title, 'title-cell'));
+                mainRow.appendChild(createCell(item.Category));
+                mainRow.appendChild(createCell(item.Sub_Category));
+                mainRow.appendChild(createCell(item.Description, 'description-cell'));
+
+                // Create cells for step info
+                const stepNoCell = document.createElement('td');
+                const testStepsCell = document.createElement('td');
+                const expectedResultCell = document.createElement('td');
+                const testDataCell = document.createElement('td');
+
+                // Create content for step cells
+                let stepNoContent = '';
+                let testStepsContent = '';
+                let expectedResultContent = '';
+                let testDataContent = '';
+
+                // Ensure exactly 3 steps
+                const steps = item.Steps.slice(0, 3);
+                while (steps.length < 3) {
+                    steps.push({
+                        Step_No: steps.length + 1,
+                        Test_steps: 'N/A',
+                        Expected_result: 'N/A',
+                        Test_data: 'N/A'
+                    });
+                }
+
+                steps.forEach((step, index) => {
+                    stepNoContent += `<div class="step-row">${step.Step_No}</div>`;
+                    testStepsContent += `<div class="step-row">${step.Test_steps}</div>`;
+                    expectedResultContent += `<div class="step-row">${step.Expected_result}</div>`;
+                    testDataContent += `<div class="step-row">${step.Test_data || 'N/A'}</div>`;
+                });
+
+                stepNoCell.innerHTML = stepNoContent;
+                testStepsCell.innerHTML = testStepsContent;
+                expectedResultCell.innerHTML = expectedResultContent;
+                testDataCell.innerHTML = testDataContent;
+
+                mainRow.appendChild(stepNoCell);
+                mainRow.appendChild(testStepsCell);
+                mainRow.appendChild(expectedResultCell);
+                mainRow.appendChild(testDataCell);
+
+                tableBody.appendChild(mainRow);
+            });
+            
+            updatePagination();
+        }
+
+        // Helper function to create a table cell
+        function createCell(content, className = '') {
+            const cell = document.createElement('td');
+            if (className) cell.className = className;
+            cell.textContent = content || 'N/A';
+            return cell;
+        }
+        
+        // Update pagination controls
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredData.length / pageSize);
+            const controls = document.getElementById('paginationControls');
+            const info = document.getElementById('pageInfo');
+            
+            controls.innerHTML = '';
+            
+            if (totalPages > 1) {
+                // Previous button
+                addPaginationButton('«', currentPage > 1, () => {
+                    currentPage--;
+                    renderTable();
+                });
+                
+                // Page buttons
+                for (let i = 1; i <= totalPages; i++) {
+                    if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+                        addPaginationButton(i, true, () => {
+                            currentPage = i;
+                            renderTable();
+                        }, i === currentPage);
+                    } else if (i === currentPage - 3 || i === currentPage + 3) {
+                        addPaginationButton('...', false);
+                    }
+                }
+                
+                // Next button
+                addPaginationButton('»', currentPage < totalPages, () => {
+                    currentPage++;
+                    renderTable();
+                });
+            }
+            
+            // Update info text
+            const start = (currentPage - 1) * pageSize + 1;
+            const end = Math.min(start + pageSize - 1, filteredData.length);
+            info.textContent = `Showing ${start}-${end} of ${filteredData.length} test cases`;
+        }
+        
+        // Helper function to add pagination button
+        function addPaginationButton(text, enabled, onClick, isActive = false) {
+            const button = document.createElement('button');
+            button.innerHTML = text;
+            button.disabled = !enabled;
+            if (isActive) button.className = 'active';
+            if (onClick) button.onclick = onClick;
+            document.getElementById('paginationControls').appendChild(button);
+        }
+        
+        // Export to Excel function
+        function exportToExcel() {
+            const exportButton = document.getElementById('exportExcel');
+            const originalText = exportButton.innerHTML;
+            exportButton.innerHTML = '<div class="loading-spinner"></div>Exporting...';
+            exportButton.disabled = true;
+            
+            setTimeout(() => {
+                try {
+                    const wb = XLSX.utils.book_new();
+                    
+                    // Create worksheet with flattened data
+                    const flatData = filteredData.flatMap(item => 
+                        item.Steps.map(step => ({
+                            ID: item.ID,
+                            Category: item.Category,
+                            'Sub-Category': item.Sub_Category,
+                            'Checklist': item.Checklist,
+                            Title: item.Title,
+                            Description: item.Description,
+                            'Step No': step.Step_No,
+                            'Test Steps': step.Test_steps,
+                            'Expected Result': step.Expected_result,
+                            'Test Data': step.Test_data
+                        }))
+                    );
+                    
+                    const ws = XLSX.utils.json_to_sheet(flatData);
+                    XLSX.utils.book_append_sheet(wb, ws, 'Test Cases');
+                    
+                    // Save file
+                    XLSX.writeFile(wb, 'test_cases.xlsx');
+                } catch (error) {
+                    console.error('Export failed:', error);
+                    alert('Export failed. Please try again.');
+                } finally {
+                    exportButton.innerHTML = originalText;
+                    exportButton.disabled = false;
+                }
+            }, 100);
+        }
+
+        function exportToExcel2() {
+    const exportButton = document.getElementById('exportExcel');
+    const originalText = exportButton.innerHTML;
+    exportButton.innerHTML = '<div class="loading-spinner"></div>Exporting...';
+    exportButton.disabled = true;
+    
+    setTimeout(() => {
+        try {
+            const wb = XLSX.utils.book_new();
+            
+            // Prepare data with empty cells for repeated test cases
+            const excelData = [];
+            
+            // Add header row
+            const headers = ['ID', 'Checklist', 'Category', 'Sub-Category', 'Title', 'Description', 'Step No', 'Test Steps', 'Expected Result', 'Test Data'];
+            excelData.push(headers);
+            
+            // Process each test case
+            filteredData.forEach(testCase => {
+                // For first step, include all test case info
+                if (testCase.Steps && testCase.Steps.length > 0) {
+                    const firstRow = [
+                        testCase.ID,
+                        testCase.Checklist,
+                        testCase.Category,
+                        testCase.Sub_Category,
+                        testCase.Title,
+                        testCase.Description,
+                        testCase.Steps[0].Step_No,
+                        testCase.Steps[0].Test_steps,
+                        testCase.Steps[0].Expected_result,
+                        testCase.Steps[0].Test_data || 'N/A'
+                    ];
+                    excelData.push(firstRow);
+                    
+                    // For subsequent steps, leave test case info cells empty
+                    for (let i = 1; i < testCase.Steps.length; i++) {
+                        const step = testCase.Steps[i];
+                        const stepRow = [
+                            '', // Empty ID
+                            '', // Empty Category
+                            '', // Empty Sub-Category
+                            '', // Empty Checklist
+                            '', // Empty Title
+                            '', // Empty Description
+                            step.Step_No,
+                            step.Test_steps,
+                            step.Expected_result,
+                            step.Test_data || 'N/A'
+                        ];
+                        excelData.push(stepRow);
+                    }
+                }
+            });
+            
+            // Create worksheet
+            const ws = XLSX.utils.aoa_to_sheet(excelData);
+            
+            // Set up merge cells for common test case info
+            const merges = [];
+            let startRow = 1; // Start from row after header
+            
+            filteredData.forEach(testCase => {
+                if (testCase.Steps && testCase.Steps.length > 1) {
+                    // Calculate range for each column that needs merging
+                    for (let col = 0; col < 6; col++) { // First 6 columns: ID to Description
+                        merges.push({
+                            s: { r: startRow, c: col },
+                            e: { r: startRow + testCase.Steps.length - 1, c: col }
+                        });
+                    }
+                    startRow += testCase.Steps.length;
+                } else {
+                    startRow += 1; // Move to next test case
+                }
+            });
+            
+            // Apply merges to worksheet
+            ws['!merges'] = merges;
+            
+            XLSX.utils.book_append_sheet(wb, ws, 'Test Cases');
+            
+            // Save file
+            XLSX.writeFile(wb, 'test_cases.xlsx');
+        } catch (error) {
+            console.error('Export failed:', error);
+            alert('Export failed. Please try again.');
+        } finally {
+            exportButton.innerHTML = originalText;
+            exportButton.disabled = false;
+        }
+    }, 100);
+}
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeTable);
+    </script>
+
+    <!-- Add JSON Import Modal -->
+    <div id="jsonModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Import Test Cases JSON</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <textarea id="jsonInput" placeholder="Paste your JSON test cases here..."></textarea>
+                <div id="jsonError" class="error-message"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="viewTestcases" class="primary-button">View Test Cases</button>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <p>Created by Hoang Phan: https://t.me/hoangpmwork</p>
+</footer>
+</html>
