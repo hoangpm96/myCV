@@ -498,7 +498,12 @@
 
 ${structure}
 
-Note: Replace $PREFIX with "${testcasePrefix}" and use sequential numbers (${numberFormat}, ${numberFormat.replace(/0/g, '1')}, ${numberFormat.replace(/0/g, '2')},... format)
+Note: Replace $PREFIX with "${testcasePrefix}" and use sequential numbers (${
+    numberFormat === '01' ? '01, 02, 03...' :
+    numberFormat === '001' ? '001, 002, 003...' :
+    numberFormat === '0001' ? '0001, 0002, 0003...' :
+    '00001, 00002, 00003...'
+} format)
 ${testData ? `\nTest Data Examples:\n${testData}` : ''}
 
 Requirements:
