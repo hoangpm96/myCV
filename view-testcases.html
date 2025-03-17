@@ -257,6 +257,9 @@
         .title-cell {
             min-width: 200px;
         }
+        .checklist-cell {
+            min-width: 160px;
+        }
         
         .description-cell {
             min-width: 250px;
@@ -582,6 +585,7 @@
                     <tr>
                         <th class="checkbox-cell"><input type="checkbox" id="selectAll"></th>
                         <th class="id-cell">ID</th>
+                        <th>Checklist</th>
                         <th class="title-cell">Title</th>
                         <th>Category</th>
                         <th>Sub-Category</th>
@@ -876,6 +880,7 @@
                 mainRow.appendChild(checkboxCell);
                 
                 mainRow.appendChild(createCell(item.ID, 'id-cell'));
+                mainRow.appendChild(createCell(item.Checklist, 'checklist-cell'));
                 mainRow.appendChild(createCell(item.Title, 'title-cell'));
                 mainRow.appendChild(createCell(item.Category));
                 mainRow.appendChild(createCell(item.Sub_Category));
