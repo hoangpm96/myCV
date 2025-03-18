@@ -898,16 +898,8 @@
                 let expectedResultContent = '';
                 let testDataContent = '';
 
-                // Ensure exactly 3 steps
-                const steps = item.Steps.slice(0, 3);
-                while (steps.length < 3) {
-                    steps.push({
-                        Step_No: steps.length + 1,
-                        Test_steps: 'N/A',
-                        Expected_result: 'N/A',
-                        Test_data: 'N/A'
-                    });
-                }
+                // Use all steps instead of limiting to 3
+                const steps = item.Steps;
 
                 steps.forEach((step, index) => {
                     stepNoContent += `<div class="step-row">${step.Step_No}</div>`;
