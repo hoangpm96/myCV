@@ -293,8 +293,8 @@
                         <div class="form-group">
                             <label for="language">Language:</label>
                             <select id="language">
+                                <option value="vi" selected>Vietnamese</option>
                                 <option value="en">English</option>
-                                <option value="vi">Vietnamese</option>
                             </select>
                         </div>
                         
@@ -332,7 +332,7 @@
                         
                         <div class="toggle-container">
                             <label class="toggle">
-                                <input type="checkbox" id="accessibilityTesting" checked>
+                                <input type="checkbox" id="accessibilityTesting">
                                 <span class="slider"></span>
                             </label>
                             <label for="accessibilityTesting">Accessibility testing</label>
@@ -353,20 +353,6 @@
                                 <option value="medium">Medium</option>
                                 <option value="low">Low</option>
                             </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Output Format:</label>
-                            <div class="radio-group">
-                                <div class="radio-option">
-                                    <input type="radio" id="formatMarkdown" name="outputFormat" value="regular" checked>
-                                    <label for="formatMarkdown">Regular text</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="formatJSON" name="outputFormat" value="json">
-                                    <label for="formatJSON">JSON</label>
-                                </div>
-                            </div>
                         </div>
                         
                         <button type="button" class="btn" id="generateBtn">Generate Checklist Prompt</button>
@@ -402,17 +388,6 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="testcaseCount">Number of Test Cases:</label>
-                            <select id="testcaseCount">
-                                <option value="10">10</option>
-                                <option value="15">15</option>
-                                <option value="20" selected>20</option>
-                                <option value="25">25</option>
-                                <option value="30">30</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
                             <label for="testcaseLanguage">Language:</label>
                             <select id="testcaseLanguage">
                                 <option value="en">English</option>
@@ -441,6 +416,8 @@
                 <div class="output" id="promptOutput"></div>
                 <button type="button" class="btn btn-copy" id="copyBtn">Copy Prompt</button>
                 <div class="success-message" id="copySuccess">Prompt copied to clipboard!</div>
+                <button type="button" class="btn btn-footer" id="copyRenumberBtn">Copy Renumber Note</button>
+                <div class="success-message" id="copyRenumberSuccess">Note copied to clipboard!</div>
             </div>
         </div>
     </div>
@@ -473,28 +450,33 @@
                 const testcasePrefix = document.getElementById('testcasePrefix').value || 'TC';
                 const numberFormat = document.getElementById('numberFormat').value;
                 const testData = document.getElementById('testData').value;
-                const testcaseCount = document.getElementById('testcaseCount').value;
                 const testcaseLanguage = document.getElementById('testcaseLanguage').value;
                 const testStepDetail = document.getElementById('testStepDetail').value;
                 
-                const structure = `{
-  "ID": "$PREFIX_${numberFormat}",
-  "Category": "Category name",
-  "Sub_Category": "Sub category",
-  "Checklist": "Checklist item",
-  "Title": "Title of testcase",
-  "Description": "Description of testcase",
-  "Steps": [
-    {
-      "Step_No": 1,
-      "Test_steps": "details test step",
-      "Expected_result": "Expected result of step",
-      "Test_data": "Test data"
-    }
-  ]
-}`;
+                const structure = `**ID:**: $PREFIX_${numberFormat}
+**Checklist:** [Checklist Item] 
+**Category:** [Category Name]  
+**Sub-Category:** [Sub-Category]  
+**Priority:** [Priority Number 1-4] 
+**Auto:** [Yes/No] 
+**Title:** [Title of testcase]  
+**Description:** [Description of testcase]
+
+**Step:** [Step No] 
+**Action:** [Details of test step]  
+**Expected:** [Expected result of step]  
+**Test Data:** [Test data or N/A if not applicable]
+
+**Step:** [Step No] 
+**Action:** [Details of test step]  
+**Expected:** [Expected result of step]  
+**Test Data:** [Test data or N/A if not applicable]
+
+[Add additional steps as needed following the same format]
+
+---`;
                 
-                let prompt = `Generate test cases from the checklist, using the following JSON structure:
+                let prompt = `Generate test cases from the checklist, using the following format:
 
 ${structure}
 
@@ -507,10 +489,9 @@ Note: Replace $PREFIX with "${testcasePrefix}" and use sequential numbers (${
 ${testData ? `\nTest Data Examples:\n${testData}` : ''}
 
 Requirements:
-- Generate ${testcaseCount} test cases for each time.
-- Write testcase content in ${testcaseLanguage === 'vi' ? 'Vietnamese' : 'English'}
-- Write Category and Subcategory in ${testcaseLanguage === 'vi' ? 'Vietnamese' : 'English'}
-- Write "Checklist": "Checklist item" in their language when send to you
+- Generate 20 test cases for each time.
+- Write test cases content, Category and Subcategory in ${testcaseLanguage === 'vi' ? 'Vietnamese' : 'English'}
+- Write "Checklist" content in their language when send to you
 - Each test case should have a unique ID starting with "${testcasePrefix}" followed by sequential numbers
 - Test steps should be ${testStepDetail === 'high' ? 'very detailed with specific actions and inputs' : 
   testStepDetail === 'medium' ? 'clear and standard with main actions' : 
@@ -535,86 +516,73 @@ Requirements:
                 const accessibilityTesting = document.getElementById('accessibilityTesting').checked;
                 const dataValidation = document.getElementById('dataValidation').checked;
                 const detailLevel = document.getElementById('detailLevel').value;
-                const outputFormat = document.querySelector('input[name="outputFormat"]:checked').value;
                 
                 let prompt = `You are an expert QA/QC professional in software testing. Your task is to analyze user requirements and create structured test checklists or test cases.
 
 Based on the available information, you will:
 1. Analyze the feature details provided by the user
 2. Identify necessary test cases, paying special attention to project-specific characteristics
-3. Organize the checklist according to user flow from start to finish, or by functional group if requested
+3. Organize the checklist according to user flow from start to finish
 4. Create a clear hierarchical structure
 5. Within each flow step, arrange test cases by priority (happy paths first, error cases after)
 6. Organize the checklist following the sequential flow of user actions
+7. Group related test cases into broader categories (e.g., by functional area or UI region) to avoid excessive detail or redundancy. For example:
+   - Instead of listing separate checks for every individual UI element (logo, status, button, etc.) in a single region, create a single test case for verifying the correct display of all these elements within that region.
+   - Ensure that test cases cover the overall functionality and UI of a specific area, while avoiding unnecessary fragmentation.
+8. Combine test cases within a single user action flow to avoid redundancy. For example:
+   - Instead of creating separate items like "Verify button is clickable" and "Verify confirmation popup appears after clicking the button," combine them into one checklist item such as "Verify that clicking the 'Disconnect account' button triggers the confirmation popup and the button is functional.
 
 ${projectDescription ? `## Project description:\n${projectDescription}\n` : ''}
 ${featureInfo ? `## Feature information:\n${featureInfo}\n` : ''}
 ${userFlow ? `# User Flow:\n${userFlow}\n` : ''}
 ${technicalRequirements ? `# Technical Requirements & Special Cases:\n${technicalRequirements}\n` : ''}`;
 
-                if (!includeHeader) {
-                    prompt += "# Checklist not include header and footer\n";
-                } else {
-                    prompt += "# Checklist include header and footer\n";
-                }
                 prompt += `
 ${language === 'vi' ? '- Create the checklist in Vietnamese' : '- Create the checklist in English'}
 ${uiTesting ? '- Include checks for UI elements, layout, responsiveness, and visual aspects' : ''}
-${securityTesting ? '- Include checks for authentication, authorization, input validation, CSRF/XSS protection, and other security concerns' : ''}
+${securityTesting ? '- Include checks for authentication, authorization, input validation, and other security concerns' : ''}
 ${performanceTesting ? '- Include checks for response times, loading behavior, and system performance under various conditions' : ''}
-${accessibilityTesting ? '- Include checks for screen reader compatibility, keyboard navigation, color contrast, and other accessibility standards' : ''}
+${accessibilityTesting ? '- Include checks for keyboard navigation, color contrast, and other accessibility standards' : ''}
 ${dataValidation ? '- Include checks for input field validation, boundary testing, and data integrity' : ''}
 ${detailLevel === 'high' ? '- Create a comprehensive checklist with extensive test cases covering edge cases and rare scenarios' : 
   detailLevel === 'medium' ? '- Create a standard checklist with common test cases' : 
   '- Create a minimal checklist with only essential test cases'}
+${!includeHeader ? 'IMPORTANCE: Do not include header and footer of application checklists\n' : 'IMPORTANCE: Include header and footer of application checklists\n'}
 
-`;
-
-                if (outputFormat === 'regular') {
-                    prompt += `
 Your response MUST be on regular text format (no coding block), no explanatory text and follow:
 - No explanation text or title, just only checklist items
 - Categories should be numbered sequentially (1, 2, 3, etc.)
 - Subcategories within each category should be numbered using decimal notation (e.g., 1.1, 1.2, 2.1, 2.2, etc.) where the first number corresponds to the parent category
+- Format each check item as: "[[priority]] [[Yes/No]] [number]. [check item]"
 - Individual checklist items should be numbered sequentially across all categories and subcategories (1, 2, 3, 4, etc.) regardless of which subcategory they belong to
 - The numbering of checklist items should continue uninterrupted throughout the entire list
+- Priority levels:
+     [1] - Critical: Must be tested first; directly affects core functionality, security, or system stability
+     [2] - High: Important but not critical; affects user experience or primary workflows
+     [3] - Medium: Should be tested when possible; affects secondary functionality or edge cases
+     [4] - Low: Nice to have; cosmetic issues or rare scenarios with minimal impact
+- Add “Yes” or “No” right after the [priority] of each checklist item to indicate whether it can be automated using Playwright or similar tools. Use the following criteria to decide:
+  - **Yes**: The test case can be fully automated using Playwright or similar UI-based automation tools. Examples include:
+      - Verifying UI elements' visibility, interactivity
+      - Validating input field behaviors, such as boundary checks or invalid data handling
+      - Testing response times or loading behavior with predefined thresholds
+      - Checking navigation flows, button clicks, and form submissions
+  - **No**: The test case cannot be automated using Playwright or similar tools. Examples include:
+      - Verifying subjective visual aspects, such as animation smoothness or UI alignment/layout
+      - Testing system-level performance (e.g., CPU, RAM usage) that requires specialized tools
+      - User experience tests requiring human judgment, such as accessibility heuristics or color contrast perception
+- Do not translate button names, label, fields and specialized terms; keep them in the original language.
 
 #1. Category A
   ##1.1. Subcategory A1
-      1. First check item
-      2. Second check item
+      [1] [Yes] 1. First check item
+      [4] [No] 2. Second check item
   ##1.2. Subcategory A2
-      3. Third check item
+      [1] [Yes] 3. Third check item
 #2. Category B
   ##2.1. Subcategory B1
-      4. Fourth check item
-`;
-                } else if (outputFormat === 'json') {
-                    prompt += `
-Your response MUST be a valid JSON array with no explanatory text or markdown.
+      [2] [No] 4. Fourth check item`;
 
-When creating a checklist, return JSON with the following structure:
-- Categories should be numbered sequentially (1, 2, 3, etc.)
-- Subcategories within each category should be numbered using decimal notation (e.g., 1.1, 1.2, 2.1, 2.2, etc.) where the first number corresponds to the parent category
-- Individual checklist items should be numbered sequentially across all categories and subcategories (1, 2, 3, 4, etc.) regardless of which subcategory they belong to
-- The numbering of checklist items should continue uninterrupted throughout the entire list
-[
-  {
-    "cat": "1. Category name",
-    "items": [
-      {
-        "subc": "1.1. Subcategory name",
-        "checks": [
-          "1. Check description 1",
-          "2. Check description 2"
-        ]
-      }
-    ]
-  }
-]
-`;
-                }
-                
                 promptOutput.textContent = prompt;
             }
             
@@ -642,7 +610,5 @@ When creating a checklist, return JSON with the following structure:
 </body>
 <footer>
     <p>Created by Hoang Phan: https://t.me/hoangpmwork</p>
-    <button type="button" class="btn btn-footer" id="copyRenumberBtn">Copy Renumber Note</button>
-    <div class="success-message" id="copyRenumberSuccess">Note copied to clipboard!</div>
 </footer>
 </html>

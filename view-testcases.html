@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Test Cases - hoangphan.blog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
     <style>
         :root {
             --primary-color: #4a6cf7;
@@ -51,7 +52,6 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
             background-color: var(--secondary-color);
             padding: 15px;
             border-radius: 6px;
@@ -99,6 +99,7 @@
             align-items: center;
             gap: 5px;
             transition: all 0.2s;
+            margin-left: 16px;
         }
         
         button:hover {
@@ -253,12 +254,13 @@
         .id-cell {
             width: 110px;
         }
+
+        .checklist-cell {
+        min-width: 200px; /* Điều chỉnh độ rộng tùy theo nhu cầu */
+        }
         
         .title-cell {
             min-width: 200px;
-        }
-        .checklist-cell {
-            min-width: 160px;
         }
         
         .description-cell {
@@ -284,77 +286,6 @@
             background-color: #218838;
         }
         
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-            
-            .toolbar {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .search-box {
-                max-width: 100%;
-            }
-            
-            .filter-section {
-                flex-direction: column;
-            }
-            
-            select {
-                width: 100%;
-            }
-            
-            th, td {
-                padding: 8px 10px;
-                font-size: 13px;
-            }
-            
-            .pagination {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-            }
-            
-            .pagination-controls {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-        }
-        
-        /* Loading animation */
-        .loading-spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #f3f3f3;
-            border-top: 2px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Empty state */
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: #666;
-        }
-        
-        .empty-state img {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-        
-        /* Add stats section styles */
         .stats-section {
             display: flex;
             gap: 20px;
@@ -443,12 +374,6 @@
             align-items: center;
         }
 
-        .modal-header h2 {
-            margin: 0;
-            font-size: 20px;
-            color: var(--dark-color);
-        }
-
         .modal-body {
             padding: 20px;
         }
@@ -456,7 +381,9 @@
         .modal-footer {
             padding: 15px 20px;
             border-top: 1px solid #ddd;
-            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
         }
 
         .close {
@@ -470,87 +397,41 @@
             color: #000;
         }
 
-        #jsonInput {
+        #markdownInput {
             width: 100%;
             height: 300px;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             font-family: monospace;
-            font-size: 14px;
             resize: vertical;
-        }
-
-        #jsonInput:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.1);
         }
 
         .error-message {
             color: #dc3545;
             margin-top: 10px;
-            padding: 10px;
-            border-radius: 4px;
-            background-color: #fff;
             display: none;
-        }
-
-        .import-button {
-            background-color: #6c757d;
-        }
-
-        .import-button:hover {
-            background-color: #5a6268;
         }
 
         .primary-button {
             background-color: var(--primary-color);
             color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .primary-button:hover {
-            background-color: #3858e9;
-        }
-
-        .primary-button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 14px;
-            color: var(--secondary);
-            opacity: 0.7;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>View Test Cases - hoangphan.blog</h1>
+        <h1>Test Cases Viewer</h1>
         
         <div class="toolbar">
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Search test cases...">
                 <span class="search-icon">🔍</span>
             </div>
-            <div style="display: flex; gap: 12px;">
-              <button id="importJSON" class="import-button">
-                <span>Import JSON</span>
-              </button>
-              <button id="exportExcel" class="export-button">
-                <span>Export to Excel</span>
-              </button>
-              <button id="exportExcel2" class="export-button">
-                <span>Export to Excel 2</span>
-              </button>
+            <div style="display: flex;">
+                <button id="importMarkdown">Import Markdown</button>
+                <button id="exportExcel" class="export-button">Export to Excel</button>
+                <button id="exportExcel2" class="export-button">Export to Excel 2</button>
             </div>
         </div>
         
@@ -559,11 +440,22 @@
                 <option value="">All Categories</option>
             </select>
             <select id="subcategoryFilter">
-                <option value="">All Subcategories</option>
+                <option value="">All Sub-Categories</option>
+            </select>
+            <select id="priorityFilter">
+                <option value="">All Priorities</option>
+                <option value="1">Priority 1</option>
+                <option value="2">Priority 2</option>
+                <option value="3">Priority 3</option>
+            </select>
+            <select id="pageSizeSelect">
+                <option value="10">10 per page</option>
+                <option value="20" selected>20 per page</option>
+                <option value="50">50 per page</option>
+                <option value="100">100 per page</option>
             </select>
         </div>
         
-        <!-- Add stats section -->
         <div class="stats-section">
             <div class="stats-item">
                 <span class="stats-label">Total Test Cases:</span>
@@ -585,10 +477,12 @@
                     <tr>
                         <th class="checkbox-cell"><input type="checkbox" id="selectAll"></th>
                         <th class="id-cell">ID</th>
-                        <th>Checklist</th>
+                        <th class="checklist-cell">Checklist</th>
                         <th class="title-cell">Title</th>
                         <th>Category</th>
                         <th>Sub-Category</th>
+                        <th>Priority</th>
+                        <th>Auto</th>
                         <th class="description-cell">Description</th>
                         <th>Step No</th>
                         <th class="steps-cell">Test Steps</th>
@@ -600,7 +494,7 @@
                     <tr>
                         <td colspan="10" class="empty-state">
                             <div style="text-align: center; padding: 40px;">
-                                <p>No test cases loaded. Please import JSON test cases to begin.</p>
+                                <p>No test cases loaded. Please import Markdown test cases to begin.</p>
                             </div>
                         </td>
                     </tr>
@@ -609,25 +503,19 @@
         </div>
         
         <div class="pagination">
+            <div class="page-info" id="pageInfo">Page 1 of 1</div>
+            <div class="pagination-controls" id="paginationControls"></div>
             <div class="page-size">
-                <select id="pageSizeSelect">
+                <select id="pageSizeSelect2">
                     <option value="10">10 per page</option>
                     <option value="20" selected>20 per page</option>
                     <option value="50">50 per page</option>
                     <option value="100">100 per page</option>
                 </select>
             </div>
-            <div class="pagination-controls" id="paginationControls">
-                <!-- Pagination buttons will be populated by JavaScript -->
-            </div>
-            <div class="page-info" id="pageInfo">
-                <!-- Page info will be populated by JavaScript -->
-            </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
     <script>
         // Test case data
         let testCasesData = [];
@@ -639,15 +527,160 @@
         let categories = new Set();
         let subcategories = new Set();
 
+        // Function to parse markdown into test cases
+        // Function to parse markdown into test cases
+        function parseMarkdownToTestCases(markdown) {
+        const testCases = [];
+        const testCaseBlocks = markdown.split('---').filter(block => block.trim());
+        
+        // Hàm kiểm tra xem dòng có phải là một field mới không
+        function isNewField(line) {
+            return line.startsWith('**') && line.includes(':');
+        }
+        
+        testCaseBlocks.forEach(block => {
+            // Chia thành các dòng và giữ cả dòng trống
+            const lines = block.split('\n');
+            const testCase = {
+                ID: '',
+                Category: '',
+                Sub_Category: '',
+                Checklist: '',
+                Priority: '',
+                Title: '',
+                Description: '',
+                Steps: []
+            };
+            
+            let currentStep = null;
+            let testDataSection = false;
+            let testDataLines = [];
+            
+            for (let i = 0; i < lines.length; i++) {
+                let line = lines[i].trim();
+                if (!line) continue;
+                
+                // Đang ở trong phần Test Data
+                if (testDataSection) {
+                    // Nếu gặp field mới hoặc step mới, kết thúc phần Test Data
+                    if (isNewField(line)) {
+                        // Lưu các dòng Test Data đã thu thập và reset
+                        if (currentStep) {
+                            currentStep.Test_data = testDataLines.join('\n');
+                        }
+                        testDataSection = false;
+                        testDataLines = [];
+                    } else {
+                        // Thêm dòng hiện tại vào Test Data
+                        testDataLines.push(line);
+                        continue; // Bỏ qua các xử lý khác
+                    }
+                }
+                
+                // Xử lý ID
+                if (line.startsWith('**ID:**:')) {
+                    testCase.ID = line.replace(/^\*\*ID:\*\*:\s*/, '').trim();
+                    continue;
+                }
+                
+                // Xử lý các field khác
+                if (isNewField(line)) {
+                    const cleanLine = line.replace(/\*\*/g, '');
+                    const colonIndex = cleanLine.indexOf(':');
+                    if (colonIndex === -1) continue;
+                    
+                    const fieldName = cleanLine.substring(0, colonIndex).trim();
+                    const value = cleanLine.substring(colonIndex + 1).trim();
+                    
+                    switch (fieldName) {
+                        case 'Category':
+                            testCase.Category = value;
+                            break;
+                        case 'Sub-Category':
+                            testCase.Sub_Category = value;
+                            break;
+                        case 'Checklist':
+                            testCase.Checklist = value;
+                            break;
+                        case 'Priority':
+                            testCase.Priority = value;
+                            break;
+                        case 'Title':
+                            testCase.Title = value;
+                            break;
+                        case 'Description':
+                            testCase.Description = value;
+                            break;
+                        case 'Step':
+                            // Lưu Test Data từ step trước nếu có
+                            if (currentStep && testDataLines.length > 0) {
+                                currentStep.Test_data = testDataLines.join('\n');
+                                testDataLines = [];
+                            }
+                            
+                            if (currentStep) {
+                                testCase.Steps.push(currentStep);
+                            }
+                            currentStep = {
+                                Step_No: value,
+                                Test_steps: '',
+                                Expected_result: '',
+                                Test_data: ''
+                            };
+                            testDataSection = false;
+                            break;
+                        case 'Action':
+                            if (currentStep) {
+                                currentStep.Test_steps = value;
+                            }
+                            break;
+                        case 'Expected':
+                            if (currentStep) {
+                                currentStep.Expected_result = value;
+                            }
+                            break;
+                        case 'Test Data':
+                            if (currentStep) {
+                                // Bắt đầu phần Test Data
+                                testDataSection = true;
+                                testDataLines = [value]; // Lưu giá trị đầu tiên
+                            }
+                            break;
+                        case 'Auto':
+                            testCase.Auto = value.toLowerCase() === 'yes' ? 'Yes' : 'No';
+                            break;
+                    }
+                }
+            }
+            
+            // Lưu Test Data cho step cuối cùng nếu có
+            if (currentStep && testDataLines.length > 0) {
+                currentStep.Test_data = testDataLines.join('\n');
+            }
+            
+            // Thêm step cuối cùng nếu có
+            if (currentStep) {
+                testCase.Steps.push(currentStep);
+            }
+            
+            // Kiểm tra các trường bắt buộc
+            if (testCase.ID && testCase.Title && testCase.Steps.length > 0) {
+                testCases.push(testCase);
+            }
+        });
+        
+        return testCases;
+    }
+
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
             // Modal handling
-            const modal = document.getElementById('jsonModal');
-            const importBtn = document.getElementById('importJSON');
+            const modal = document.getElementById('markdownModal');
+            const importBtn = document.getElementById('importMarkdown');
             const closeBtn = document.getElementsByClassName('close')[0];
             const viewTestcasesBtn = document.getElementById('viewTestcases');
-            const jsonInput = document.getElementById('jsonInput');
-            const jsonError = document.getElementById('jsonError');
+            const markdownInput = document.getElementById('markdownInput');
+            const markdownError = document.getElementById('markdownError');
 
             console.log('Modal elements:', { modal, importBtn, closeBtn, viewTestcasesBtn });
 
@@ -665,51 +698,41 @@
             // Close modal
             closeBtn.onclick = function() {
                 modal.style.display = "none";
-                jsonError.style.display = "none";
-                jsonInput.value = "";
+                markdownError.style.display = "none";
+                markdownInput.value = "";
             }
 
             // Close modal when clicking outside
             window.onclick = function(event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
-                    jsonError.style.display = "none";
-                    jsonInput.value = "";
+                    markdownError.style.display = "none";
+                    markdownInput.value = "";
                 }
             }
 
-            // Validate and process JSON input
+            // Validate and process markdown input
             viewTestcasesBtn.onclick = function() {
                 try {
-                    const jsonData = JSON.parse(jsonInput.value);
+                    const markdown = markdownInput.value;
+                    console.log('Input markdown:', markdown);
                     
-                    // Validate JSON structure
-                    if (!Array.isArray(jsonData)) {
-                        throw new Error("Input must be an array of test cases");
+                    const testCases = parseMarkdownToTestCases(markdown);
+                    console.log('Parsed test cases:', testCases);
+                    
+                    if (testCases.length === 0) {
+                        throw new Error("No valid test cases found in the markdown input");
                     }
 
-                    // Validate each test case
-                    jsonData.forEach((testCase, index) => {
-                        if (!testCase.ID || !testCase.Category || !testCase.Sub_Category || 
-                            !testCase.Title || !testCase.Description || !Array.isArray(testCase.Steps)) {
-                            throw new Error(`Invalid test case structure at index ${index}`);
-                        }
-
-                        testCase.Steps.forEach((step, stepIndex) => {
-                            if (!step.Step_No || !step.Test_steps || !step.Expected_result) {
-                                throw new Error(`Invalid step structure at test case ${testCase.ID}, step ${stepIndex + 1}`);
-                            }
-                        });
-                    });
-
                     // If validation passes, update the test cases
-                    testCasesData = jsonData;
+                    testCasesData = testCases;
                     filteredData = [...testCasesData];
                     
                     // Reset filters and update UI
                     document.getElementById('searchInput').value = '';
                     document.getElementById('categoryFilter').value = '';
                     document.getElementById('subcategoryFilter').value = '';
+                    document.getElementById('priorityFilter').value = '';
                     
                     // Update categories and subcategories
                     categories.clear();
@@ -731,12 +754,12 @@
                     
                     // Close modal
                     modal.style.display = "none";
-                    jsonError.style.display = "none";
-                    jsonInput.value = "";
+                    markdownError.style.display = "none";
+                    markdownInput.value = "";
                     
                 } catch (error) {
-                    jsonError.textContent = `Error: ${error.message}`;
-                    jsonError.style.display = "block";
+                    markdownError.textContent = `Error: ${error.message}`;
+                    markdownError.style.display = "block";
                 }
             }
 
@@ -771,6 +794,9 @@
             
             // Initialize the table
             initializeTable();
+
+            // Link the button to the export function
+            document.getElementById('exportExcel2').addEventListener('click', exportToExcel2);
         });
         
         // Initialize the table
@@ -779,6 +805,7 @@
             document.getElementById('searchInput').addEventListener('input', filterTable);
             document.getElementById('categoryFilter').addEventListener('change', filterTable);
             document.getElementById('subcategoryFilter').addEventListener('change', filterTable);
+            document.getElementById('priorityFilter').addEventListener('change', filterTable);
             document.getElementById('pageSizeSelect').addEventListener('change', function() {
                 pageSize = parseInt(this.value);
                 currentPage = 1;
@@ -797,7 +824,7 @@
             const tableBody = document.querySelector('#testCasesTable tbody');
             tableBody.innerHTML = `<tr><td colspan="10" class="empty-state">
                 <div style="text-align: center; padding: 40px;">
-                    <p>No test cases loaded. Please import JSON test cases to begin.</p>
+                    <p>No test cases loaded. Please import Markdown test cases to begin.</p>
                 </div>
             </td></tr>`;
         }
@@ -827,6 +854,7 @@
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             const categoryFilter = document.getElementById('categoryFilter').value;
             const subcategoryFilter = document.getElementById('subcategoryFilter').value;
+            const priorityFilter = document.getElementById('priorityFilter').value;
             
             filteredData = testCasesData.filter(item => {
                 const matchesSearch = 
@@ -834,13 +862,27 @@
                     item.Title.toLowerCase().includes(searchTerm) ||
                     item.Description.toLowerCase().includes(searchTerm) ||
                     item.Category.toLowerCase().includes(searchTerm) ||
-                    item.Sub_Category.toLowerCase().includes(searchTerm);
+                    item.Sub_Category.toLowerCase().includes(searchTerm) ||
+                    item.Checklist.toLowerCase().includes(searchTerm) ||
+                    item.Priority.toLowerCase().includes(searchTerm);
                 
                 const matchesCategory = categoryFilter === '' || item.Category === categoryFilter;
                 const matchesSubcategory = subcategoryFilter === '' || item.Sub_Category === subcategoryFilter;
+                const matchesPriority = priorityFilter === '' || item.Priority === priorityFilter;
                 
-                return matchesSearch && matchesCategory && matchesSubcategory;
+                return matchesSearch && matchesCategory && matchesSubcategory && matchesPriority;
             });
+            
+            // Sort by priority if filter is selected, otherwise sort by ID
+            if (priorityFilter !== '') {
+                filteredData.sort((a, b) => {
+                    return parseInt(a.Priority) - parseInt(b.Priority);
+                });
+            } else {
+                filteredData.sort((a, b) => {
+                    return a.ID.localeCompare(b.ID);
+                });
+            }
             
             currentPage = 1;
             updateStatistics();
@@ -857,7 +899,7 @@
             if (paginatedData.length === 0) {
                 tableBody.innerHTML = `<tr><td colspan="10" class="empty-state">
                     <div style="text-align: center; padding: 40px;">
-                        <p>${testCasesData.length === 0 ? 'No test cases loaded. Please import JSON test cases to begin.' : 'No test cases found matching your criteria.'}</p>
+                        <p>${testCasesData.length === 0 ? 'No test cases loaded. Please import Markdown test cases to begin.' : 'No test cases found matching your criteria.'}</p>
                     </div>
                 </td></tr>`;
                 return;
@@ -884,6 +926,8 @@
                 mainRow.appendChild(createCell(item.Title, 'title-cell'));
                 mainRow.appendChild(createCell(item.Category));
                 mainRow.appendChild(createCell(item.Sub_Category));
+                mainRow.appendChild(createCell(item.Priority));
+                mainRow.appendChild(createCell(item.Auto));
                 mainRow.appendChild(createCell(item.Description, 'description-cell'));
 
                 // Create cells for step info
@@ -898,14 +942,18 @@
                 let expectedResultContent = '';
                 let testDataContent = '';
 
-                // Use all steps instead of limiting to 3
-                const steps = item.Steps;
-
-                steps.forEach((step, index) => {
+                // Display only actual steps
+                item.Steps.forEach((step, index) => {
                     stepNoContent += `<div class="step-row">${step.Step_No}</div>`;
                     testStepsContent += `<div class="step-row">${step.Test_steps}</div>`;
                     expectedResultContent += `<div class="step-row">${step.Expected_result}</div>`;
-                    testDataContent += `<div class="step-row">${step.Test_data || 'N/A'}</div>`;
+                    if (step.Test_data) {
+                        const testDataLines = step.Test_data.split('\n');
+                        const formattedTestData = testDataLines.join('<br>');
+                        testDataContent += `<div class="step-row">${formattedTestData}</div>`;
+                    } else {
+                        testDataContent += `<div class="step-row">N/A</div>`;
+                    }
                 });
 
                 stepNoCell.innerHTML = stepNoContent;
@@ -935,44 +983,42 @@
         // Update pagination controls
         function updatePagination() {
             const totalPages = Math.ceil(filteredData.length / pageSize);
-            const controls = document.getElementById('paginationControls');
-            const info = document.getElementById('pageInfo');
+            const paginationControls = document.getElementById('paginationControls');
+            paginationControls.innerHTML = '';
             
-            controls.innerHTML = '';
+            // Add previous button
+            addPaginationButton('←', currentPage > 1, () => {
+                currentPage--;
+                renderTable();
+            });
             
-            if (totalPages > 1) {
-                // Previous button
-                addPaginationButton('«', currentPage > 1, () => {
-                    currentPage--;
-                    renderTable();
-                });
-                
-                // Page buttons
-                for (let i = 1; i <= totalPages; i++) {
-                    if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
-                        addPaginationButton(i, true, () => {
-                            currentPage = i;
-                            renderTable();
-                        }, i === currentPage);
-                    } else if (i === currentPage - 3 || i === currentPage + 3) {
-                        addPaginationButton('...', false);
-                    }
-                }
-                
-                // Next button
-                addPaginationButton('»', currentPage < totalPages, () => {
-                    currentPage++;
-                    renderTable();
-                });
+            // Add page numbers
+            const maxPagesToShow = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+            let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+            
+            if (endPage - startPage + 1 < maxPagesToShow) {
+                startPage = Math.max(1, endPage - maxPagesToShow + 1);
             }
             
-            // Update info text
-            const start = (currentPage - 1) * pageSize + 1;
-            const end = Math.min(start + pageSize - 1, filteredData.length);
-            info.textContent = `Showing ${start}-${end} of ${filteredData.length} test cases`;
+            for (let i = startPage; i <= endPage; i++) {
+                addPaginationButton(i.toString(), true, () => {
+                    currentPage = i;
+                    renderTable();
+                }, i === currentPage);
+            }
+            
+            // Add next button
+            addPaginationButton('→', currentPage < totalPages, () => {
+                currentPage++;
+                renderTable();
+            });
+            
+            // Update page info
+            document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages}`;
         }
         
-        // Helper function to add pagination button
+        // Helper function to add a pagination button
         function addPaginationButton(text, enabled, onClick, isActive = false) {
             const button = document.createElement('button');
             button.innerHTML = text;
@@ -997,10 +1043,12 @@
                     const flatData = filteredData.flatMap(item => 
                         item.Steps.map(step => ({
                             ID: item.ID,
+                            Checklist: item.Checklist,
+                            Title: item.Title,
                             Category: item.Category,
                             'Sub-Category': item.Sub_Category,
-                            'Checklist': item.Checklist,
-                            Title: item.Title,
+                            Priority: item.Priority,
+                            Auto: item.Auto,
                             Description: item.Description,
                             'Step No': step.Step_No,
                             'Test Steps': step.Test_steps,
@@ -1024,114 +1072,153 @@
             }, 100);
         }
 
+        // Add this function to handle the second export
         function exportToExcel2() {
-    const exportButton = document.getElementById('exportExcel');
-    const originalText = exportButton.innerHTML;
-    exportButton.innerHTML = '<div class="loading-spinner"></div>Exporting...';
-    exportButton.disabled = true;
-    
-    setTimeout(() => {
-        try {
-            const wb = XLSX.utils.book_new();
-            
-            // Prepare data with empty cells for repeated test cases
-            const excelData = [];
-            
-            // Add header row
-            const headers = ['ID', 'Checklist', 'Category', 'Sub-Category', 'Title', 'Description', 'Step No', 'Test Steps', 'Expected Result', 'Test Data'];
-            excelData.push(headers);
-            
-            // Process each test case
-            filteredData.forEach(testCase => {
-                // For first step, include all test case info
-                if (testCase.Steps && testCase.Steps.length > 0) {
-                    const firstRow = [
-                        testCase.ID,
-                        testCase.Checklist,
-                        testCase.Category,
-                        testCase.Sub_Category,
-                        testCase.Title,
-                        testCase.Description,
-                        testCase.Steps[0].Step_No,
-                        testCase.Steps[0].Test_steps,
-                        testCase.Steps[0].Expected_result,
-                        testCase.Steps[0].Test_data || 'N/A'
-                    ];
-                    excelData.push(firstRow);
-                    
-                    // For subsequent steps, leave test case info cells empty
-                    for (let i = 1; i < testCase.Steps.length; i++) {
-                        const step = testCase.Steps[i];
-                        const stepRow = [
-                            '', // Empty ID
-                            '', // Empty Category
-                            '', // Empty Sub-Category
-                            '', // Empty Checklist
-                            '', // Empty Title
-                            '', // Empty Description
-                            step.Step_No,
-                            step.Test_steps,
-                            step.Expected_result,
-                            step.Test_data || 'N/A'
+            const exportButton = document.getElementById('exportExcel2');
+            const originalText = exportButton.innerHTML;
+            exportButton.innerHTML = '<div class="loading-spinner"></div>Exporting...';
+            exportButton.disabled = true;
+
+            setTimeout(() => {
+                try {
+                    const wb = XLSX.utils.book_new();
+                    const excelData = [];
+                    const headers = ['ID', 'Checklist', 'Title', 'Category', 'Sub-Category', 'Priority', 'Auto', 'Description', 'Step No', 'Test Steps', 'Expected Result', 'Test Data'];
+                    excelData.push(headers);
+
+                    // Create a map to group test cases by ID
+                    const groupedData = {};
+
+                    filteredData.forEach(testCase => {
+                        if (!groupedData[testCase.ID]) {
+                            groupedData[testCase.ID] = {
+                                Checklist: testCase.Checklist,
+                                Title: testCase.Title,
+                                Category: testCase.Category,
+                                Sub_Category: testCase.Sub_Category,
+                                Priority: testCase.Priority,
+                                Auto: testCase.Auto,
+                                Description: testCase.Description,
+                                Steps: []
+                            };
+                        }
+                        // Add steps to the corresponding ID
+                        groupedData[testCase.ID].Steps.push(...testCase.Steps);
+                    });
+
+                    // Prepare the data for export
+                    for (const id in groupedData) {
+                        const item = groupedData[id];
+                        const firstRow = [
+                            id,
+                            item.Checklist,
+                            item.Title,
+                            item.Category,
+                            item.Sub_Category,
+                            item.Priority,
+                            item.Auto,
+                            item.Description,
+                            item.Steps[0]?.Step_No || '',
+                            item.Steps[0]?.Test_steps || '',
+                            item.Steps[0]?.Expected_result || '',
+                            item.Steps[0]?.Test_data || 'N/A'
                         ];
-                        excelData.push(stepRow);
+                        excelData.push(firstRow);
+
+                        // For subsequent steps, leave the ID and other fields empty
+                        for (let i = 1; i < item.Steps.length; i++) {
+                            const step = item.Steps[i];
+                            const stepRow = [
+                                '', // Empty ID
+                                '', // Empty Checklist
+                                '', // Empty Title
+                                '', // Empty Category
+                                '', // Empty Sub-Category
+                                '', // Empty Priority
+                                '', // Empty Auto
+                                '', // Empty Description
+                                step.Step_No,
+                                step.Test_steps,
+                                step.Expected_result,
+                                step.Test_data || 'N/A'
+                            ];
+                            excelData.push(stepRow);
+                        }
                     }
-                }
-            });
-            
-            // Create worksheet
-            const ws = XLSX.utils.aoa_to_sheet(excelData);
-            
-            // Set up merge cells for common test case info
-            const merges = [];
-            let startRow = 1; // Start from row after header
-            
-            filteredData.forEach(testCase => {
-                if (testCase.Steps && testCase.Steps.length > 1) {
-                    // Calculate range for each column that needs merging
-                    for (let col = 0; col < 6; col++) { // First 6 columns: ID to Description
-                        merges.push({
-                            s: { r: startRow, c: col },
-                            e: { r: startRow + testCase.Steps.length - 1, c: col }
-                        });
+
+                    // Create worksheet
+                    const ws = XLSX.utils.aoa_to_sheet(excelData);
+                    // Set up merge cells for common test case info
+                    const merges = [];
+                    let startRow = 1; // Start from row after header
+
+                    for (const id in groupedData) {
+                        const item = groupedData[id];
+                        if (item.Steps.length > 1) {
+                            // Calculate range for each column that needs merging
+                            merges.push({
+                                s: { r: startRow, c: 0 }, // ID
+                                e: { r: startRow + item.Steps.length - 1, c: 0 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 1 }, // Checklist
+                                e: { r: startRow + item.Steps.length - 1, c: 1 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 2 }, // Title
+                                e: { r: startRow + item.Steps.length - 1, c: 2 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 3 }, // Category
+                                e: { r: startRow + item.Steps.length - 1, c: 3 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 4 }, // Sub-Category
+                                e: { r: startRow + item.Steps.length - 1, c: 4 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 5 }, // Priority
+                                e: { r: startRow + item.Steps.length - 1, c: 5 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 6 }, // Auto
+                                e: { r: startRow + item.Steps.length - 1, c: 6 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 7 }, // Description
+                                e: { r: startRow + item.Steps.length - 1, c: 7 }
+                            });
+                        }
+                        startRow += item.Steps.length; // Move to the next group
                     }
-                    startRow += testCase.Steps.length;
-                } else {
-                    startRow += 1; // Move to next test case
+
+                    // Apply merges to worksheet
+                    ws['!merges'] = merges;
+
+                    XLSX.utils.book_append_sheet(wb, ws, 'Test Cases');
+                    // Save file
+                    XLSX.writeFile(wb, 'test_cases_2.xlsx');
+                } catch (error) {
+                    console.error('Export failed:', error);
+                    alert('Export failed. Please try again.');
+                } finally {
+                    exportButton.innerHTML = originalText;
+                    exportButton.disabled = false;
                 }
-            });
-            
-            // Apply merges to worksheet
-            ws['!merges'] = merges;
-            
-            XLSX.utils.book_append_sheet(wb, ws, 'Test Cases');
-            
-            // Save file
-            XLSX.writeFile(wb, 'test_cases.xlsx');
-        } catch (error) {
-            console.error('Export failed:', error);
-            alert('Export failed. Please try again.');
-        } finally {
-            exportButton.innerHTML = originalText;
-            exportButton.disabled = false;
+            }, 100);
         }
-    }, 100);
-}
-        
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initializeTable);
     </script>
 
-    <!-- Add JSON Import Modal -->
-    <div id="jsonModal" class="modal">
+    <!-- Add Markdown Import Modal -->
+    <div id="markdownModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Import Test Cases JSON</h2>
+                <h2>Import Test Cases Markdown</h2>
                 <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <textarea id="jsonInput" placeholder="Paste your JSON test cases here..."></textarea>
-                <div id="jsonError" class="error-message"></div>
+                <textarea id="markdownInput" placeholder="Paste your markdown test cases here..."></textarea>
+                <div id="markdownError" class="error-message"></div>
             </div>
             <div class="modal-footer">
                 <button id="viewTestcases" class="primary-button">View Test Cases</button>

@@ -202,20 +202,30 @@
         #addAreaBtn:hover {
             background-color: #1e7168;
         }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 14px;
-            color: var(--secondary);
-            opacity: 0.7;
+
+        .markdown-preview {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: #f8f9fa;
+        }
+
+        .markdown-preview h2 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .markdown-preview pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Test Case Merger</h1>
-        <p class="intro">Merge multiple JSON arrays of test cases into a single unified array.</p>
-
+        <p class="intro">Merge multiple markdown test case files into a single unified file.</p>
 
         <div id="pasteContainer" class="paste-container">
             <!-- Paste areas will be added here dynamically -->
@@ -223,7 +233,6 @@
         <div class="action-buttons">
             <button id="addAreaBtn">+ Add Paste Area</button>
         </div>
-
 
         <div class="action-buttons">
             <button id="mergeBtn">Merge Test Cases</button>
@@ -235,7 +244,7 @@
             <div id="alertArea"></div>
             <div class="form-control result">
                 <label for="resultOutput">Merged Result:</label>
-                <textarea id="resultOutput" readonly placeholder="Merged JSON will appear here..."></textarea>
+                <textarea id="resultOutput" readonly placeholder="Merged markdown will appear here..."></textarea>
             </div>
         </div>
     </div>
@@ -258,7 +267,7 @@
             // Add first paste area by default
             addPasteArea();
 
-            mergeBtn.addEventListener('click', mergeJsonArrays);
+            mergeBtn.addEventListener('click', mergeMarkdown);
             copyBtn.addEventListener('click', copyToClipboard);
             clearBtn.addEventListener('click', clearAllInputs);
             addAreaBtn.addEventListener('click', addPasteArea);
@@ -277,8 +286,8 @@
                 formControl.className = 'form-control';
                 
                 const textarea = document.createElement('textarea');
-                textarea.id = `jsonInput${areaCount}`;
-                textarea.placeholder = `Paste your JSON array here...`;
+                textarea.id = `markdownInput${areaCount}`;
+                textarea.placeholder = `Paste your markdown test cases here...`;
                 
                 // Only add remove button if it's not the first area
                 if (areaCount > 1) {
@@ -300,28 +309,11 @@
                 pasteContainer.appendChild(pasteArea);
             }
 
-            function mergeJsonArrays() {
+            function mergeMarkdown() {
                 alertArea.innerHTML = '';
 
                 let allTestCases = [];
                 let hasError = false;
-
-                // Function to parse and validate JSON input
-                function parseInput(input, areaNumber) {
-                    if (!input.trim()) return [];
-                    
-                    try {
-                        const jsonData = JSON.parse(input);
-                        if (!Array.isArray(jsonData)) {
-                            throw new Error(`Input in Paste Area ${areaNumber} is not a valid JSON array.`);
-                        }
-                        return jsonData;
-                    } catch (error) {
-                        showAlert(`Error in Paste Area ${areaNumber}: ${error.message}`, 'error');
-                        hasError = true;
-                        return [];
-                    }
-                }
 
                 // Get all textareas in the paste container
                 const textareas = pasteContainer.querySelectorAll('textarea');
@@ -331,23 +323,33 @@
                     return;
                 }
 
-                // Parse all inputs
+                // Process each markdown input
                 textareas.forEach(textarea => {
-                    const areaId = textarea.id.replace('jsonInput', '');
-                    const testCases = parseInput(textarea.value, areaId);
+                    const content = textarea.value.trim();
+                    if (!content) return;
+
+                    // Split content into individual test cases
+                    const testCases = content.split('---').map(tc => tc.trim()).filter(tc => tc);
                     allTestCases = [...allTestCases, ...testCases];
                 });
-
-                if (hasError) return;
 
                 if (allTestCases.length === 0) {
                     showAlert('No valid test cases found in any of the input areas.', 'error');
                     return;
                 }
 
+                // Sort test cases by ID
+                allTestCases.sort((a, b) => {
+                    const idA = a.match(/## ID: (.*?)\n/)?.[1] || '';
+                    const idB = b.match(/## ID: (.*?)\n/)?.[1] || '';
+                    return idA.localeCompare(idB);
+                });
+
+                // Join test cases with separators
+                const mergedContent = allTestCases.join('\n\n---\n\n');
+
                 // Format and display the result
-                const formattedJson = JSON.stringify(allTestCases, null, 2);
-                resultOutput.value = formattedJson;
+                resultOutput.value = mergedContent;
                 
                 copyBtn.disabled = false;
                 showAlert(`Successfully merged ${allTestCases.length} test cases.`, 'success');
@@ -396,7 +398,4 @@
         });
     </script>
 </body>
-<footer>
-    <p>Created by Hoang Phan: https://t.me/hoangpmwork</p>
-</footer>
 </html>
