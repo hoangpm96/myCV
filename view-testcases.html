@@ -528,7 +528,6 @@
         let subcategories = new Set();
 
         // Function to parse markdown into test cases
-        // Function to parse markdown into test cases
         function parseMarkdownToTestCases(markdown) {
         const testCases = [];
         const testCaseBlocks = markdown.split('---').filter(block => block.trim());
@@ -579,7 +578,7 @@
                 
                 // Xử lý ID
                 if (line.startsWith('**ID:**')) {
-                    testCase.ID = line.replace(/^\*\*ID:\*\*:\s*/, '').trim();
+                    testCase.ID = line.replace(/^\*\*ID:\*\*:?/, '').trim();
                     continue;
                 }
                 
