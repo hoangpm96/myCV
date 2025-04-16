@@ -578,7 +578,7 @@
                 }
                 
                 // Xử lý ID
-                if (line.startsWith('**ID:**:')) {
+                if (line.startsWith('**ID:**')) {
                     testCase.ID = line.replace(/^\*\*ID:\*\*:\s*/, '').trim();
                     continue;
                 }
