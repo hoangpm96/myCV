@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Test Cases - hoangphan.blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a6cf7;
+            --secondary-color: #f5f7fd;
+            --text-color: #333;
+            --border-color: #ddd;
+            --hover-color: #eef2ff;
+            --dark-color: #2b3a4a;
+        }
+        
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f9fafc;
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 98%;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: var(--dark-color);
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .toolbar {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: var(--secondary-color);
+            padding: 15px;
+            border-radius: 6px;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            max-width: 400px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            padding-right: 35px;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s;
+            margin-left: 16px;
+        }
+        
+        button:hover {
+            background-color: #3858e9;
+            transform: translateY(-1px);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .filter-section {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+        
+        select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: white;
+            min-width: 150px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.1);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            max-width: 100%;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        th {
+            background-color: var(--secondary-color);
+            font-weight: 600;
+            color: var(--dark-color);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            white-space: nowrap;
+        }
+        
+        td {
+            background-color: white;
+            transition: background-color 0.2s;
+        }
+        
+        tr:hover td {
+            background-color: var(--hover-color);
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .pagination-controls {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .pagination-controls button {
+            background-color: white;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            min-width: 35px;
+            height: 35px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .pagination-controls button.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .pagination-controls button:hover:not(.active) {
+            background-color: var(--secondary-color);
+        }
+        
+        .pagination-controls button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .page-info {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .page-size select {
+            min-width: 80px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 30px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .checkbox-cell {
+            width: 40px;
+            text-align: center;
+        }
+        
+        .id-cell {
+            width: 110px;
+        }
+
+        .checklist-cell {
+        min-width: 200px; /* Điều chỉnh độ rộng tùy theo nhu cầu */
+        }
+        
+        .title-cell {
+            min-width: 200px;
+        }
+        
+        .description-cell {
+            min-width: 250px;
+        }
+        
+        .steps-cell {
+            min-width: 300px;
+        }
+        
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        
+        .export-button {
+            background-color: #28a745;
+            padding: 10px 20px;
+        }
+        
+        .export-button:hover {
+            background-color: #218838;
+        }
+        
+        .stats-section {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            background-color: var(--secondary-color);
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        .stats-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .stats-label {
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .stats-value {
+            background-color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: var(--primary-color);
+            font-weight: 600;
+            min-width: 40px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 768px) {
+            .stats-section {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        .step-row {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            min-height: 40px;
+        }
+        
+        .step-row:last-child {
+            border-bottom: none;
+        }
+        
+        td {
+            vertical-align: top;
+        }
+        
+        .test-case-row {
+            border-bottom: 2px solid #ddd;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .modal-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        #markdownInput {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            resize: vertical;
+        }
+
+        .error-message {
+            color: #dc3545;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .primary-button {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Cases Viewer</h1>
+        
+        <div class="toolbar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search test cases...">
+                <span class="search-icon">🔍</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <div class="id-prefix-container" style="margin-right: 15px; display: flex; align-items: center;">
+                    <label for="idPrefix" style="margin-right: 8px; white-space: nowrap;">ID Prefix:</label>
+                    <input type="text" id="idPrefix" value="TC" style="width: 60px; padding: 8px; border: 1px solid var(--border-color); border-radius: 6px;">
+                    <button id="updatePrefix" style="margin-left: 8px;">Update Prefix</button>
+                </div>
+                <button id="importMarkdown">Import Markdown</button>
+                <button id="exportExcel" class="export-button">Export to Excel</button>
+                <button id="exportExcel2" class="export-button">Export to Excel 2</button>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+            </select>
+            <select id="subcategoryFilter">
+                <option value="">All Sub-Categories</option>
+            </select>
+            <select id="priorityFilter">
+                <option value="">All Priorities</option>
+                <option value="1">Priority 1</option>
+                <option value="2">Priority 2</option>
+                <option value="3">Priority 3</option>
+            </select>
+            <select id="pageSizeSelect">
+                <option value="10">10 per page</option>
+                <option value="20" selected>20 per page</option>
+                <option value="50">50 per page</option>
+                <option value="100">100 per page</option>
+            </select>
+        </div>
+        
+        <div class="stats-section">
+            <div class="stats-item">
+                <span class="stats-label">Total Test Cases:</span>
+                <span class="stats-value" id="totalTestCases">0</span>
+            </div>
+            <div class="stats-item">
+                <span class="stats-label">Filtered Test Cases:</span>
+                <span class="stats-value" id="filteredTestCases">0</span>
+            </div>
+            <div class="stats-item">
+                <span class="stats-label">Total Steps:</span>
+                <span class="stats-value" id="totalSteps">0</span>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table id="testCasesTable">
+                <thead>
+                    <tr>
+                        <th class="checkbox-cell"><input type="checkbox" id="selectAll"></th>
+                        <th class="id-cell">ID</th>
+                        <th class="checklist-cell">Checklist</th>
+                        <th class="title-cell">Title</th>
+                        <th>Category</th>
+                        <th>Sub-Category</th>
+                        <th>Priority</th>
+                        <th>Auto</th>
+                        <th class="description-cell">Description</th>
+                        <th>Step No</th>
+                        <th class="steps-cell">Test Steps</th>
+                        <th class="steps-cell">Expected Result</th>
+                        <th>Test Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="10" class="empty-state">
+                            <div style="text-align: center; padding: 40px;">
+                                <p>No test cases loaded. Please import Markdown test cases to begin.</p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination">
+            <div class="page-info" id="pageInfo">Page 1 of 1</div>
+            <div class="pagination-controls" id="paginationControls"></div>
+            <div class="page-size">
+                <select id="pageSizeSelect2">
+                    <option value="10">10 per page</option>
+                    <option value="20" selected>20 per page</option>
+                    <option value="50">50 per page</option>
+                    <option value="100">100 per page</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test case data
+        let testCasesData = [];
+        
+        // Variables for pagination and filtering
+        let currentPage = 1;
+        let pageSize = 20;
+        let filteredData = [];
+        let categories = new Set();
+        let subcategories = new Set();
+        // ID prefix for test cases
+        let idPrefix = "TC";
+
+        // Function to parse markdown into test cases
+        function parseMarkdownToTestCases(markdown) {
+        const testCases = [];
+        const testCaseBlocks = markdown.split('---').filter(block => block.trim());
+        
+        // Hàm kiểm tra xem dòng có phải là một field mới không
+        function isNewField(line) {
+            return line.startsWith('**') && line.includes(':');
+        }
+        
+        testCaseBlocks.forEach(block => {
+            // Chia thành các dòng và giữ cả dòng trống
+            const lines = block.split('\n');
+            const testCase = {
+                STT: '',
+                Category: '',
+                Sub_Category: '',
+                Checklist: '',
+                Priority: '',
+                Title: '',
+                Description: '',
+                Auto: '',
+                Steps: []
+            };
+            
+            let currentStep = null;
+            let testDataSection = false;
+            let testDataLines = [];
+            
+            for (let i = 0; i < lines.length; i++) {
+                let line = lines[i].trim();
+                if (!line) continue;
+                
+                // Đang ở trong phần Test Data
+                if (testDataSection) {
+                    // Nếu gặp field mới hoặc step mới, kết thúc phần Test Data
+                    if (isNewField(line)) {
+                        // Lưu các dòng Test Data đã thu thập và reset
+                        if (currentStep) {
+                            currentStep.Test_data = testDataLines.join('\n');
+                        }
+                        testDataSection = false;
+                        testDataLines = [];
+                    } else {
+                        // Thêm dòng hiện tại vào Test Data
+                        testDataLines.push(line);
+                        continue; // Bỏ qua các xử lý khác
+                    }
+                }
+                
+                // Xử lý STT thay vì ID
+                if (line.startsWith('**STT:**')) {
+                    testCase.STT = line.replace(/^\*\*STT:\*\*:?/, '').trim();
+                    continue;
+                }
+                
+                // Xử lý các field khác
+                if (isNewField(line)) {
+                    const cleanLine = line.replace(/\*\*/g, '');
+                    const colonIndex = cleanLine.indexOf(':');
+                    if (colonIndex === -1) continue;
+                    
+                    const fieldName = cleanLine.substring(0, colonIndex).trim();
+                    const value = cleanLine.substring(colonIndex + 1).trim();
+                    
+                    switch (fieldName) {
+                        case 'Category':
+                            testCase.Category = value;
+                            break;
+                        case 'Sub-Category':
+                            testCase.Sub_Category = value;
+                            break;
+                        case 'Checklist':
+                            testCase.Checklist = value;
+                            break;
+                        case 'Priority':
+                            testCase.Priority = value;
+                            break;
+                        case 'Title':
+                            testCase.Title = value;
+                            break;
+                        case 'Description':
+                            testCase.Description = value;
+                            break;
+                        case 'Step':
+                            // Lưu Test Data từ step trước nếu có
+                            if (currentStep && testDataLines.length > 0) {
+                                currentStep.Test_data = testDataLines.join('\n');
+                                testDataLines = [];
+                            }
+                            
+                            if (currentStep) {
+                                testCase.Steps.push(currentStep);
+                            }
+                            currentStep = {
+                                Step_No: value,
+                                Test_steps: '',
+                                Expected_result: '',
+                                Test_data: ''
+                            };
+                            testDataSection = false;
+                            break;
+                        case 'Action':
+                            if (currentStep) {
+                                currentStep.Test_steps = value;
+                            }
+                            break;
+                        case 'Expected':
+                            if (currentStep) {
+                                currentStep.Expected_result = value;
+                            }
+                            break;
+                        case 'Test Data':
+                            if (currentStep) {
+                                // Bắt đầu phần Test Data
+                                testDataSection = true;
+                                testDataLines = [value]; // Lưu giá trị đầu tiên
+                            }
+                            break;
+                        case 'Auto':
+                            testCase.Auto = value.toLowerCase() === 'yes' ? 'Yes' : 'No';
+                            break;
+                    }
+                }
+            }
+            
+            // Lưu Test Data cho step cuối cùng nếu có
+            if (currentStep && testDataLines.length > 0) {
+                currentStep.Test_data = testDataLines.join('\n');
+            }
+            
+            // Thêm step cuối cùng nếu có
+            if (currentStep) {
+                testCase.Steps.push(currentStep);
+            }
+            
+            // Kiểm tra các trường bắt buộc - STT thay cho ID
+            if (testCase.STT && testCase.Title && testCase.Steps.length > 0) {
+                testCases.push(testCase);
+            }
+        });
+        
+        return testCases;
+    }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Initial idPrefix:", idPrefix);
+            
+            // Modal handling
+            const modal = document.getElementById('markdownModal');
+            const importBtn = document.getElementById('importMarkdown');
+            const closeBtn = document.getElementsByClassName('close')[0];
+            const viewTestcasesBtn = document.getElementById('viewTestcases');
+            const markdownInput = document.getElementById('markdownInput');
+            const markdownError = document.getElementById('markdownError');
+            const updatePrefixBtn = document.getElementById('updatePrefix');
+
+            console.log('Modal elements:', { modal, importBtn, closeBtn, viewTestcasesBtn });
+
+            if (!modal || !importBtn || !closeBtn || !viewTestcasesBtn) {
+                console.error('Some modal elements were not found!');
+                return;
+            }
+
+            // Show modal
+            importBtn.onclick = function() {
+                console.log('Import button clicked');
+                modal.style.display = "block";
+            }
+
+            // Close modal
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+                markdownError.style.display = "none";
+                markdownInput.value = "";
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    markdownError.style.display = "none";
+                    markdownInput.value = "";
+                }
+            }
+
+            // Validate and process markdown input
+            viewTestcasesBtn.onclick = function() {
+                try {
+                    const markdown = markdownInput.value;
+                    console.log('Input markdown:', markdown);
+                    
+                    const testCases = parseMarkdownToTestCases(markdown);
+                    console.log('Parsed test cases:', testCases);
+                    
+                    if (testCases.length === 0) {
+                        throw new Error("No valid test cases found in the markdown input");
+                    }
+
+                    // Update ID prefix for current import if field has been changed
+                    const newPrefix = document.getElementById('idPrefix').value.trim();
+                    console.log("Setting idPrefix in import from:", idPrefix, "to:", newPrefix);
+                    idPrefix = newPrefix;
+
+                    // If validation passes, update the test cases
+                    testCasesData = testCases;
+                    filteredData = [...testCasesData];
+                    
+                    // Reset filters and update UI
+                    document.getElementById('searchInput').value = '';
+                    document.getElementById('categoryFilter').value = '';
+                    document.getElementById('subcategoryFilter').value = '';
+                    document.getElementById('priorityFilter').value = '';
+                    
+                    // Update categories and subcategories
+                    categories.clear();
+                    subcategories.clear();
+                    testCasesData.forEach(item => {
+                        categories.add(item.Category);
+                        subcategories.add(item.Sub_Category);
+                    });
+
+                    // Update filter dropdowns
+                    updateFilterDropdowns();
+                    
+                    // Reset pagination
+                    currentPage = 1;
+                    
+                    // Update statistics and render table
+                    updateStatistics();
+                    renderTable();
+                    
+                    // Close modal
+                    modal.style.display = "none";
+                    markdownError.style.display = "none";
+                    markdownInput.value = "";
+                    
+                } catch (error) {
+                    markdownError.textContent = `Error: ${error.message}`;
+                    markdownError.style.display = "block";
+                }
+            }
+
+            // Update filter dropdowns
+            function updateFilterDropdowns() {
+                const categoryFilter = document.getElementById('categoryFilter');
+                const subcategoryFilter = document.getElementById('subcategoryFilter');
+                
+                // Clear existing options except the first one
+                while (categoryFilter.options.length > 1) {
+                    categoryFilter.remove(1);
+                }
+                while (subcategoryFilter.options.length > 1) {
+                    subcategoryFilter.remove(1);
+                }
+                
+                // Add new options
+                Array.from(categories).sort().forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category;
+                    option.textContent = category;
+                    categoryFilter.appendChild(option);
+                });
+                
+                Array.from(subcategories).sort().forEach(subcategory => {
+                    const option = document.createElement('option');
+                    option.value = subcategory;
+                    option.textContent = subcategory;
+                    subcategoryFilter.appendChild(option);
+                });
+            }
+            
+            // Initialize the table
+            initializeTable();
+
+            // Link the button to the export function
+            document.getElementById('exportExcel2').addEventListener('click', exportToExcel2);
+
+            // Update ID prefix event handler
+            updatePrefixBtn.onclick = function() {
+                const newPrefix = document.getElementById('idPrefix').value.trim();
+                console.log("Updating prefix from:", idPrefix, "to:", newPrefix);
+                idPrefix = newPrefix;
+                if (testCasesData.length > 0) {
+                    renderTable();
+                }
+            }
+        });
+        
+        // Initialize the table
+        function initializeTable() {
+            // Set up event listeners
+            document.getElementById('searchInput').addEventListener('input', filterTable);
+            document.getElementById('categoryFilter').addEventListener('change', filterTable);
+            document.getElementById('subcategoryFilter').addEventListener('change', filterTable);
+            document.getElementById('priorityFilter').addEventListener('change', filterTable);
+            document.getElementById('pageSizeSelect').addEventListener('change', function() {
+                pageSize = parseInt(this.value);
+                currentPage = 1;
+                renderTable();
+            });
+            document.getElementById('selectAll').addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            document.getElementById('exportExcel').addEventListener('click', exportToExcel);
+            document.getElementById('exportExcel2').addEventListener('click', exportToExcel2);
+            
+            // Show empty state initially
+            const tableBody = document.querySelector('#testCasesTable tbody');
+            tableBody.innerHTML = `<tr><td colspan="10" class="empty-state">
+                <div style="text-align: center; padding: 40px;">
+                    <p>No test cases loaded. Please import Markdown test cases to begin.</p>
+                </div>
+            </td></tr>`;
+        }
+        
+        // Update statistics display
+        function updateStatistics() {
+            const totalTestCases = testCasesData.length;
+            const filteredTestCases = filteredData.length;
+            const totalSteps = testCasesData.reduce((acc, item) => acc + item.Steps.length, 0);
+            const filteredSteps = filteredData.reduce((acc, item) => acc + item.Steps.length, 0);
+            
+            document.getElementById('totalTestCases').textContent = totalTestCases;
+            document.getElementById('filteredTestCases').textContent = filteredTestCases;
+            document.getElementById('totalSteps').textContent = totalSteps;
+            
+            // Update the stats section visibility based on filter state
+            const statsSection = document.querySelector('.stats-section');
+            const filteredStatsItems = statsSection.querySelectorAll('.stats-item');
+            
+            // Show/hide filtered stats based on whether there's any filtering
+            const isFiltered = totalTestCases !== filteredTestCases;
+            filteredStatsItems[1].style.display = isFiltered ? 'flex' : 'none';
+        }
+        
+        // Filter the table based on search and filter values
+        function filterTable() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const subcategoryFilter = document.getElementById('subcategoryFilter').value;
+            const priorityFilter = document.getElementById('priorityFilter').value;
+            
+            filteredData = testCasesData.filter(item => {
+                // Generate display ID with prefix for searching
+                const displayId = (idPrefix + item.STT).toLowerCase();
+                
+                const matchesSearch = 
+                    displayId.includes(searchTerm) ||
+                    item.STT.toLowerCase().includes(searchTerm) ||
+                    item.Title.toLowerCase().includes(searchTerm) ||
+                    item.Description.toLowerCase().includes(searchTerm) ||
+                    item.Category.toLowerCase().includes(searchTerm) ||
+                    item.Sub_Category.toLowerCase().includes(searchTerm) ||
+                    item.Checklist.toLowerCase().includes(searchTerm) ||
+                    item.Priority.toLowerCase().includes(searchTerm);
+                
+                const matchesCategory = categoryFilter === '' || item.Category === categoryFilter;
+                const matchesSubcategory = subcategoryFilter === '' || item.Sub_Category === subcategoryFilter;
+                const matchesPriority = priorityFilter === '' || item.Priority === priorityFilter;
+                
+                return matchesSearch && matchesCategory && matchesSubcategory && matchesPriority;
+            });
+            
+            // Sort by priority if filter is selected, otherwise sort by ID
+            if (priorityFilter !== '') {
+                filteredData.sort((a, b) => {
+                    return parseInt(a.Priority) - parseInt(b.Priority);
+                });
+            } else {
+                filteredData.sort((a, b) => {
+                    return a.STT.localeCompare(b.STT);
+                });
+            }
+            
+            currentPage = 1;
+            updateStatistics();
+            renderTable();
+        }
+        
+        // Render the table with current filtered data and pagination
+        function renderTable() {
+            console.log("Rendering table with idPrefix:", idPrefix);
+            const tableBody = document.querySelector('#testCasesTable tbody');
+            const startIndex = (currentPage - 1) * pageSize;
+            const paginatedData = filteredData.slice(startIndex, startIndex + pageSize);
+            
+            // Show empty state if no data
+            if (paginatedData.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="10" class="empty-state">
+                    <div style="text-align: center; padding: 40px;">
+                        <p>${testCasesData.length === 0 ? 'No test cases loaded. Please import Markdown test cases to begin.' : 'No test cases found matching your criteria.'}</p>
+                    </div>
+                </td></tr>`;
+                return;
+            }
+
+            tableBody.innerHTML = '';
+            
+            paginatedData.forEach(item => {
+                // Generate the ID with prefix
+                const displayId = idPrefix + item.STT;
+                console.log("Generated displayId:", displayId, "from prefix:", idPrefix, "and STT:", item.STT);
+                
+                // Create main row with test case info
+                const mainRow = document.createElement('tr');
+                mainRow.className = 'test-case-row';
+                
+                // Add checkbox and test case info cells
+                const checkboxCell = document.createElement('td');
+                checkboxCell.className = 'checkbox-cell';
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.dataset.id = displayId;
+                checkboxCell.appendChild(checkbox);
+                mainRow.appendChild(checkboxCell);
+                
+                mainRow.appendChild(createCell(displayId, 'id-cell'));
+                mainRow.appendChild(createCell(item.Checklist, 'checklist-cell'));
+                mainRow.appendChild(createCell(item.Title, 'title-cell'));
+                mainRow.appendChild(createCell(item.Category));
+                mainRow.appendChild(createCell(item.Sub_Category));
+                mainRow.appendChild(createCell(item.Priority));
+                mainRow.appendChild(createCell(item.Auto));
+                mainRow.appendChild(createCell(item.Description, 'description-cell'));
+
+                // Create cells for step info
+                const stepNoCell = document.createElement('td');
+                const testStepsCell = document.createElement('td');
+                const expectedResultCell = document.createElement('td');
+                const testDataCell = document.createElement('td');
+
+                // Create content for step cells
+                let stepNoContent = '';
+                let testStepsContent = '';
+                let expectedResultContent = '';
+                let testDataContent = '';
+
+                // Display only actual steps
+                item.Steps.forEach((step, index) => {
+                    stepNoContent += `<div class="step-row">${step.Step_No}</div>`;
+                    testStepsContent += `<div class="step-row">${step.Test_steps}</div>`;
+                    expectedResultContent += `<div class="step-row">${step.Expected_result}</div>`;
+                    if (step.Test_data) {
+                        const testDataLines = step.Test_data.split('\n');
+                        const formattedTestData = testDataLines.join('<br>');
+                        testDataContent += `<div class="step-row">${formattedTestData}</div>`;
+                    } else {
+                        testDataContent += `<div class="step-row">N/A</div>`;
+                    }
+                });
+
+                stepNoCell.innerHTML = stepNoContent;
+                testStepsCell.innerHTML = testStepsContent;
+                expectedResultCell.innerHTML = expectedResultContent;
+                testDataCell.innerHTML = testDataContent;
+
+                mainRow.appendChild(stepNoCell);
+                mainRow.appendChild(testStepsCell);
+                mainRow.appendChild(expectedResultCell);
+                mainRow.appendChild(testDataCell);
+
+                tableBody.appendChild(mainRow);
+            });
+            
+            updatePagination();
+        }
+
+        // Helper function to create a table cell
+        function createCell(content, className = '') {
+            const cell = document.createElement('td');
+            if (className) cell.className = className;
+            cell.textContent = content || 'N/A';
+            return cell;
+        }
+        
+        // Update pagination controls
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredData.length / pageSize);
+            const paginationControls = document.getElementById('paginationControls');
+            paginationControls.innerHTML = '';
+            
+            // Add previous button
+            addPaginationButton('←', currentPage > 1, () => {
+                currentPage--;
+                renderTable();
+            });
+            
+            // Add page numbers
+            const maxPagesToShow = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+            let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+            
+            if (endPage - startPage + 1 < maxPagesToShow) {
+                startPage = Math.max(1, endPage - maxPagesToShow + 1);
+            }
+            
+            for (let i = startPage; i <= endPage; i++) {
+                addPaginationButton(i.toString(), true, () => {
+                    currentPage = i;
+                    renderTable();
+                }, i === currentPage);
+            }
+            
+            // Add next button
+            addPaginationButton('→', currentPage < totalPages, () => {
+                currentPage++;
+                renderTable();
+            });
+            
+            // Update page info
+            document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages}`;
+        }
+        
+        // Helper function to add a pagination button
+        function addPaginationButton(text, enabled, onClick, isActive = false) {
+            const button = document.createElement('button');
+            button.innerHTML = text;
+            button.disabled = !enabled;
+            if (isActive) button.className = 'active';
+            if (onClick) button.onclick = onClick;
+            document.getElementById('paginationControls').appendChild(button);
+        }
+        
+        // Export to Excel function
+        function exportToExcel() {
+            const exportButton = document.getElementById('exportExcel');
+            const originalText = exportButton.innerHTML;
+            exportButton.innerHTML = '<div class="loading-spinner"></div>Exporting...';
+            exportButton.disabled = true;
+            
+            setTimeout(() => {
+                try {
+                    const wb = XLSX.utils.book_new();
+                    
+                    // Create worksheet with flattened data
+                    const flatData = filteredData.flatMap(item => 
+                        item.Steps.map(step => ({
+                            ID: idPrefix + item.STT,
+                            Checklist: item.Checklist,
+                            Title: item.Title,
+                            Category: item.Category,
+                            'Sub-Category': item.Sub_Category,
+                            Priority: item.Priority,
+                            Auto: item.Auto,
+                            Description: item.Description,
+                            'Step No': step.Step_No,
+                            'Test Steps': step.Test_steps,
+                            'Expected Result': step.Expected_result,
+                            'Test Data': step.Test_data
+                        }))
+                    );
+                    
+                    const ws = XLSX.utils.json_to_sheet(flatData);
+                    XLSX.utils.book_append_sheet(wb, ws, 'Test Cases');
+                    
+                    // Save file
+                    XLSX.writeFile(wb, 'test_cases.xlsx');
+                } catch (error) {
+                    console.error('Export failed:', error);
+                    alert('Export failed. Please try again.');
+                } finally {
+                    exportButton.innerHTML = originalText;
+                    exportButton.disabled = false;
+                }
+            }, 100);
+        }
+
+        // Add this function to handle the second export
+        function exportToExcel2() {
+            const exportButton = document.getElementById('exportExcel2');
+            const originalText = exportButton.innerHTML;
+            exportButton.innerHTML = '<div class="loading-spinner"></div>Exporting...';
+            exportButton.disabled = true;
+
+            setTimeout(() => {
+                try {
+                    const wb = XLSX.utils.book_new();
+                    const excelData = [];
+                    const headers = ['ID', 'Checklist', 'Title', 'Category', 'Sub-Category', 'Priority', 'Auto', 'Description', 'Step No', 'Test Steps', 'Expected Result', 'Test Data'];
+                    excelData.push(headers);
+
+                    // Create a map to group test cases by ID
+                    const groupedData = {};
+
+                    filteredData.forEach(testCase => {
+                        const displayId = idPrefix + testCase.STT;
+                        if (!groupedData[displayId]) {
+                            groupedData[displayId] = {
+                                Checklist: testCase.Checklist,
+                                Title: testCase.Title,
+                                Category: testCase.Category,
+                                Sub_Category: testCase.Sub_Category,
+                                Priority: testCase.Priority,
+                                Auto: testCase.Auto,
+                                Description: testCase.Description,
+                                Steps: []
+                            };
+                        }
+                        // Add steps to the corresponding ID
+                        groupedData[displayId].Steps.push(...testCase.Steps);
+                    });
+
+                    // Prepare the data for export
+                    for (const id in groupedData) {
+                        const item = groupedData[id];
+                        const firstRow = [
+                            id,
+                            item.Checklist,
+                            item.Title,
+                            item.Category,
+                            item.Sub_Category,
+                            item.Priority,
+                            item.Auto,
+                            item.Description,
+                            item.Steps[0]?.Step_No || '',
+                            item.Steps[0]?.Test_steps || '',
+                            item.Steps[0]?.Expected_result || '',
+                            item.Steps[0]?.Test_data || 'N/A'
+                        ];
+                        excelData.push(firstRow);
+
+                        // For subsequent steps, leave the ID and other fields empty
+                        for (let i = 1; i < item.Steps.length; i++) {
+                            const step = item.Steps[i];
+                            const stepRow = [
+                                '', // Empty ID
+                                '', // Empty Checklist
+                                '', // Empty Title
+                                '', // Empty Category
+                                '', // Empty Sub-Category
+                                '', // Empty Priority
+                                '', // Empty Auto
+                                '', // Empty Description
+                                step.Step_No,
+                                step.Test_steps,
+                                step.Expected_result,
+                                step.Test_data || 'N/A'
+                            ];
+                            excelData.push(stepRow);
+                        }
+                    }
+
+                    // Create worksheet
+                    const ws = XLSX.utils.aoa_to_sheet(excelData);
+                    // Set up merge cells for common test case info
+                    const merges = [];
+                    let startRow = 1; // Start from row after header
+
+                    for (const id in groupedData) {
+                        const item = groupedData[id];
+                        if (item.Steps.length > 1) {
+                            // Calculate range for each column that needs merging
+                            merges.push({
+                                s: { r: startRow, c: 0 }, // ID
+                                e: { r: startRow + item.Steps.length - 1, c: 0 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 1 }, // Checklist
+                                e: { r: startRow + item.Steps.length - 1, c: 1 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 2 }, // Title
+                                e: { r: startRow + item.Steps.length - 1, c: 2 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 3 }, // Category
+                                e: { r: startRow + item.Steps.length - 1, c: 3 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 4 }, // Sub-Category
+                                e: { r: startRow + item.Steps.length - 1, c: 4 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 5 }, // Priority
+                                e: { r: startRow + item.Steps.length - 1, c: 5 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 6 }, // Auto
+                                e: { r: startRow + item.Steps.length - 1, c: 6 }
+                            });
+                            merges.push({
+                                s: { r: startRow, c: 7 }, // Description
+                                e: { r: startRow + item.Steps.length - 1, c: 7 }
+                            });
+                        }
+                        startRow += item.Steps.length; // Move to the next group
+                    }
+
+                    // Apply merges to worksheet
+                    ws['!merges'] = merges;
+
+                    XLSX.utils.book_append_sheet(wb, ws, 'Test Cases');
+                    // Save file
+                    XLSX.writeFile(wb, 'test_cases_2.xlsx');
+                } catch (error) {
+                    console.error('Export failed:', error);
+                    alert('Export failed. Please try again.');
+                } finally {
+                    exportButton.innerHTML = originalText;
+                    exportButton.disabled = false;
+                }
+            }, 100);
+        }
+    </script>
+
+    <!-- Add Markdown Import Modal -->
+    <div id="markdownModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Import Test Cases Markdown</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <textarea id="markdownInput" placeholder="Paste your markdown test cases here..."></textarea>
+                <div id="markdownError" class="error-message"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="viewTestcases" class="primary-button">View Test Cases</button>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <p>Created by Hoang Phan: https://t.me/hoangpmwork</p>
+</footer>
+</html>

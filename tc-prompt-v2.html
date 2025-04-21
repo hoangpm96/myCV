@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create QA/QC Prompt</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --background-color: #f5f7fa;
+            --card-color: #ffffff;
+            --text-color: #333333;
+            --border-color: #dce0e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--card-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .card-header h1 {
+            margin: 0;
+        }
+
+        .expand-icon {
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+
+        .expand-icon.collapsed {
+            transform: rotate(-90deg);
+        }
+
+        .card-content {
+            display: block;
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+
+        .card-content.collapsed {
+            display: none;
+        }
+
+        h1, h2 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .toggle-container label {
+            margin: 0 0 0 10px;
+            cursor: pointer;
+        }
+
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-copy {
+            margin-top: 10px;
+            background-color: #27ae60;
+        }
+
+        .btn-copy:hover {
+            background-color: #219653;
+        }
+
+        .output {
+            background-color: #f8f9fa;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-option input {
+            margin-right: 5px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: var(--secondary);
+            opacity: 0.7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-footer {
+            font-size: 14px;
+            padding: 5px 10px;
+            background-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <div class="card">
+                <div class="card-header" onclick="toggleSection('promptForm')">
+                    <h1>Generate Checklist Prompt</h1>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div id="promptForm" class="card-content">
+                    <form id="promptForm">
+                        <div class="form-group">
+                            <label for="projectDescription">Project Description:</label>
+                            <textarea id="projectDescription" placeholder="Enter project description..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="featureInfo">Feature Information:</label>
+                            <textarea id="featureInfo" placeholder="Enter feature information..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="userFlow">User Flow:</label>
+                            <textarea id="userFlow" placeholder="Enter user flow..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="technicalRequirements">Technical Requirements, Special Cases & AC:</label>
+                            <textarea id="technicalRequirements" placeholder="Enter technical requirements and special cases..."></textarea>
+                        </div>
+                        
+                        <h2>Configuration</h2>
+                        
+                        <div class="form-group">
+                            <label for="language">Language:</label>
+                            <select id="language">
+                                <option value="vi" selected>Vietnamese</option>
+                                <option value="en">English</option>
+                            </select>
+                        </div>
+                        
+                        <div class="toggle-container">
+                            <label class="toggle">
+                                <input type="checkbox" id="includeHeader">
+                                <span class="slider"></span>
+                            </label>
+                            <label for="includeHeader">Include header and footer</label>
+                        </div>
+                        
+                        <div class="toggle-container">
+                            <label class="toggle">
+                                <input type="checkbox" id="uiTesting" checked>
+                                <span class="slider"></span>
+                            </label>
+                            <label for="uiTesting">UI testing</label>
+                        </div>
+                        
+                        <div class="toggle-container">
+                            <label class="toggle">
+                                <input type="checkbox" id="securityTesting" checked>
+                                <span class="slider"></span>
+                            </label>
+                            <label for="securityTesting">Security testing</label>
+                        </div>
+                        
+                        <div class="toggle-container">
+                            <label class="toggle">
+                                <input type="checkbox" id="performanceTesting" checked>
+                                <span class="slider"></span>
+                            </label>
+                            <label for="performanceTesting">Performance testing</label>
+                        </div>
+                        
+                        <div class="toggle-container">
+                            <label class="toggle">
+                                <input type="checkbox" id="accessibilityTesting">
+                                <span class="slider"></span>
+                            </label>
+                            <label for="accessibilityTesting">Accessibility testing</label>
+                        </div>
+                        
+                        <div class="toggle-container">
+                            <label class="toggle">
+                                <input type="checkbox" id="dataValidation" checked>
+                                <span class="slider"></span>
+                            </label>
+                            <label for="dataValidation">Data validation testing</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="detailLevel">Detail Level:</label>
+                            <select id="detailLevel">
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                        
+                        <button type="button" class="btn" id="generateBtn">Generate Checklist Prompt</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleSection('testcaseForm')">
+                    <h1>Generate Test Cases Prompt</h1>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div id="testcaseForm" class="card-content collapsed">
+                    <form id="testcaseForm">
+                        <div class="form-group">
+                            <label for="testData">Test Data Example:</label>
+                            <textarea id="testData" placeholder="Enter test data examples..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="testcaseLanguage">Language:</label>
+                            <select id="testcaseLanguage">
+                                <option value="en">English</option>
+                                <option value="vi">Vietnamese</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="testStepDetail">Test Steps Detail Level:</label>
+                            <select id="testStepDetail">
+                                <option value="high">High (Very detailed steps with specific actions)</option>
+                                <option value="medium">Medium (Standard steps with clear actions)</option>
+                                <option value="low" selected>Low (Basic steps with main actions)</option>
+                            </select>
+                        </div>
+                        
+                        <button type="button" class="btn" id="generateTestcaseBtn">Generate Test Cases Prompt</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-column">
+            <div class="card">
+                <h2>Your Prompt</h2>
+                <div class="output" id="promptOutput"></div>
+                <button type="button" class="btn btn-copy" id="copyBtn">Copy Prompt</button>
+                <div class="success-message" id="copySuccess">Prompt copied to clipboard!</div>
+                <button type="button" class="btn btn-footer" id="copyRenumberBtn">Copy Renumber Note</button>
+                <div class="success-message" id="copyRenumberSuccess">Note copied to clipboard!</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId);
+            const header = content.previousElementSibling;
+            const icon = header.querySelector('.expand-icon');
+            
+            content.classList.toggle('collapsed');
+            icon.classList.toggle('collapsed');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateBtn = document.getElementById('generateBtn');
+            const generateTestcaseBtn = document.getElementById('generateTestcaseBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const copyRenumberBtn = document.getElementById('copyRenumberBtn');
+            const promptOutput = document.getElementById('promptOutput');
+            const copySuccess = document.getElementById('copySuccess');
+            const copyRenumberSuccess = document.getElementById('copyRenumberSuccess');
+            
+            generateBtn.addEventListener('click', generatePrompt);
+            generateTestcaseBtn.addEventListener('click', generateTestcasePrompt);
+            copyBtn.addEventListener('click', copyPrompt);
+            copyRenumberBtn.addEventListener('click', copyRenumberNote);
+            
+            function generateTestcasePrompt() {
+                const testData = document.getElementById('testData').value;
+                const testcaseLanguage = document.getElementById('testcaseLanguage').value;
+                const testStepDetail = document.getElementById('testStepDetail').value;
+                
+                const structure = `**STT:** [001, 002, ...]
+**Checklist:** [Checklist Item] 
+**Category:** [Category Name]  
+**Sub-Category:** [Sub-Category]  
+**Priority:** [Priority Number 1-4] 
+**Auto:** [Yes/No] 
+**Title:** [Title of testcase]  
+**Description:** [Description of testcase]
+
+**Step:** [Step No] 
+**Action:** [Details of test step]  
+**Expected:** [Expected result of step]  
+**Test Data:** [Test data or N/A if not applicable]
+
+**Step:** [Step No] 
+**Action:** [Details of test step]  
+**Expected:** [Expected result of step]  
+**Test Data:** [Test data or N/A if not applicable]
+
+[Add additional steps as needed following the same format]
+
+---`;
+                
+                let prompt = `Generate test cases from the checklist, using the following format:
+
+${structure}
+${testData ? `\nTest Data Examples:\n${testData}` : ''}
+
+Requirements:
+- Generate 20 test cases for each time.
+- Write test cases content, Category and Subcategory in ${testcaseLanguage === 'vi' ? 'Vietnamese' : 'English'}
+- Write "Checklist" content in their language when send to you
+- Each test case should have a unique STT followed by sequential numbers
+- Test steps should be ${testStepDetail === 'high' ? 'very detailed with specific actions and inputs' : 
+  testStepDetail === 'medium' ? 'clear and standard with main actions' : 
+  'basic with essential actions only'}
+- Include relevant test data from the examples provided
+- Expected results should be clear and verifiable
+- Each test case should focus on testing one specific aspect or scenario
+- IMPORTANT: When generating testcases, follow exactly the lastest checklist to map between checklist and testcases
+- Nhớ rằng, bám sát vào checklist gần nhất, không thêm, bớt case nào.`;
+
+                promptOutput.textContent = prompt;
+            }
+
+            function generatePrompt() {
+                const projectDescription = document.getElementById('projectDescription').value;
+                const featureInfo = document.getElementById('featureInfo').value;
+                const userFlow = document.getElementById('userFlow').value;
+                const technicalRequirements = document.getElementById('technicalRequirements').value;
+                const language = document.getElementById('language').value;
+                const includeHeader = document.getElementById('includeHeader').checked;
+                const uiTesting = document.getElementById('uiTesting').checked;
+                const securityTesting = document.getElementById('securityTesting').checked;
+                const performanceTesting = document.getElementById('performanceTesting').checked;
+                const accessibilityTesting = document.getElementById('accessibilityTesting').checked;
+                const dataValidation = document.getElementById('dataValidation').checked;
+                const detailLevel = document.getElementById('detailLevel').value;
+                
+                let prompt = `You are an expert QA/QC professional in software testing. Your task is to analyze user requirements and create structured test checklists or test cases.
+
+Based on the available information, you will:
+1. Analyze the feature details provided by the user
+2. Identify necessary test cases, paying special attention to project-specific characteristics
+3. Organize the checklist according to user flow from start to finish
+4. Create a clear hierarchical structure
+5. Within each flow step, arrange test cases by priority (happy paths first, error cases after)
+6. Organize the checklist following the sequential flow of user actions
+7. Group related test cases into broader categories (e.g., by functional area or UI region) to avoid excessive detail or redundancy. For example:
+   - Instead of listing separate checks for every individual UI element (logo, status, button, etc.) in a single region, create a single test case for verifying the correct display of all these elements within that region.
+   - Ensure that test cases cover the overall functionality and UI of a specific area, while avoiding unnecessary fragmentation.
+8. Combine test cases within a single user action flow to avoid redundancy. For example:
+   - Instead of creating separate items like "Verify button is clickable" and "Verify confirmation popup appears after clicking the button," combine them into one checklist item such as "Verify that clicking the 'Disconnect account' button triggers the confirmation popup and the button is functional.
+
+${projectDescription ? `## Project description:\n${projectDescription}\n` : ''}
+${featureInfo ? `## Feature information:\n${featureInfo}\n` : ''}
+${userFlow ? `# User Flow:\n${userFlow}\n` : ''}
+${technicalRequirements ? `# Technical Requirements & Special Cases:\n${technicalRequirements}\n` : ''}`;
+
+                prompt += `
+${language === 'vi' ? '- Create the checklist in Vietnamese' : '- Create the checklist in English'}
+${uiTesting ? '- Include checks for UI elements, layout, responsiveness, and visual aspects' : ''}
+${securityTesting ? '- Include checks for authentication, authorization, input validation, and other security concerns' : ''}
+${performanceTesting ? '- Include checks for response times, loading behavior, and system performance under various conditions' : ''}
+${accessibilityTesting ? '- Include checks for keyboard navigation, color contrast, and other accessibility standards' : ''}
+${dataValidation ? '- Include checks for input field validation, boundary testing, and data integrity' : ''}
+${detailLevel === 'high' ? '- Create a comprehensive checklist with extensive test cases covering edge cases and rare scenarios' : 
+  detailLevel === 'medium' ? '- Create a standard checklist with common test cases' : 
+  '- Create a minimal checklist with only essential test cases'}
+${!includeHeader ? 'IMPORTANCE: Do not include header and footer of application checklists\n' : 'IMPORTANCE: Include header and footer of application checklists\n'}
+
+Your response MUST be on regular text format (no coding block), no explanatory text and follow:
+- No explanation text or title, just only checklist items
+- Categories should be numbered sequentially (1, 2, 3, etc.)
+- Subcategories within each category should be numbered using decimal notation (e.g., 1.1, 1.2, 2.1, 2.2, etc.) where the first number corresponds to the parent category
+- Format each check item as: "[[priority]] [[Yes/No]] [number]. [check item]"
+- Individual checklist items should be numbered sequentially across all categories and subcategories (1, 2, 3, 4, etc.) regardless of which subcategory they belong to
+- The numbering of checklist items should continue uninterrupted throughout the entire list
+- Priority levels:
+     [1] - Critical: Must be tested first; directly affects core functionality, security, or system stability
+     [2] - High: Important but not critical; affects user experience or primary workflows
+     [3] - Medium: Should be tested when possible; affects secondary functionality or edge cases
+     [4] - Low: Nice to have; cosmetic issues or rare scenarios with minimal impact
+- Add “Yes” or “No” right after the [priority] of each checklist item to indicate whether it can be automated using Playwright or similar tools. Use the following criteria to decide:
+  - **Yes**: The test case can be fully automated using Playwright or similar UI-based automation tools. Examples include:
+      - Verifying UI elements' visibility, interactivity
+      - Validating input field behaviors, such as boundary checks or invalid data handling
+      - Testing response times or loading behavior with predefined thresholds
+      - Checking navigation flows, button clicks, and form submissions
+  - **No**: The test case cannot be automated using Playwright or similar tools. Examples include:
+      - Verifying subjective visual aspects, such as animation smoothness or UI alignment/layout
+      - Testing system-level performance (e.g., CPU, RAM usage) that requires specialized tools
+      - User experience tests requiring human judgment, such as accessibility heuristics or color contrast perception
+- Do not translate button names, label, fields and specialized terms; keep them in the original language.
+
+#1. Category A
+  ##1.1. Subcategory A1
+      [1] [Yes] 1. First check item
+      [4] [No] 2. Second check item
+  ##1.2. Subcategory A2
+      [1] [Yes] 3. Third check item
+#2. Category B
+  ##2.1. Subcategory B1
+      [2] [No] 4. Fourth check item`;
+
+                promptOutput.textContent = prompt;
+            }
+            
+            function copyPrompt() {
+                const promptText = promptOutput.textContent;
+                navigator.clipboard.writeText(promptText).then(function() {
+                    copySuccess.style.display = 'block';
+                    setTimeout(function() {
+                        copySuccess.style.display = 'none';
+                    }, 3000);
+                });
+            }
+
+            function copyRenumberNote() {
+                const note = "When regenerating the checklist, the numbers/items always renumber according to the new order.";
+                navigator.clipboard.writeText(note).then(function() {
+                    copyRenumberSuccess.style.display = 'block';
+                    setTimeout(function() {
+                        copyRenumberSuccess.style.display = 'none';
+                    }, 3000);
+                });
+            }
+        });
+    </script>
+</body>
+<footer>
+    <p>Created by Hoang Phan: https://t.me/hoangpmwork</p>
+</footer>
+</html>
