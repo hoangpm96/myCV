@@ -562,6 +562,8 @@
             let currentStep = null;
             let testDataSection = false;
             let testDataLines = [];
+            let expectedSection = false;
+            let expectedLines = [];
             
             for (let i = 0; i < lines.length; i++) {
                 let line = lines[i].trim();
@@ -580,6 +582,23 @@
                     } else {
                         // Thêm dòng hiện tại vào Test Data
                         testDataLines.push(line);
+                        continue; // Bỏ qua các xử lý khác
+                    }
+                }
+                
+                // Đang ở trong phần Expected Result
+                if (expectedSection) {
+                    // Nếu gặp field mới hoặc step mới, kết thúc phần Expected Result
+                    if (isNewField(line)) {
+                        // Lưu các dòng Expected Result đã thu thập và reset
+                        if (currentStep) {
+                            currentStep.Expected_result = expectedLines.join('\n');
+                        }
+                        expectedSection = false;
+                        expectedLines = [];
+                    } else {
+                        // Thêm dòng hiện tại vào Expected Result
+                        expectedLines.push(line);
                         continue; // Bỏ qua các xử lý khác
                     }
                 }
@@ -625,6 +644,12 @@
                                 testDataLines = [];
                             }
                             
+                            // Lưu Expected Result từ step trước nếu có
+                            if (currentStep && expectedLines.length > 0) {
+                                currentStep.Expected_result = expectedLines.join('\n');
+                                expectedLines = [];
+                            }
+                            
                             if (currentStep) {
                                 testCase.Steps.push(currentStep);
                             }
@@ -635,6 +660,7 @@
                                 Test_data: ''
                             };
                             testDataSection = false;
+                            expectedSection = false;
                             break;
                         case 'Action':
                             if (currentStep) {
@@ -643,7 +669,9 @@
                             break;
                         case 'Expected':
                             if (currentStep) {
-                                currentStep.Expected_result = value;
+                                // Bắt đầu phần Expected Result
+                                expectedSection = true;
+                                expectedLines = [value]; // Lưu giá trị đầu tiên
                             }
                             break;
                         case 'Test Data':
@@ -663,6 +691,11 @@
             // Lưu Test Data cho step cuối cùng nếu có
             if (currentStep && testDataLines.length > 0) {
                 currentStep.Test_data = testDataLines.join('\n');
+            }
+            
+            // Lưu Expected Result cho step cuối cùng nếu có
+            if (currentStep && expectedLines.length > 0) {
+                currentStep.Expected_result = expectedLines.join('\n');
             }
             
             // Thêm step cuối cùng nếu có
@@ -980,7 +1013,16 @@
                 item.Steps.forEach((step, index) => {
                     stepNoContent += `<div class="step-row">${step.Step_No}</div>`;
                     testStepsContent += `<div class="step-row">${step.Test_steps}</div>`;
-                    expectedResultContent += `<div class="step-row">${step.Expected_result}</div>`;
+                    
+                    // Xử lý Expected Result có xuống dòng
+                    if (step.Expected_result) {
+                        const expectedLines = step.Expected_result.split('\n');
+                        const formattedExpected = expectedLines.join('<br>');
+                        expectedResultContent += `<div class="step-row">${formattedExpected}</div>`;
+                    } else {
+                        expectedResultContent += `<div class="step-row">N/A</div>`;
+                    }
+                    
                     if (step.Test_data) {
                         const testDataLines = step.Test_data.split('\n');
                         const formattedTestData = testDataLines.join('<br>');
@@ -1075,20 +1117,24 @@
                     
                     // Create worksheet with flattened data
                     const flatData = filteredData.flatMap(item => 
-                        item.Steps.map(step => ({
-                            ID: idPrefix + item.STT,
-                            Checklist: item.Checklist,
-                            Title: item.Title,
-                            Category: item.Category,
-                            'Sub-Category': item.Sub_Category,
-                            Priority: item.Priority,
-                            Auto: item.Auto,
-                            Description: item.Description,
-                            'Step No': step.Step_No,
-                            'Test Steps': step.Test_steps,
-                            'Expected Result': step.Expected_result,
-                            'Test Data': step.Test_data
-                        }))
+                        item.Steps.map(step => {
+                            // Bảo tồn xuống dòng cho Expected Result và Test Data
+                            // Không cần chuyển đổi vì chúng ta muốn giữ nguyên xuống dòng \n trong Excel
+                            return {
+                                ID: idPrefix + item.STT,
+                                Checklist: item.Checklist,
+                                Title: item.Title,
+                                Category: item.Category,
+                                'Sub-Category': item.Sub_Category,
+                                Priority: item.Priority,
+                                Auto: item.Auto,
+                                Description: item.Description,
+                                'Step No': step.Step_No,
+                                'Test Steps': step.Test_steps,
+                                'Expected Result': step.Expected_result,
+                                'Test Data': step.Test_data
+                            };
+                        })
                     );
                     
                     const ws = XLSX.utils.json_to_sheet(flatData);
@@ -1144,6 +1190,9 @@
                     // Prepare the data for export
                     for (const id in groupedData) {
                         const item = groupedData[id];
+                        
+                        // Các giá trị Expected Result và Test Data đã có sẵn xuống dòng \n
+                        // nên chúng ta giữ nguyên không cần xử lý
                         const firstRow = [
                             id,
                             item.Checklist,
@@ -1163,6 +1212,7 @@
                         // For subsequent steps, leave the ID and other fields empty
                         for (let i = 1; i < item.Steps.length; i++) {
                             const step = item.Steps[i];
+                            
                             const stepRow = [
                                 '', // Empty ID
                                 '', // Empty Checklist
@@ -1174,7 +1224,7 @@
                                 '', // Empty Description
                                 step.Step_No,
                                 step.Test_steps,
-                                step.Expected_result,
+                                step.Expected_result || '',
                                 step.Test_data || 'N/A'
                             ];
                             excelData.push(stepRow);
