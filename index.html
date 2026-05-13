@@ -1,293 +1,434 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
-	<title>Hoang Phan - Product Owner and Product Manager</title>
+	<title>Hoang Phan - Senior Product Owner / Product Manager</title>
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon/icon.png"/>
-	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="Hoang Phan">    
-	<!-- Google Fonts -->
+	<meta name="description" content="Hoang Phan - Senior Product Owner / Product Manager">
+	<meta name="author" content="Hoang Phan">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
-	
-	<!-- FontAwesome JS-->
 	<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
-	
-	<!-- Theme CSS -->  
 	<link id="theme-style" rel="stylesheet" href="assets/css/resume.css">
 	<link id="theme-style2" rel="stylesheet" href="assets/css/lang.css">
+	<style>
+		.vi { display: none; }
 
-</head> 
-<body>	
-		<div>
-              <a
-                class="btn-lang"
-                id="change-language-link"
-                data-lang="eng"
-                style="cursor: pointer; display: none"
-                >View this CV in English</a
-              >
+		.print-sidebar { display: none; }
 
-            </div>
-		<div id="content" class="main-wrapper">
-		<div class="container px-3 px-lg-5" >
-			<article class="resume-wrapper mx-auto theme-bg-light p-5 mb-5 my-5 shadow-lg">
-				
-				<div class="resume-header">
-					<div class="row align-items-center">
-						<div class="resume-title col-12">
-							<div class="media flex-column flex-sm-row align-items-center align-items-sm-start">
-								<div class="text-center text-sm-left mr-sm-4 mb-3 mb-sm-0">
-									<img class="resume-profile-image rounded" src="https://hoangphan.blog/wp-content/uploads/2024/07/hoang-phan-avt-2.jpg" alt="Hoang Phan profile" style="width: 160px; height: 160px; object-fit: cover; object-position: center top;">
-									<ul class="list-unstyled mb-0 mt-3" style="font-size: 0.75rem;">
-										<li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg mr-2 "></i><a class="resume-link" href="tel:+84326562797">(+84)32 6562 797</a></li>
-										<li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg mr-2"></i><a class="resume-link" href="mailto:hoangpm.work@gmail.com">hoangpm.work@gmail.com</a></li>
-									</ul>
+		@page { size: A4 portrait; margin: 8mm; }
+
+		@media print {
+			body { min-width: 0 !important; background: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+			.main-wrapper, .container { width: auto !important; max-width: none !important; min-width: 0 !important; padding: 0 !important; margin: 0 !important; }
+			.resume-wrapper { margin: 0 !important; padding: 1.2rem !important; border: none !important; box-shadow: none !important; }
+			.resume-body .row { display: block !important; }
+			.resume-body .row::after { content: ""; display: block; clear: both; }
+			.resume-aside {
+				display: block !important;
+				float: right !important;
+				width: 35% !important;
+				max-width: 35% !important;
+				padding-left: 1.5rem !important;
+				border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
+			}
+			.resume-aside .skills-section { display: block !important; }
+			.resume-main {
+				float: left !important;
+				width: 63% !important;
+				max-width: 63% !important;
+				padding-right: 0 !important;
+			}
+			.skills-section-mobile, .btn-lang, #editor, footer { display: none !important; }
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<a class="btn-lang" id="change-language-link" data-lang="vi" style="cursor: pointer;">Xem CV Tiếng Việt</a>
+	</div>
+	<div id="content" class="main-wrapper">
+	<div class="container px-3 px-lg-5">
+		<article class="resume-wrapper mx-auto theme-bg-light p-5 mb-5 my-5 shadow-lg">
+			<div class="resume-header">
+				<div class="row align-items-center">
+					<div class="resume-title col-12">
+						<div class="media flex-column flex-sm-row align-items-center align-items-sm-start">
+							<div class="text-center text-sm-left mr-sm-4 mb-3 mb-sm-0">
+								<img class="resume-profile-image rounded" src="https://hoangphan.blog/wp-content/uploads/2024/07/hoang-phan-avt-2.jpg" alt="Hoang Phan profile" style="width: 160px; height: 160px; object-fit: cover; object-position: center top;">
+								<ul class="list-unstyled mb-0 mt-3" style="font-size: 0.75rem;">
+									<li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg mr-2"></i><a class="resume-link" href="tel:+84326562797">(+84)32 6562 797</a></li>
+									<li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg mr-2"></i><a class="resume-link" href="mailto:hoangpm.work@gmail.com">hoangpm.work@gmail.com</a></li>
+								</ul>
+							</div>
+							<div class="media-body text-center text-sm-left">
+								<h2 class="resume-name mb-0 text-uppercase en">Hoang Phan</h2>
+								<h2 class="resume-name mb-0 text-uppercase vi">Hoàng Phan</h2>
+								<div class="resume-tagline mb-3 mb-md-0">Senior Product Owner / Product Manager</div>
+								<ul class="resume-list en mt-2 mb-0" style="font-size: 0.875rem;">
+									<li class="mb-2 list-item-st">8+ years across Business Analyst, Product Owner and Product Manager roles, including leading multi-product, cross-functional teams.</li>
+									<li class="mb-2 list-item-st">Led digital banking and payments delivery across many banks at VNPAY in a multi-stakeholder environment.</li>
+									<li class="mb-2 list-item-st">Built and shipped a public-facing data product (Seitrace, official Sei blockchain explorer) and AI products using LLMs — Gemini, GPT, Claude (TestGenAI, EnrichEnglish.App).</li>
+									<li class="mb-0 list-item-st">Cross-role across DEV, QC, BA, PO, and PM — comfortable connecting business, data, and delivery without intermediaries.</li>
+								</ul>
+								<ul class="resume-list vi mt-2 mb-0" style="font-size: 0.875rem;">
+									<li class="mb-2 list-item-st">8+ năm làm việc qua các vai trò Business Analyst, Product Owner và Product Manager, gồm cả kinh nghiệm dẫn dắt nhiều sản phẩm song song với các đội ngũ phát triển phần mềm.</li>
+									<li class="mb-2 list-item-st">Kinh nghiệm dẫn dắt phân tích & triển khai digital banking và thanh toán cho nhiều ngân hàng tại VNPAY.</li>
+									<li class="mb-2 list-item-st">Đã xây dựng và triển khai sản phẩm dữ liệu công khai (Seitrace, official Sei blockchain explorer) và các sản phẩm AI sử dụng LLMs — Gemini, GPT, Claude (TestGenAI, EnrichEnglish.App).</li>
+									<li class="mb-0 list-item-st">Làm việc xuyên vai trò DEV / QC / BA / PO / PM — kết nối giữa business, data và delivery mà không cần qua vai trò trung gian.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="resume-body">
+				<div class="row">
+					<div class="resume-main col-12 col-lg-8 col-xl-9 pr-0 pr-lg-5">
+						<section class="skills-section-mobile py-3">
+							<h3 class="text-uppercase resume-section-heading mb-4 en">Skills</h3>
+							<h3 class="text-uppercase resume-section-heading mb-4 vi">Kỹ năng</h3>
+							<div class="item">
+								<h4 class="item-title en">Business Analyst</h4>
+								<h4 class="item-title vi">Phân tích nghiệp vụ</h4>
+								<ul class="list-unstyled resume-skills-list en">
+									<li class="mb-2">Discovery & requirements</li>
+									<li class="mb-2">Process mapping</li>
+									<li class="mb-2">Rapid prototyping</li>
+									<li class="mb-2">Wireframing & UX analysis</li>
+									<li class="mb-2">UAT & release support</li>
+								</ul>
+								<ul class="list-unstyled resume-skills-list vi">
+									<li class="mb-2">Discovery</li>
+									<li class="mb-2">Mô hình hóa yêu cầu</li>
+									<li class="mb-2">Process mapping</li>
+									<li class="mb-2">Rapid prototyping</li>
+									<li class="mb-2">UAT & release support</li>
+								</ul>
+							</div>
+							<div class="item">
+								<h4 class="item-title">Product Management</h4>
+								<ul class="list-unstyled resume-skills-list en">
+									<li class="mb-2">Strategy & roadmap</li>
+									<li class="mb-2">Backlog prioritization</li>
+									<li class="mb-2">Release planning</li>
+									<li class="mb-2">Metrics & experimentation</li>
+									<li class="mb-2">User & competitor research</li>
+									<li class="mb-2">Product lifecycle management</li>
+								</ul>
+								<ul class="list-unstyled resume-skills-list vi">
+									<li class="mb-2">Chiến lược & roadmap</li>
+									<li class="mb-2">Ưu tiên backlog</li>
+									<li class="mb-2">Release planning</li>
+									<li class="mb-2">Metric & experimentation</li>
+									<li class="mb-2">Nghiên cứu user và đối thủ</li>
+									<li class="mb-2">Quản lý vòng đời sản phẩm</li>
+								</ul>
+							</div>
+							<div class="item">
+								<h4 class="item-title">Building</h4>
+								<ul class="list-unstyled resume-skills-list en">
+									<li class="mb-2">Vibe coding</li>
+									<li class="mb-2">Building product teams</li>
+									<li class="mb-2">Shipping apps from 0 to 1</li>
+								</ul>
+								<ul class="list-unstyled resume-skills-list vi">
+									<li class="mb-2">Vibe coding</li>
+									<li class="mb-2">Xây team product</li>
+									<li class="mb-2">Ship app 0 → 1</li>
+								</ul>
+							</div>
+						</section>
+
+						<section class="work-section py-3">
+							<h3 class="text-uppercase resume-section-heading mb-4 en">Work experience</h3>
+							<h3 class="text-uppercase resume-section-heading mb-4 vi">Kinh nghiệm làm việc</h3>
+
+							<div class="item mb-3">
+								<div class="item-heading row align-items-center mb-2">
+									<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Co-founder / Product Manager</h4>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Jul 2022 – Apr 2026</div>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right vi">07/2022 – 04/2026</div>
+									<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0" style="font-style: italic; color: #767575; font-size: 14px;">Cavies Labs (Full-time Remote)</h5>
 								</div>
-								<div class="media-body text-center text-sm-left">
-									<h2 class="resume-name mb-0 text-uppercase en">Hoang Phan</h2>
-									<h2 class="resume-name mb-0 text-uppercase vi">Hoàng Phan</h2>
-									<div class="resume-tagline mb-3 mb-md-0 en">Product Owner and Product Manager</div>
-									<!-- <div class="resume-tagline mb-3 mb-md-0 en" style="color: red; font-size: 14px;">Hire me as a Freelancer/Advisor: starting from $25/h</div> -->
-									<!-- <a target="_blank" href="assets/pdf/Resume_Hoang phan_ProductManager.pdf" class="btn-lang">Download PDF version</a> -->
-									<div class="resume-tagline mb-3 mb-md-0 vi">Product Owner and Product Manager</div>
-									<div class="resume-tagline mb-3 mb-md-0 vi" style="color: red; font-size: 12px;">Chưa sẵn sàng làm việc.</div>
-									<ul class="resume-list en mt-2 mb-0" style="font-size: 0.875rem;">
-										<li class="mb-2 list-item-st">Product Manager with 8+ years across fintech, banking, crypto, and AI products.</li>
-										<li class="mb-2 list-item-st">Built 0-to-1 products, set up product processes, and led remote cross-functional teams.</li>
-										<li class="mb-2 list-item-st">Strong in product strategy, requirements, execution, and mentoring product teams.</li>
-										<li class="mb-0 list-item-st">Hands-on in building and shipping apps, from AI tools, blockchain apps, SaaS products, and CRM systems to client projects as a freelancer.</li>
+								<div class="item-content">
+									<ul class="resume-list en">
+										<li>Co-founded a product studio and led a 12+ person product, design, and engineering team across multiple parallel initiatives.</li>
+										<li>Owned <a href="https://seitrace.com/about" target="_blank">Seitrace</a> — official Sei blockchain explorer (Jan 2024 – Mar 2026), <strong>the first explorer to support both parallelized EVM and Native Sei (Wasm)</strong>; indexed <strong>5.6B+ transactions</strong> at <strong>99.98% uptime</strong>.</li>
+										<li>Defined data product roadmap with two downstream consumer segments: end-user explorer and public API for dApps/partners/analytics. Received <strong>$50K/year Sei Foundation grant</strong> to run the public API free for the ecosystem, with paid tiers for high-volume partners.</li>
+										<li>Operated the indexing pipeline for Sei (~400ms block time), balancing display latency, data accuracy, and infrastructure cost.</li>
+										<li>30,000+ MAU in the first 6 months; used analytics to separate bot vs. real-user traffic and prioritize features for real users. <a href="assets/img/stats-seitrace.png" target="_blank">View stats</a></li>
+										<li>Shipped DeFi products: DEX, launchpad, analytics, trading tools. Portfolio: <a target="_blank" href="https://hamsterbox.xyz">hamsterbox.xyz</a></li>
+									</ul>
+									<ul class="resume-list vi">
+										<li>Đồng sáng lập product studio, dẫn dắt team 12+ người gồm product, design và engineering qua nhiều sáng kiến song song.</li>
+										<li>Sở hữu <a href="https://seitrace.com/about" target="_blank">Seitrace</a> — official Sei blockchain explorer (01/2024–03/2026), <strong>explorer đầu tiên hỗ trợ đồng thời parallelized EVM và Native Sei (Wasm)</strong>; index <strong>5.6 tỷ+ giao dịch</strong>, uptime <strong>99.98%</strong>.</li>
+										<li>Roadmap data product với 2 nhóm downstream consumer: end-user explorer và public API cho dApps/đối tác/analytics. Nhận <strong>grant 50.000 USD/năm từ Sei Foundation</strong> cho public API miễn phí, có gói trả phí cho volume cao.</li>
+										<li>Vận hành indexing pipeline cho chain Sei (block ~400ms) — cân đối giữa tốc độ hiển thị dữ liệu, độ chính xác và chi phí hạ tầng.</li>
+										<li>30.000+ MAU 6 tháng đầu; dùng analytics tách bot vs. user thật để ưu tiên feature. <a href="assets/img/stats-seitrace.png" target="_blank">Xem thống kê</a></li>
+										<li>Ship nhiều DeFi product: DEX, launchpad, analytics, trading tools. Portfolio: <a target="_blank" href="https://hamsterbox.xyz">hamsterbox.xyz</a></li>
 									</ul>
 								</div>
 							</div>
-						</div><!--//resume-title-->
-					</div><!--//row-->
-					
-				</div><!--//resume-header-->
-				<hr>
-				<div class="resume-body">
-					<div class="row">
-						<div class="resume-main col-12 col-lg-8 col-xl-9 pr-0 pr-lg-5">
-							<section class="skills-section-mobile py-3">
-								<h3 class="text-uppercase resume-section-heading mb-4 en">Skills</h3>
-								<div class="item">
-									<h4 class="item-title en">Business Analyst</h4>
-									<ul class="list-unstyled resume-skills-list en">
-										<li class="mb-2">Discovery & requirements</li>
-										<li class="mb-2">Process mapping</li>
-										<li class="mb-2">Wireframing & UX analysis</li>
-										<li class="mb-2">UAT & release support</li>
+
+							<div class="item mb-3">
+								<div class="item-heading row align-items-center mb-2">
+									<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en">Senior Product Owner and Product Manager</h4>
+									<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 vi">Senior Product Owner / Product Manager</h4>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Mar 2022 – Apr 2024</div>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right vi">03/2022 – 04/2024</div>
+									<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0" style="font-style: italic; color: #767575; font-size: 14px;">Kyros Ventures / Ancient8</h5>
+									<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en" style="font-style: italic; color: #767575; font-size: 12px;">(Full-time Remote: Mar – Sep 2022 & Part-time Remote until Apr 2024)</h5>
+									<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 vi" style="font-style: italic; color: #767575; font-size: 12px;">(Full-time Remote: 03–09/2022, Part-time Remote đến 04/2024)</h5>
+								</div>
+								<div class="item-content">
+									<ul class="resume-list en">
+										<li>Built the product team from scratch, working directly with the CEO and Co-founder, and led product strategy and delivery for Dojo Token, Dojo NFT, Ancient8 User Identity, and <a href="https://space3.gg" target="_blank">Space3.gg</a> across a fast-growing team with many external ecosystem dependencies.</li>
+										<li>Shipped multi-chain wallet login, social auth, and SDK integrations — aligned roadmaps with partner ecosystems and internal engineering.</li>
+										<li>Built product documentation, planning processes, agile release workflows, and prioritization frameworks for a team scaling from a handful to dozens.</li>
+										<li>Mentored junior BAs, POs, and team leads on discovery, prioritization, and outcome-based delivery.</li>
 									</ul>
-								</div><!--//item-->
-								<div class="item">
-									<h4 class="item-title en">Product Management</h4>
-									<ul class="list-unstyled resume-skills-list en">
-										<li class="mb-2">Strategy & roadmap</li>
-										<li class="mb-2">Backlog prioritization</li>
-										<li class="mb-2">Release planning</li>
-										<li class="mb-2">Metrics & experimentation</li>
+									<ul class="resume-list vi">
+										<li><strong>Xây team product từ đầu</strong>, làm việc trực tiếp với CEO và Co-founder. Dẫn dắt product strategy và delivery cho Dojo Token, Dojo NFT, Ancient8 User Identity và <a href="https://space3.gg" target="_blank">Space3.gg</a> trong giai đoạn đội ngũ mở rộng nhanh và phải phối hợp với nhiều đối tác trong hệ sinh thái.</li>
+										<li>Ship multi-chain wallet login, social auth và SDK integrations — align roadmap với các đối tác hệ sinh thái và engineering nội bộ.</li>
+										<li>Build product documentation, planning process, agile release workflow và framework ưu tiên cho team scale từ vài người lên vài chục người.</li>
+										<li>Mentor các bạn BA, PO, team lead junior về discovery, prioritization và outcome-based delivery.</li>
 									</ul>
-								</div><!--//item-->
-								<div class="item">
-									<h4 class="item-title en">Building</h4>
-									<ul class="list-unstyled resume-skills-list en">
-										<li class="mb-2">Vibe coding</li>
-										<li class="mb-2">Building product teams</li>
-										<li class="mb-2">Shipping apps from 0 to 1</li>
+								</div>
+							</div>
+
+							<div class="item mb-3">
+								<div class="item-heading row align-items-center mb-2">
+									<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Senior Business Analyst</h4>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Dec 2019 – May 2021</div>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right vi">12/2019 – 05/2021</div>
+									<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0" style="font-style: italic; color: #767575; font-size: 14px;">VNPAY</h5>
+								</div>
+								<div class="item-content">
+									<ul class="resume-list en">
+										<li>Led BA work on digital banking and payment initiatives in a multi-stakeholder environment — coordinated across <strong>many banks</strong> (ABBANK, IVB, SCB, Kienlongbank, Vietcombank, HDBank, Eximbank), VNPAY product teams, vendors, and UX.</li>
+										<li>Translated complex banking workflows into clear requirements, user stories, and acceptance criteria for mobile banking, omnichannel, eKYC, and payment.</li>
+										<li>Clarified workflows and cross-team coordination points during analysis.</li>
+										<li>Used analysis to drive scope decisions with bank stakeholders, tech leads, and vendors — no direct authority, but kept work moving.</li>
 									</ul>
-								</div><!--//item-->
-								</section>
-									
-							<section class="work-section py-3">
-								<h3 class="text-uppercase resume-section-heading mb-4 en">Work experience</h3>
-								<div class="item mb-3">
-									<div class="item-heading row align-items-center mb-2">
-										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en">Co-founder / Product Manager</h4>
-										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Jul 2022 – May 2026</div>
-										<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en" style="font-style: italic; color: #767575; font-size: 14px;">Cavies Labs (Full time Remote)</h5>	
-									</div>
-									<div class="item-content">
-										<ul class="resume-list">
-											<li>Co-founded a blockchain product studio and led a 12+ person product, design, and engineering team.</li>
-											<li>Launched <a href="https://seitrace.com/about" target="_blank">Seitrace</a> on Sei and grew it to 30,000+ MAUs in the first 6 months; the product ended in late April 2026. <a href="assets/img/stats-seitrace.png" target="_blank">View stats</a></li>
-											<li>Built DeFi products across DEX, launchpad, analytics, and trading tools.</li>
-											<li>Delivered hackathon-winning and grant-backed products. Portfolio: <a target="_blank" href="https://hamsterbox.xyz">hamsterbox.xyz</a></li>
-										</ul>
-									</div>
-											
-								</div><!--//item-->
-								<div class="item mb-3">
-									<div class="item-heading row align-items-center mb-2">
-										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en">Senior Product Owner and Product Manager</h4>
-										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Mar 2022 – Apr 2024</div>
-										<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en" style="font-style: italic; color: #767575; font-size: 14px;">Kyros Ventures/Ancient8</h5>	
-										<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en" style="font-style: italic; color: #767575; font-size: 12px;">(Full-time Remote: Mar - Sep 2022 & Part-time Remote until Apr 2024)</h5>	
-									</div>
-									<div class="item-content">
-										<ul class="resume-list">
-											<li>Led product strategy and delivery for Dojo Token, Dojo NFT, Ancient8 User Identity, and <a href="https://space3.gg" target="_blank">Space3.gg</a> (shutdown March 2026).</li>
-											<li>Shipped multi-chain wallet login, social auth, and SDK integrations for ecosystem products.</li>
-											<li>Built product documentation, planning processes, and release workflows for a fast-growing team.</li>
-											<li>Mentored junior BAs, POs, and team leads on discovery, execution, and agile delivery.</li>
-										</ul>
-									</div>
-											
-								</div><!--//item-->
-								<div class="item mb-3">
-									<div class="item-heading row align-items-center mb-2">
-										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en">Senior Business Analyst</h4>
-										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Dec 2019 – May 2021</div>
-										<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en" style="font-style: italic; color: #767575; font-size: 14px;">VNPAY</h5>	
-									</div>
-									<div class="item-content">
-										<ul class="resume-list">
-											<li>Led digital banking and payment projects for major banks and fintech partners.</li>
-											<li>Shipped mobile banking, omnichannel, eKYC, and cross-border payment solutions.</li>
-											<li>Worked across VNPAY, banks, vendors, and UX teams to align scope and delivery.</li>
-											<li>Delivered products and solutions for banks including ABBANK, IVB, SCB, Kienlongbank, Vietcombank, HDBank, and Eximbank.</li>
-										</ul>
-									</div>
-								</div><!--//item-->
-								<div class="item mb-3">
-									<div class="item-heading row align-items-center mb-2">
-										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en">Founder</h4>
-										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Feb 2025 – Present</div>
-										<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en" style="font-style: italic; color: #767575; font-size: 14px;">TestGenAI - AI test case generator</h5>	
-									</div>
-									<div class="item-content">
-										<ul class="resume-list">
-											<li>Built an AI product that turns business requirements into structured test cases for QA teams.</li>
-											<li>Grew the product to 3,000+ users and 1M+ test cases generated per month.</li>
-											<li>Owned product strategy, UX, pricing, and go-to-market; helped teams cut test design time by up to 80%.</li>
-										</ul>
-									</div>
-								</div><!--//item-->
-								
-								<div class="item mb-3">
-									<div class="item-heading row align-items-center mb-2">
-										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en">Founder & CEO</h4>
-										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Aug 2019 – Feb 2022, Jan 2024 – Present</div>
-										<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en" style="font-style: italic; color: #767575; font-size: 14px;">PhiEnglish / Enrich English - Online English Education</h5>	
-									</div>
-									<div class="item-content">
-										<ul class="resume-list">
-											<li>Built and scaled remote English education businesses, with Enrich serving 50+ students per month.</li>
-											<li>Created the LMS, pricing model, and operating process from scratch, including materials and CRM.</li>
-											<li>Managed teams of up to 20 teachers and 4 operations staff while keeping sustainable margins.</li>
-										</ul>
-									</div>
-								</div><!--//item-->
-								
-								<div class="item mb-3">
-									<div class="item-heading row align-items-center mb-2">
-										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en">Freelance App Builder / Product Manager</h4>
-										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Aug 2017 – Present</div>
-										<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en" style="font-style: italic; color: #767575; font-size: 14px;">Freelance</h5>	
-									</div>
-									<div class="item-content">
-										<ul class="resume-list">
-											<li>Worked across web and mobile projects in BA, QC, and front-end roles.</li>
-											<li>Currently build and ship apps as a freelancer, including <a href="https://www.hotdealmedia.com/" target="_blank">Hotdeal Media</a>, <a href="https://campinghub.vn/" target="_blank">CampingHub</a>, <a href="https://glampinghub.vn/" target="_blank">GlampingHub</a>, and <a href="https://theblackartichoke.com/" target="_blank">The Black Artichoke</a>.</li>
-											<li>Partnered with product, UX, and engineering on requirements, releases, and delivery quality.</li>
-										</ul>
-									</div>
-								</div><!--//item-->	
-								<div class="item mb-3">
-									<div class="item-heading row align-items-center mb-2">
-										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en">Blogger & Community Builder</h4>
-										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">2017 – Present</div>
-									</div>
-									<div class="item-content">
-										<ul class="resume-list">
-											<li>Write at <a href="https://hoangphan.blog/" target="_blank">hoangphan.blog</a> about product, BA, and UX.</li>
-											<li>Run a 2,000+ member Business Analyst Vietnam community on <a href="https://t.me/businessanalystvietnam" target="_blank">Telegram</a> and <a href="https://zalo.me/g/pxnszd024" target="_blank">Zalo</a>.</li>
-											<li><strong>Built <a href="https://ai4ba.com/" target="_blank">AI4BA</a> and helped 200+ learners optimize their work with AI</strong>, improving productivity by 2-3x.</li>
-										</ul>
-									</div>
-								</div><!--//item-->	
-							</section><!--//project-section-->
-						</div><!--//resume-main-->
-						<aside class="resume-aside col-12 col-lg-4 col-xl-3 px-lg-4 pb-lg-4">
-							<section class="skills-section py-3">
-								<h3 class="text-uppercase resume-section-heading mb-4 en">Skills</h3>
-								<h3 class="text-uppercase resume-section-heading mb-4 vi">Kỹ năng</h3>
-								<div class="item">
-									<h4 class="item-title en">Business Analyst</h4>
-									<ul class="list-unstyled resume-skills-list en">
-										<li class="mb-2">Discovery & requirements</li>
-										<li class="mb-2">Process mapping</li>
-										<li class="mb-2">Wireframing & UX analysis</li>
-										<li class="mb-2">UAT & release support</li>
+									<ul class="resume-list vi">
+										<li>Dẫn dắt phần BA cho các dự án digital banking và thanh toán trong môi trường nhiều stakeholder — phối hợp với <strong>nhiều ngân hàng</strong> (ABBANK, IVB, SCB, Kienlongbank, Vietcombank, HDBank, Eximbank) cùng team product VNPAY, vendor và UX.</li>
+										<li>Chuyển hóa quy trình ngân hàng phức tạp thành requirements rõ ràng, user story và tiêu chí nghiệm thu cho mobile banking, omnichannel, eKYC và thanh toán.</li>
+										<li>Làm rõ quy trình và các điểm cần phối hợp giữa các nhóm trong giai đoạn phân tích.</li>
+										<li>Dùng phân tích để chốt scope với phía ngân hàng, tech lead và vendor — không có quyền quyết định trực tiếp nhưng vẫn đẩy được công việc.</li>
 									</ul>
-								</div><!--//item-->
-								<div class="item">
-									<h4 class="item-title en">Product Management</h4>
-									<ul class="list-unstyled resume-skills-list en">
-										<li class="mb-2">Strategy & roadmap</li>
-										<li class="mb-2">Backlog prioritization</li>
-										<li class="mb-2">Release planning</li>
-										<li class="mb-2">Metrics & experimentation</li>
+								</div>
+							</div>
+
+							<div class="item mb-3">
+								<div class="item-heading row align-items-center mb-2">
+									<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Founder</h4>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Feb 2025 – Present</div>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right vi">02/2025 – Hiện tại</div>
+									<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en" style="font-style: italic; color: #767575; font-size: 14px;">TestGenAI – AI test case generator</h5>
+									<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 vi" style="font-style: italic; color: #767575; font-size: 14px;">TestGenAI – AI test case generator</h5>
+								</div>
+								<div class="item-content">
+									<ul class="resume-list en">
+										<li>Built and run an AI product that converts business requirements into structured test cases — positioned AI as an accelerator for QA.</li>
+										<li><strong>3,500+ users</strong>, 140+ paid orders, ~87M VND cumulative revenue, ~2.5% free-to-paid conversion; profitable on lean infra (~$80/month total).</li>
+										<li>Owned strategy, UX, pricing, and go-to-market; integrated Gemini and Claude APIs to generate test cases — helped QA teams cut test writing time by ~80%.</li>
 									</ul>
-								</div><!--//item-->
-								<div class="item">
-									<h4 class="item-title en">Building</h4>
-									<ul class="list-unstyled resume-skills-list en">
-										<li class="mb-2">Vibe coding</li>
-										<li class="mb-2">Building product teams</li>
-										<li class="mb-2">Shipping apps from 0 to 1</li>
+									<ul class="resume-list vi">
+										<li>Xây và vận hành một AI product chuyển business requirement thành test case — định vị AI là công cụ tăng tốc cho QA.</li>
+										<li><strong>3.500+ users</strong>, 140+ đơn hàng trả phí, doanh thu lũy kế <strong>~87 triệu VND</strong>, conversion free→paid ~2.5%; có lãi với hạ tầng tinh gọn (~$80/tháng).</li>
+										<li>Tự tay làm từ strategy, UX, pricing đến go-to-market; gọi Gemini và Claude qua API để sinh test case — giúp QA giảm ~80% thời gian viết test.</li>
 									</ul>
-								</div><!--//item-->
-								</section>
-								<section class="certification section py-3">
-									<h3 class="text-uppercase resume-section-heading mb-4 en">Education</h3>
-									<h3 class="text-uppercase resume-section-heading mb-4 vi">Học vấn</h3>
-									<div class="item">
-										<h4 class="item-title en">Software Engineering</h4>
-										<ul class="list-unstyled resume-skills-list en">
-											<li class="mb-2">Ho Chi Minh City University of Information Technology (UIT), Vietnam</li>
-											<li class="mb-2">2014 - 2019</li>
-											<li class="mb-2">English level: B2</li>
-										</ul>
-									</div><!--//item-->
-								</section><!--//Education-section-->
-								<section class="certification section py-3">
-									<h3 class="text-uppercase resume-section-heading mb-4 en">Prizes</h3>
-									<h3 class="text-uppercase resume-section-heading mb-4 vi">Các giải thưởng</h3>
-									<div class="item">
-										<ul class="list-unstyled resume-skills-list en">
-											<li class="mb-2">1st Prize - Solana Vietnam Coding Camp 2023 ($10,000)</li>
-											<li class="mb-2">1st Prize - Vietnam Klaytnovators Hackathon ($5,000)</li>
-											<li class="mb-2">UI/UX Track Winner - GMVN Hackathon ($3,000)</li>
-											<li class="mb-2">2nd Prize - GMVietnam2023 Hackerspace ($2,500)</li>
-										</ul>
-									</div><!--//item-->
-								</section><!--//certification-section-->
-								</aside><!--//resume-aside-->
-							</div><!--//row-->
-						</div><!--//resume-body-->
-						<hr>
-						<div class="resume-footer text-center">
-							<ul class="resume-social-list list-inline mx-auto mb-0 d-inline-block text-muted">
-								<li class="list-inline-item mb-lg-0 mr-3"><a href="https://hoangphan.blog"><i class="fas fa-globe-asia fa-2x mr-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">hoangphan.blog</span></a></li>
-								<li class="list-inline-item mb-lg-0 mr-3"><a href="https://linkedin.com/in/hoangphan96"><i class="fab fa-linkedin fa-2x mr-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">linkedin.com/in/hoangphan96</span></a></li>
-								
-							</ul>
-						</div><!--//resume-footer-->
-					</article>
-					
+								</div>
+							</div>
+
+							<div class="item mb-3">
+								<div class="item-heading row align-items-center mb-2">
+									<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Founder & CEO</h4>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Aug 2019 – Feb 2022, Jan 2024 – Present</div>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right vi">08/2019 – 02/2022, 01/2024 – Hiện tại</div>
+									<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 en" style="font-style: italic; color: #767575; font-size: 14px;">Enrich English / PhiEnglish – Online English Education</h5>
+									<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 vi" style="font-style: italic; color: #767575; font-size: 14px;">Enrich English / PhiEnglish – Giáo dục tiếng Anh online</h5>
+								</div>
+								<div class="item-content">
+									<ul class="resume-list en">
+										<li>Built and operated a 1-on-1 online English center, with Enrich serving 50+ students per month.</li>
+										<li>Designed LMS, pricing model, and operating process from scratch, including materials and CRM.</li>
+										<li>Managed teams of up to 20 teachers and 2 staff with suitable margins.</li>
+										<li>Currently developing <strong>EnrichEnglish.App</strong> — an English-learning app for the Enrich community and public users (free + paid tiers), with vocabulary practice, dictionary, AI study assistant, and Listening/Speaking/Reading/Writing/Grammar features; integrates multiple LLM providers (Gemini, GPT, Claude) via API/proxy.</li>
+									</ul>
+									<ul class="resume-list vi">
+										<li>Xây dựng và vận hành trung tâm Tiếng Anh trực tuyến 1 kèm 1; Enrich phục vụ 50+ học viên/tháng.</li>
+										<li>Tự thiết kế LMS, mô hình pricing, giáo trình và CRM từ đầu.</li>
+										<li>Quản lý tối đa 20 giáo viên và 2 nhân viên với biên lợi nhuận phù hợp.</li>
+										<li>Đang phát triển <strong>EnrichEnglish.App</strong> — app học tiếng Anh cho cộng đồng Enrich và public users (free + paid), hỗ trợ luyện từ vựng, tra từ, AI trợ lý học, Listening/Speaking/Reading/Writing/Grammar; tích hợp nhiều LLM provider (Gemini, GPT, Claude) qua API/proxy.</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="item mb-3">
+								<div class="item-heading row align-items-center mb-2">
+									<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Freelance App Builder / Product Manager</h4>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">Aug 2017 – Present</div>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right vi">08/2017 – Hiện tại</div>
+									<h5 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0" style="font-style: italic; color: #767575; font-size: 14px;">Freelance</h5>
+								</div>
+								<div class="item-content">
+									<ul class="resume-list en">
+										<li>Worked across web and mobile projects in BA, QC, and front-end roles.</li>
+										<li>Currently build and ship apps as a freelancer, including <a href="https://www.hotdealmedia.com/" target="_blank">Hotdeal Media</a>, <a href="https://campinghub.vn/" target="_blank">CampingHub</a>, <a href="https://glampinghub.vn/" target="_blank">GlampingHub</a>, and <a href="https://theblackartichoke.com/" target="_blank">The Black Artichoke</a>.</li>
+										<li>Partnered with product, UX, and engineering on requirements, releases, and delivery quality.</li>
+									</ul>
+									<ul class="resume-list vi">
+										<li>Tham gia các dự án web và mobile ở các vai trò BA, QC và front-end.</li>
+										<li>Hiện đang ship app dạng freelance: <a href="https://www.hotdealmedia.com/" target="_blank">Hotdeal Media</a>, <a href="https://campinghub.vn/" target="_blank">CampingHub</a>, <a href="https://glampinghub.vn/" target="_blank">GlampingHub</a>, <a href="https://theblackartichoke.com/" target="_blank">The Black Artichoke</a>.</li>
+										<li>Phối hợp với product, UX và engineering về requirements, releases và chất lượng delivery.</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="item mb-3">
+								<div class="item-heading row align-items-center mb-2">
+									<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Blogger & Community Builder</h4>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right en">2017 – Present</div>
+									<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right vi">2017 – Hiện tại</div>
+								</div>
+								<div class="item-content">
+									<ul class="resume-list en">
+										<li>Publish articles at <a href="https://hoangphan.blog/" target="_blank">hoangphan.blog</a> about product, BA, and UX.</li>
+										<li>Run a 2,000+ member Business Analyst Vietnam community on <a href="https://t.me/businessanalystvietnam" target="_blank">Telegram</a> and <a href="https://zalo.me/g/pxnszd024" target="_blank">Zalo</a>.</li>
+										<li><strong>Built <a href="https://ai4ba.com/" target="_blank">AI4BA</a> and helped 200+ learners optimize their work with AI</strong>, improving productivity by 2-3x.</li>
+									</ul>
+									<ul class="resume-list vi">
+										<li>Viết bài chia sẻ tại <a href="https://hoangphan.blog/" target="_blank">hoangphan.blog</a> về product, BA và UX.</li>
+										<li>Vận hành cộng đồng Business Analyst Vietnam 2.000+ thành viên trên <a href="https://t.me/businessanalystvietnam" target="_blank">Telegram</a> và <a href="https://zalo.me/g/pxnszd024" target="_blank">Zalo</a>.</li>
+										<li><strong>Xây <a href="https://ai4ba.com/" target="_blank">AI4BA</a> và giúp 200+ học viên tối ưu công việc với AI</strong>, tăng productivity 2–3 lần.</li>
+									</ul>
+								</div>
+							</div>
+						</section>
+					</div>
+
+					<aside class="resume-aside col-12 col-lg-4 col-xl-3 px-lg-4 pb-lg-4">
+						<section class="skills-section py-3">
+							<h3 class="text-uppercase resume-section-heading mb-4 en">Skills</h3>
+							<h3 class="text-uppercase resume-section-heading mb-4 vi">Kỹ năng</h3>
+							<div class="item">
+								<h4 class="item-title en">Business Analyst</h4>
+								<h4 class="item-title vi">Phân tích nghiệp vụ</h4>
+								<ul class="list-unstyled resume-skills-list en">
+									<li class="mb-2">Discovery & requirements</li>
+									<li class="mb-2">Process mapping</li>
+									<li class="mb-2">Rapid prototyping</li>
+									<li class="mb-2">Wireframing & UX analysis</li>
+									<li class="mb-2">UAT & release support</li>
+								</ul>
+								<ul class="list-unstyled resume-skills-list vi">
+									<li class="mb-2">Discovery</li>
+									<li class="mb-2">Mô hình hóa yêu cầu</li>
+									<li class="mb-2">Process mapping</li>
+									<li class="mb-2">Rapid prototyping</li>
+									<li class="mb-2">UAT & release support</li>
+								</ul>
+							</div>
+							<div class="item">
+								<h4 class="item-title">Product Management</h4>
+								<ul class="list-unstyled resume-skills-list en">
+									<li class="mb-2">Strategy & roadmap</li>
+									<li class="mb-2">Backlog prioritization</li>
+									<li class="mb-2">Release planning</li>
+									<li class="mb-2">Metrics & experimentation</li>
+									<li class="mb-2">User & competitor research</li>
+									<li class="mb-2">Product lifecycle management</li>
+								</ul>
+								<ul class="list-unstyled resume-skills-list vi">
+									<li class="mb-2">Chiến lược & roadmap</li>
+									<li class="mb-2">Ưu tiên backlog</li>
+									<li class="mb-2">Release planning</li>
+									<li class="mb-2">Metric & experimentation</li>
+									<li class="mb-2">Nghiên cứu user và đối thủ</li>
+									<li class="mb-2">Quản lý vòng đời sản phẩm</li>
+								</ul>
+							</div>
+							<div class="item">
+								<h4 class="item-title">Building</h4>
+								<ul class="list-unstyled resume-skills-list en">
+									<li class="mb-2">Vibe coding</li>
+									<li class="mb-2">Building product teams</li>
+									<li class="mb-2">Shipping apps from 0 to 1</li>
+								</ul>
+								<ul class="list-unstyled resume-skills-list vi">
+									<li class="mb-2">Vibe coding</li>
+									<li class="mb-2">Xây team product</li>
+									<li class="mb-2">Ship app 0 → 1</li>
+								</ul>
+							</div>
+							<div class="item">
+								<h4 class="item-title en">Tools</h4>
+								<h4 class="item-title vi">Công cụ</h4>
+								<ul class="list-unstyled resume-skills-list">
+									<li class="mb-2">AI: Claude Code CLI, Claude Chat, Gemini, GPT, Grok</li>
+									<li class="mb-2">Product: Jira, Confluence, Notion, Trello, GitHub Projects</li>
+									<li class="mb-2">Design & Diagram: Figma, Pencil.dev, Draw.io, Lucidchart, Excalidraw</li>
+									<li class="mb-2">Analytics: Google Analytics</li>
+								</ul>
+							</div>
+						</section>
+
+						<section class="certification section py-3">
+							<h3 class="text-uppercase resume-section-heading mb-4 en">Education</h3>
+							<h3 class="text-uppercase resume-section-heading mb-4 vi">Học vấn</h3>
+							<div class="item">
+								<h4 class="item-title en">Software Engineering</h4>
+								<h4 class="item-title vi">Kỹ sư Phần mềm</h4>
+								<ul class="list-unstyled resume-skills-list en">
+									<li class="mb-2">Ho Chi Minh City University of Information Technology (UIT), Vietnam</li>
+									<li class="mb-2">2014 - 2019</li>
+									<li class="mb-2">English level: B2</li>
+								</ul>
+								<ul class="list-unstyled resume-skills-list vi">
+									<li class="mb-2">Đại học Công nghệ Thông tin – ĐHQG TP.HCM (UIT)</li>
+									<li class="mb-2">2014 – 2019</li>
+									<li class="mb-2">Tiếng Anh: B2</li>
+								</ul>
+							</div>
+						</section>
+
+						<section class="certification section py-3">
+							<h3 class="text-uppercase resume-section-heading mb-4 en">Prizes</h3>
+							<h3 class="text-uppercase resume-section-heading mb-4 vi">Giải thưởng</h3>
+							<div class="item">
+								<ul class="list-unstyled resume-skills-list en">
+									<li class="mb-2">1st Prize - Solana Vietnam Coding Camp 2023 ($10,000)</li>
+									<li class="mb-2">1st Prize - Vietnam Klaytnovators Hackathon ($5,000)</li>
+									<li class="mb-2">UI/UX Track Winner - GMVN Hackathon ($3,000)</li>
+									<li class="mb-2">2nd Prize - GMVietnam2023 Hackerspace ($2,500)</li>
+								</ul>
+								<ul class="list-unstyled resume-skills-list vi">
+									<li class="mb-2">Giải Nhất – Solana Vietnam Coding Camp 2023 ($10.000)</li>
+									<li class="mb-2">Giải Nhất – Vietnam Klaytnovators Hackathon ($5.000)</li>
+									<li class="mb-2">Quán quân hạng mục UI/UX – GMVN Hackathon ($3.000)</li>
+									<li class="mb-2">Giải Nhì – GMVietnam 2023 Hackerspace ($2.500)</li>
+								</ul>
+							</div>
+						</section>
+					</aside>
 				</div>
-				<div id="editor"></div>
-				<!--//container-->
-				
-				<footer class="footer text-center py-4">
-
-				</footer>
-				
-			</div><!--//main-wrapper-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>			
+			</div>
+			<hr>
+			<div class="resume-footer text-center">
+				<ul class="resume-social-list list-inline mx-auto mb-0 d-inline-block text-muted">
+					<li class="list-inline-item mb-lg-0 mr-3"><a href="https://hoangphan.blog"><i class="fas fa-globe-asia fa-2x mr-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">hoangphan.blog</span></a></li>
+					<li class="list-inline-item mb-lg-0 mr-3"><a href="https://linkedin.com/in/hoangphan96"><i class="fab fa-linkedin fa-2x mr-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">linkedin.com/in/hoangphan96</span></a></li>
+				</ul>
+			</div>
+		</article>
+	</div>
+	<footer class="footer text-center py-4"></footer>
+	</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 <script src="assets/js/language.js"></script>
-
 </body>
-</html> 
+</html>

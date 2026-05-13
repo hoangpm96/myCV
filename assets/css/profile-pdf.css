@@ -1,0 +1,278 @@
+:root {
+  --primary: #263959;
+  --text: #4f4f4f;
+  --muted: #767575;
+  --border: rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f4f4;
+  color: var(--text);
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.profile-page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 10mm 9mm 9mm;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.profile-page + .profile-page {
+  margin-top: 12px;
+}
+
+.header {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-left {
+  width: 150px;
+  flex: 0 0 150px;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 6px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.header-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  color: var(--primary);
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.tagline {
+  margin: 6px 0 10px;
+  font-size: 16px;
+}
+
+.summary {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.summary li {
+  margin-bottom: 6px;
+}
+
+.body {
+  margin-top: 14px;
+}
+
+.body::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.sidebar {
+  float: right;
+  width: 31%;
+  margin-left: 18px;
+  padding-left: 18px;
+  border-left: 1px solid var(--border);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.main {
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.main-full {
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.section-title {
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-title::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 24px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background: var(--primary);
+}
+
+.sidebar .section-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.sidebar .section-title::before {
+  height: 20px;
+}
+
+.sidebar-group {
+  margin-bottom: 14px;
+}
+
+.sidebar-group h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #292929;
+}
+
+.sidebar-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-group li {
+  margin-bottom: 4px;
+}
+
+.job {
+  margin-bottom: 14px;
+  page-break-inside: avoid;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.job-info {
+  min-width: 0;
+}
+
+.job-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #292929;
+}
+
+.job-company {
+  margin: 2px 0 0;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.job-sub {
+  margin: 2px 0 0;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.job-date {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.job ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.job li {
+  margin-bottom: 4px;
+}
+
+.simple-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.simple-list li {
+  margin-bottom: 6px;
+}
+
+.footer {
+  clear: both;
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  text-align: center;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  body {
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .profile-page {
+    width: auto;
+    min-height: auto;
+    margin: 0;
+    box-shadow: none;
+    page-break-after: always;
+  }
+
+  .profile-page:last-child {
+    page-break-after: auto;
+  }
+
+  .profile-page + .profile-page {
+    margin-top: 0;
+  }
+}
